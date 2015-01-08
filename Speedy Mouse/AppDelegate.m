@@ -22,7 +22,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+//     Override point for customization after application launch.
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
     [[GCHelper sharedInstance] authenticateLocalUser];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

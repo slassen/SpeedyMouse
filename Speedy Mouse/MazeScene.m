@@ -144,7 +144,6 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
     crashEmitter.zPosition = -1;
     [[SELPlayer player] addChild:crashEmitter];
     SKAction *waitAction = [SKAction waitForDuration:0.5];
-//    crashEmitter.position = [SELPlayer player].position;
     [self runAction:waitAction completion:^{
         [crashEmitter removeFromParent];
     }];
@@ -379,8 +378,7 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
             SKEmitterNode *crashEmitter = [self nodeWithFileNamed:@"CrashEmitter.sks"];
             crashEmitter.zPosition = -1;
             [_bgLayer addChild:crashEmitter];
-            SKAction *waitAction = [SKAction waitForDuration:0.1];
-//            crashEmitter.position = [SELPlayer player].position;
+            SKAction *waitAction = [SKAction waitForDuration:0.5];
             [self runAction:waitAction completion:^{
                 [crashEmitter removeFromParent];
             }];
