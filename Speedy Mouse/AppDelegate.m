@@ -7,6 +7,12 @@
 //
 
 #import "AppDelegate.h"
+#import "GCHelper.h"
+#import "Settings.h"
+#import "MazeScene.h"
+#import "SELRootController.h"
+#import "FlurryAds.h"
+#import "Flurry.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +23,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
+    [[GCHelper sharedInstance] authenticateLocalUser];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    SELRootController *root = [[SELRootController alloc] init];
+    self.window.rootViewController = root;
+    [self.window makeKeyAndVisible];
+    [Flurry startSession:@"JJDNBSFVBRSTJGH8NRXW"];
+    [Flurry setSessionReportsOnCloseEnabled:YES];
+    [Flurry setSessionReportsOnPauseEnabled:YES];
+    [FlurryAds initialize:root];
     return YES;
 }
 

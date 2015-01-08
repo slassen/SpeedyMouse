@@ -9,13 +9,35 @@
 /* Begin PBXBuildFile section */
 		F2FD79B41A5E303A00E9C123 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD79B31A5E303A00E9C123 /* main.m */; };
 		F2FD79B71A5E303A00E9C123 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD79B61A5E303A00E9C123 /* AppDelegate.m */; };
-		F2FD79BA1A5E303A00E9C123 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD79B91A5E303A00E9C123 /* GameScene.m */; };
-		F2FD79BC1A5E303A00E9C123 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F2FD79BB1A5E303A00E9C123 /* GameScene.sks */; };
-		F2FD79BF1A5E303A00E9C123 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD79BE1A5E303A00E9C123 /* GameViewController.m */; };
-		F2FD79C21A5E303A00E9C123 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2FD79C01A5E303A00E9C123 /* Main.storyboard */; };
-		F2FD79C41A5E303A00E9C123 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2FD79C31A5E303A00E9C123 /* Images.xcassets */; };
-		F2FD79C71A5E303A00E9C123 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2FD79C51A5E303A00E9C123 /* LaunchScreen.xib */; };
 		F2FD79D31A5E303A00E9C123 /* Speedy_MouseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD79D21A5E303A00E9C123 /* Speedy_MouseTests.m */; };
+		F2FD79DF1A5E308600E9C123 /* libFlurry_5.4.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FD79DE1A5E308600E9C123 /* libFlurry_5.4.0.a */; };
+		F2FD79E41A5E308B00E9C123 /* libFlurryAds_5.4.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FD79E31A5E308B00E9C123 /* libFlurryAds_5.4.0.a */; };
+		F2FD79E81A5E30A600E9C123 /* crash.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F2FD79E61A5E30A600E9C123 /* crash.mp3 */; };
+		F2FD79E91A5E30A600E9C123 /* FU3.wav in Resources */ = {isa = PBXBuildFile; fileRef = F2FD79E71A5E30A600E9C123 /* FU3.wav */; };
+		F2FD79EB1A5E30AD00E9C123 /* burnout.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F2FD79EA1A5E30AD00E9C123 /* burnout.mp3 */; };
+		F2FD79ED1A5E30B600E9C123 /* gameOver.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F2FD79EC1A5E30B600E9C123 /* gameOver.mp3 */; };
+		F2FD79F21A5E30BF00E9C123 /* FU4.wav in Resources */ = {isa = PBXBuildFile; fileRef = F2FD79EE1A5E30BF00E9C123 /* FU4.wav */; };
+		F2FD79F31A5E30BF00E9C123 /* FU5.wav in Resources */ = {isa = PBXBuildFile; fileRef = F2FD79EF1A5E30BF00E9C123 /* FU5.wav */; };
+		F2FD79F41A5E30BF00E9C123 /* FU6.wav in Resources */ = {isa = PBXBuildFile; fileRef = F2FD79F01A5E30BF00E9C123 /* FU6.wav */; };
+		F2FD79F51A5E30BF00E9C123 /* FU7.wav in Resources */ = {isa = PBXBuildFile; fileRef = F2FD79F11A5E30BF00E9C123 /* FU7.wav */; };
+		F2FD79F81A5E30D200E9C123 /* Art.atlas in Resources */ = {isa = PBXBuildFile; fileRef = F2FD79F71A5E30D200E9C123 /* Art.atlas */; };
+		F2FD79FA1A5E30DD00E9C123 /* loadScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = F2FD79F91A5E30DD00E9C123 /* loadScreen.png */; };
+		F2FD79FE1A5E30F700E9C123 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2FD79FD1A5E30F700E9C123 /* Images.xcassets */; };
+		F2FD7A011A5E317D00E9C123 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD7A001A5E317D00E9C123 /* GameViewController.m */; };
+		F2FD7A041A5E318500E9C123 /* MazeScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD7A031A5E318500E9C123 /* MazeScene.m */; };
+		F2FD7A091A5E319300E9C123 /* GCHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD7A061A5E319300E9C123 /* GCHelper.m */; };
+		F2FD7A0A1A5E319300E9C123 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD7A081A5E319300E9C123 /* Settings.m */; };
+		F2FD7A0B1A5E326300E9C123 /* MisterVampire.TTF in Resources */ = {isa = PBXBuildFile; fileRef = F2FD79FB1A5E30EC00E9C123 /* MisterVampire.TTF */; };
+		F2FD7A0C1A5E326300E9C123 /* SuperMario256.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2FD79FC1A5E30EC00E9C123 /* SuperMario256.ttf */; };
+		F2FD7A131A5E32F800E9C123 /* SELPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD7A0E1A5E32F800E9C123 /* SELPlayer.m */; };
+		F2FD7A141A5E32F800E9C123 /* SELRandomMaze.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD7A101A5E32F800E9C123 /* SELRandomMaze.m */; };
+		F2FD7A151A5E32F800E9C123 /* SELRootController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD7A121A5E32F800E9C123 /* SELRootController.m */; };
+		F2FD7A171A5E330000E9C123 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = F2FD7A161A5E330000E9C123 /* spark.png */; };
+		F2FD7A191A5E331200E9C123 /* CrashEmitter.sks in Resources */ = {isa = PBXBuildFile; fileRef = F2FD7A181A5E331200E9C123 /* CrashEmitter.sks */; };
+		F2FD7A1B1A5E331D00E9C123 /* BurnoutEmitter.sks in Resources */ = {isa = PBXBuildFile; fileRef = F2FD7A1A1A5E331D00E9C123 /* BurnoutEmitter.sks */; };
+		F2FD7A1D1A5E334D00E9C123 /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2FD7A1C1A5E334D00E9C123 /* GameViewController.xib */; };
+		F2FD7A1F1A5E33F600E9C123 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2FD7A1E1A5E33F600E9C123 /* LaunchScreen.xib */; };
+		F2FD7A211A5E34AD00E9C123 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FD7A201A5E34AD00E9C123 /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,17 +56,48 @@
 		F2FD79B31A5E303A00E9C123 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F2FD79B51A5E303A00E9C123 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F2FD79B61A5E303A00E9C123 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		F2FD79B81A5E303A00E9C123 /* GameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
-		F2FD79B91A5E303A00E9C123 /* GameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
-		F2FD79BB1A5E303A00E9C123 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		F2FD79BD1A5E303A00E9C123 /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
-		F2FD79BE1A5E303A00E9C123 /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
-		F2FD79C11A5E303A00E9C123 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F2FD79C31A5E303A00E9C123 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		F2FD79C61A5E303A00E9C123 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		F2FD79CC1A5E303A00E9C123 /* Speedy MouseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Speedy MouseTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2FD79D11A5E303A00E9C123 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2FD79D21A5E303A00E9C123 /* Speedy_MouseTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Speedy_MouseTests.m; sourceTree = "<group>"; };
+		F2FD79DD1A5E308600E9C123 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
+		F2FD79DE1A5E308600E9C123 /* libFlurry_5.4.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_5.4.0.a; sourceTree = "<group>"; };
+		F2FD79E11A5E308B00E9C123 /* FlurryAdDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurryAdDelegate.h; sourceTree = "<group>"; };
+		F2FD79E21A5E308B00E9C123 /* FlurryAds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurryAds.h; sourceTree = "<group>"; };
+		F2FD79E31A5E308B00E9C123 /* libFlurryAds_5.4.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurryAds_5.4.0.a; sourceTree = "<group>"; };
+		F2FD79E61A5E30A600E9C123 /* crash.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = crash.mp3; sourceTree = "<group>"; };
+		F2FD79E71A5E30A600E9C123 /* FU3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = FU3.wav; sourceTree = "<group>"; };
+		F2FD79EA1A5E30AD00E9C123 /* burnout.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = burnout.mp3; sourceTree = "<group>"; };
+		F2FD79EC1A5E30B600E9C123 /* gameOver.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameOver.mp3; sourceTree = "<group>"; };
+		F2FD79EE1A5E30BF00E9C123 /* FU4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = FU4.wav; sourceTree = "<group>"; };
+		F2FD79EF1A5E30BF00E9C123 /* FU5.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = FU5.wav; sourceTree = "<group>"; };
+		F2FD79F01A5E30BF00E9C123 /* FU6.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = FU6.wav; sourceTree = "<group>"; };
+		F2FD79F11A5E30BF00E9C123 /* FU7.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = FU7.wav; sourceTree = "<group>"; };
+		F2FD79F71A5E30D200E9C123 /* Art.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Art.atlas; sourceTree = "<group>"; };
+		F2FD79F91A5E30DD00E9C123 /* loadScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loadScreen.png; sourceTree = "<group>"; };
+		F2FD79FB1A5E30EC00E9C123 /* MisterVampire.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = MisterVampire.TTF; sourceTree = "<group>"; };
+		F2FD79FC1A5E30EC00E9C123 /* SuperMario256.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SuperMario256.ttf; sourceTree = "<group>"; };
+		F2FD79FD1A5E30F700E9C123 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F2FD79FF1A5E317D00E9C123 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		F2FD7A001A5E317D00E9C123 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		F2FD7A021A5E318500E9C123 /* MazeScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MazeScene.h; sourceTree = "<group>"; };
+		F2FD7A031A5E318500E9C123 /* MazeScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MazeScene.m; sourceTree = "<group>"; };
+		F2FD7A051A5E319300E9C123 /* GCHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCHelper.h; sourceTree = "<group>"; };
+		F2FD7A061A5E319300E9C123 /* GCHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCHelper.m; sourceTree = "<group>"; };
+		F2FD7A071A5E319300E9C123 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
+		F2FD7A081A5E319300E9C123 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
+		F2FD7A0D1A5E32F800E9C123 /* SELPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SELPlayer.h; sourceTree = "<group>"; };
+		F2FD7A0E1A5E32F800E9C123 /* SELPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SELPlayer.m; sourceTree = "<group>"; };
+		F2FD7A0F1A5E32F800E9C123 /* SELRandomMaze.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SELRandomMaze.h; sourceTree = "<group>"; };
+		F2FD7A101A5E32F800E9C123 /* SELRandomMaze.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SELRandomMaze.m; sourceTree = "<group>"; };
+		F2FD7A111A5E32F800E9C123 /* SELRootController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SELRootController.h; sourceTree = "<group>"; };
+		F2FD7A121A5E32F800E9C123 /* SELRootController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SELRootController.m; sourceTree = "<group>"; };
+		F2FD7A161A5E330000E9C123 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		F2FD7A181A5E331200E9C123 /* CrashEmitter.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CrashEmitter.sks; sourceTree = "<group>"; };
+		F2FD7A1A1A5E331D00E9C123 /* BurnoutEmitter.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BurnoutEmitter.sks; sourceTree = "<group>"; };
+		F2FD7A1C1A5E334D00E9C123 /* GameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameViewController.xib; sourceTree = "<group>"; };
+		F2FD7A1E1A5E33F600E9C123 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		F2FD7A201A5E34AD00E9C123 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		F2FD7A221A5E34D700E9C123 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +105,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2FD7A211A5E34AD00E9C123 /* SystemConfiguration.framework in Frameworks */,
+				F2FD79E41A5E308B00E9C123 /* libFlurryAds_5.4.0.a in Frameworks */,
+				F2FD79DF1A5E308600E9C123 /* libFlurry_5.4.0.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +124,12 @@
 		F2FD79A51A5E303A00E9C123 = {
 			isa = PBXGroup;
 			children = (
+				F2FD7A221A5E34D700E9C123 /* Security.framework */,
+				F2FD7A201A5E34AD00E9C123 /* SystemConfiguration.framework */,
+				F2FD79F61A5E30C200E9C123 /* Art */,
+				F2FD79E51A5E309F00E9C123 /* Sounds */,
+				F2FD79E01A5E308B00E9C123 /* FlurryAds */,
+				F2FD79DC1A5E308600E9C123 /* Flurry */,
 				F2FD79B01A5E303A00E9C123 /* Speedy Mouse */,
 				F2FD79CF1A5E303A00E9C123 /* Speedy MouseTests */,
 				F2FD79AF1A5E303A00E9C123 /* Products */,
@@ -86,16 +148,24 @@
 		F2FD79B01A5E303A00E9C123 /* Speedy Mouse */ = {
 			isa = PBXGroup;
 			children = (
+				F2FD7A0D1A5E32F800E9C123 /* SELPlayer.h */,
+				F2FD7A0E1A5E32F800E9C123 /* SELPlayer.m */,
+				F2FD7A0F1A5E32F800E9C123 /* SELRandomMaze.h */,
+				F2FD7A101A5E32F800E9C123 /* SELRandomMaze.m */,
+				F2FD7A111A5E32F800E9C123 /* SELRootController.h */,
+				F2FD7A121A5E32F800E9C123 /* SELRootController.m */,
 				F2FD79B51A5E303A00E9C123 /* AppDelegate.h */,
 				F2FD79B61A5E303A00E9C123 /* AppDelegate.m */,
-				F2FD79B81A5E303A00E9C123 /* GameScene.h */,
-				F2FD79B91A5E303A00E9C123 /* GameScene.m */,
-				F2FD79BB1A5E303A00E9C123 /* GameScene.sks */,
-				F2FD79BD1A5E303A00E9C123 /* GameViewController.h */,
-				F2FD79BE1A5E303A00E9C123 /* GameViewController.m */,
-				F2FD79C01A5E303A00E9C123 /* Main.storyboard */,
-				F2FD79C31A5E303A00E9C123 /* Images.xcassets */,
-				F2FD79C51A5E303A00E9C123 /* LaunchScreen.xib */,
+				F2FD79FF1A5E317D00E9C123 /* GameViewController.h */,
+				F2FD7A001A5E317D00E9C123 /* GameViewController.m */,
+				F2FD7A1C1A5E334D00E9C123 /* GameViewController.xib */,
+				F2FD7A021A5E318500E9C123 /* MazeScene.h */,
+				F2FD7A031A5E318500E9C123 /* MazeScene.m */,
+				F2FD7A051A5E319300E9C123 /* GCHelper.h */,
+				F2FD7A061A5E319300E9C123 /* GCHelper.m */,
+				F2FD7A071A5E319300E9C123 /* Settings.h */,
+				F2FD7A081A5E319300E9C123 /* Settings.m */,
+				F2FD7A1E1A5E33F600E9C123 /* LaunchScreen.xib */,
 				F2FD79B11A5E303A00E9C123 /* Supporting Files */,
 			);
 			path = "Speedy Mouse";
@@ -125,6 +195,56 @@
 				F2FD79D11A5E303A00E9C123 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F2FD79DC1A5E308600E9C123 /* Flurry */ = {
+			isa = PBXGroup;
+			children = (
+				F2FD79DD1A5E308600E9C123 /* Flurry.h */,
+				F2FD79DE1A5E308600E9C123 /* libFlurry_5.4.0.a */,
+			);
+			path = Flurry;
+			sourceTree = "<group>";
+		};
+		F2FD79E01A5E308B00E9C123 /* FlurryAds */ = {
+			isa = PBXGroup;
+			children = (
+				F2FD79E11A5E308B00E9C123 /* FlurryAdDelegate.h */,
+				F2FD79E21A5E308B00E9C123 /* FlurryAds.h */,
+				F2FD79E31A5E308B00E9C123 /* libFlurryAds_5.4.0.a */,
+			);
+			name = FlurryAds;
+			path = Flurry/FlurryAds;
+			sourceTree = "<group>";
+		};
+		F2FD79E51A5E309F00E9C123 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				F2FD79EA1A5E30AD00E9C123 /* burnout.mp3 */,
+				F2FD79EC1A5E30B600E9C123 /* gameOver.mp3 */,
+				F2FD79E61A5E30A600E9C123 /* crash.mp3 */,
+				F2FD79E71A5E30A600E9C123 /* FU3.wav */,
+				F2FD79EE1A5E30BF00E9C123 /* FU4.wav */,
+				F2FD79EF1A5E30BF00E9C123 /* FU5.wav */,
+				F2FD79F01A5E30BF00E9C123 /* FU6.wav */,
+				F2FD79F11A5E30BF00E9C123 /* FU7.wav */,
+			);
+			name = Sounds;
+			sourceTree = "<group>";
+		};
+		F2FD79F61A5E30C200E9C123 /* Art */ = {
+			isa = PBXGroup;
+			children = (
+				F2FD7A161A5E330000E9C123 /* spark.png */,
+				F2FD7A181A5E331200E9C123 /* CrashEmitter.sks */,
+				F2FD7A1A1A5E331D00E9C123 /* BurnoutEmitter.sks */,
+				F2FD79FD1A5E30F700E9C123 /* Images.xcassets */,
+				F2FD79FB1A5E30EC00E9C123 /* MisterVampire.TTF */,
+				F2FD79FC1A5E30EC00E9C123 /* SuperMario256.ttf */,
+				F2FD79F91A5E30DD00E9C123 /* loadScreen.png */,
+				F2FD79F71A5E30D200E9C123 /* Art.atlas */,
+			);
+			name = Art;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,10 +327,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2FD79C71A5E303A00E9C123 /* LaunchScreen.xib in Resources */,
-				F2FD79C41A5E303A00E9C123 /* Images.xcassets in Resources */,
-				F2FD79BC1A5E303A00E9C123 /* GameScene.sks in Resources */,
-				F2FD79C21A5E303A00E9C123 /* Main.storyboard in Resources */,
+				F2FD7A0B1A5E326300E9C123 /* MisterVampire.TTF in Resources */,
+				F2FD7A0C1A5E326300E9C123 /* SuperMario256.ttf in Resources */,
+				F2FD79F81A5E30D200E9C123 /* Art.atlas in Resources */,
+				F2FD7A171A5E330000E9C123 /* spark.png in Resources */,
+				F2FD79ED1A5E30B600E9C123 /* gameOver.mp3 in Resources */,
+				F2FD79F31A5E30BF00E9C123 /* FU5.wav in Resources */,
+				F2FD79FA1A5E30DD00E9C123 /* loadScreen.png in Resources */,
+				F2FD79F41A5E30BF00E9C123 /* FU6.wav in Resources */,
+				F2FD79FE1A5E30F700E9C123 /* Images.xcassets in Resources */,
+				F2FD7A191A5E331200E9C123 /* CrashEmitter.sks in Resources */,
+				F2FD7A1B1A5E331D00E9C123 /* BurnoutEmitter.sks in Resources */,
+				F2FD79E81A5E30A600E9C123 /* crash.mp3 in Resources */,
+				F2FD79E91A5E30A600E9C123 /* FU3.wav in Resources */,
+				F2FD7A1D1A5E334D00E9C123 /* GameViewController.xib in Resources */,
+				F2FD79EB1A5E30AD00E9C123 /* burnout.mp3 in Resources */,
+				F2FD79F21A5E30BF00E9C123 /* FU4.wav in Resources */,
+				F2FD7A1F1A5E33F600E9C123 /* LaunchScreen.xib in Resources */,
+				F2FD79F51A5E30BF00E9C123 /* FU7.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,10 +362,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2FD79BF1A5E303A00E9C123 /* GameViewController.m in Sources */,
 				F2FD79B71A5E303A00E9C123 /* AppDelegate.m in Sources */,
-				F2FD79BA1A5E303A00E9C123 /* GameScene.m in Sources */,
+				F2FD7A041A5E318500E9C123 /* MazeScene.m in Sources */,
+				F2FD7A0A1A5E319300E9C123 /* Settings.m in Sources */,
+				F2FD7A151A5E32F800E9C123 /* SELRootController.m in Sources */,
+				F2FD7A011A5E317D00E9C123 /* GameViewController.m in Sources */,
+				F2FD7A141A5E32F800E9C123 /* SELRandomMaze.m in Sources */,
 				F2FD79B41A5E303A00E9C123 /* main.m in Sources */,
+				F2FD7A091A5E319300E9C123 /* GCHelper.m in Sources */,
+				F2FD7A131A5E32F800E9C123 /* SELPlayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,25 +391,6 @@
 			targetProxy = F2FD79CD1A5E303A00E9C123 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		F2FD79C01A5E303A00E9C123 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F2FD79C11A5E303A00E9C123 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		F2FD79C51A5E303A00E9C123 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F2FD79C61A5E303A00E9C123 /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		F2FD79D41A5E303A00E9C123 /* Debug */ = {
@@ -307,7 +427,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -343,7 +463,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -355,9 +475,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = "Speedy Mouse/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Flurry",
+					"$(PROJECT_DIR)/Flurry/FlurryAds",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -365,9 +493,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = "Speedy Mouse/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Flurry",
+					"$(PROJECT_DIR)/Flurry/FlurryAds",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
