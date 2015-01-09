@@ -287,6 +287,9 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
         [startLabel runAction:[SKAction repeatActionForever:[SKAction sequence:@[[SKAction fadeOutWithDuration:0.0],[SKAction waitForDuration:0.2], [SKAction fadeInWithDuration:0.0], [SKAction waitForDuration:1.0]]]]];
     }
     else {
+        if ([SELPlayer player].currentLevel == 2 && ![GCHelper sharedInstance].signedIn) {
+            [[GameViewController gameView] gameCenterAlert];
+        }
         _canRestart = YES;
         startLabel = [SKLabelNode labelNodeWithFontNamed:@"Super Mario 256"];
         startLabel.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter;
@@ -300,9 +303,6 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
             _startAutomatically = NO;
             [self startGame];
         }
-//        [self runAction:[SKAction sequence:@[[SKAction waitForDuration:1.0], [SKAction runBlock:^{
-//            [self startGame];
-//        }]]]];
     }
 }
 

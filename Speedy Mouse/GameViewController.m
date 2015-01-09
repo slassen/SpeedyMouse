@@ -69,6 +69,10 @@
     }
 }
 
+-(void) gameCenterAlert {
+    [[[UIAlertView alloc] initWithTitle:@"Game Center Unavailable" message:@"You aren't connected to the internet or game center isn't signed in.\n\nYou are unable to earn achievements without Game Center." delegate:self cancelButtonTitle:@"I want trophies!" otherButtonTitles:@"Who Cares?", nil] show];
+}
+
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 0) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"gamecenter:"]];
@@ -104,7 +108,6 @@
 
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
-//    return;
 
     // Configure the view.
     SKView * skView = (SKView *)self.view;

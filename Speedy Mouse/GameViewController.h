@@ -20,5 +20,6 @@
 @property (nonatomic) NSTimer *gameCenterTimer;
 
 +(GameViewController*) gameView;
+-(void) gameCenterAlert;
 
 @end

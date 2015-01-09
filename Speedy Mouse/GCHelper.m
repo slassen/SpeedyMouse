@@ -140,10 +140,6 @@ static GCHelper *sharedHelper = nil;
     if ([GKLocalPlayer localPlayer].authenticated == NO) {
 //        [[GKLocalPlayer localPlayer] authenticateWithCompletionHandler:nil];
         [[GKLocalPlayer localPlayer] setAuthenticateHandler:^(UIViewController *vc, NSError *error){
-            if (error) {
-                [GCHelper showAchievements];
-            }
-            NSLog(@"no error");
         }];
     }
     else NSLog(@"Already authenticated!");
