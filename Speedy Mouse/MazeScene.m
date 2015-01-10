@@ -46,6 +46,9 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
     SKLabelNode *levelLabel;
     SKLabelNode *cheeseCountLabel;
     SKSpriteNode *cheeseImage;
+    
+    SKSpriteNode *gameCenterNode;
+    SKSpriteNode *helpCenterNode;
 }
 
 -(void)update:(NSTimeInterval)currentTime {
@@ -94,6 +97,17 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    SKNode *node = [self nodeAtPoint:[[touches anyObject] locationInNode:self ]];
+    if ([node.name isEqualToString:@"gameCenter"]) {
+        [self enterAchievements:nil];
+        return;
+    }
+    else if ([node.name isEqualToString:@"helpCenter"]) {
+        NSLog(@"help");
+        return;
+    }
+    
     if (_gameOver && _canRestart) {
         [startLabel removeAllActions];
         [startLabel runAction:[SKAction fadeInWithDuration:0]];
@@ -150,6 +164,11 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
     [Settings pauseFU];
     [Settings gameOverSoundEffect];
     [self runAction:[SKAction waitForDuration:1.0] completion:^{
+        if ([GKLocalPlayer localPlayer].isAuthenticated) {
+            [self addChild:gameCenterNode];
+        }
+        [self addChild:helpCenterNode];
+        
         [GCHelper recordAchievements];
         if (!startLabel.parent) [self addChild:startLabel];
         startLabel.text = @"Game Over";
@@ -220,10 +239,29 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
     [cheeseCountLabel removeFromParent];
     cheeseCountLabel.position = CGPointMake(self.size.width / 2,
                                        self.size.height - cheeseCountLabel.frame.size.height - cheeseCountLabel.frame.size.height / 2);
+    
+    // Setup Game Center Node
+    gameCenterNode = [SKSpriteNode spriteNodeWithTexture:[[SKTextureAtlas atlasNamed:@"Art"] textureNamed:@"gameCenter"] size:CGSizeMake(40, 40)];
+    gameCenterNode.position = CGPointMake(gameCenterNode.frame.size.width /2 + 10, self.size.height - gameCenterNode.frame.size.height / 2 + - 10);
+    gameCenterNode.name = @"gameCenter";
+    gameCenterNode.zPosition = LayerLevelTop;
+    
+    // Setup Help Center Node
+    helpCenterNode = [SKSpriteNode spriteNodeWithTexture:[[SKTextureAtlas atlasNamed:@"Art"] textureNamed:@"help"] size:CGSizeMake(40, 40)];
+    helpCenterNode.position = CGPointMake(self.size.width - gameCenterNode.frame.size.width /2 - 10, self.size.height - gameCenterNode.frame.size.height / 2 + - 10);
+    helpCenterNode.name = @"helpCenter";
+    helpCenterNode.zPosition = LayerLevelTop;
 }
 
 -(void)startGame {
     
+    [gameCenterNode removeFromParent];
+    [helpCenterNode removeFromParent];
+    
+    [self addChild:livesLabel];
+    [self addChild:cheeseImage];
+    [self addChild:cheeseLabel];
+
     // Unpause the game and pause the players physics body.
     [SELPlayer player].physicsBody.resting = YES;
     self.paused = NO;
@@ -264,17 +302,19 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
 
 -(void)didMoveToView:(SKView *)view {
     
-    _swipeUp = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(enterAchievements:)];
-    _swipeUp.direction = UISwipeGestureRecognizerDirectionUp;
-    _swipeUp.numberOfTouchesRequired = 1;
-    _swipeUp.delaysTouchesBegan = YES;
-    _swipeUp.delegate = self;
-    
-    [self.view addGestureRecognizer:_swipeUp];
+//    _swipeUp = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(enterAchievements:)];
+//    _swipeUp.direction = UISwipeGestureRecognizerDirectionUp;
+//    _swipeUp.numberOfTouchesRequired = 1;
+//    _swipeUp.delaysTouchesBegan = YES;
+//    _swipeUp.delegate = self;
+//    
+//    [self.view addGestureRecognizer:_swipeUp];
     
     [self removeAllActions];
     
     if (_newGame) {
+        [self addChild:gameCenterNode];
+        [self addChild:helpCenterNode];
         [[SELPlayer player] resetLives];
         startLabel = [SKLabelNode labelNodeWithFontNamed:@"Super Mario 256"];
         startLabel.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter;
@@ -287,7 +327,7 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
         [startLabel runAction:[SKAction repeatActionForever:[SKAction sequence:@[[SKAction fadeOutWithDuration:0.0],[SKAction waitForDuration:0.2], [SKAction fadeInWithDuration:0.0], [SKAction waitForDuration:1.0]]]]];
     }
     else {
-        if ([SELPlayer player].currentLevel == 2 && ![GCHelper sharedInstance].signedIn) {
+        if ([SELPlayer player].currentLevel >= 2 && ![GCHelper sharedInstance].signedIn) {
             [[GameViewController gameView] gameCenterAlert];
         }
         _canRestart = YES;
@@ -504,7 +544,7 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
     livesLabel.fontColor = [UIColor whiteColor];
     livesLabel.text = [NSString stringWithFormat:@"❤%i", [SELPlayer player].lives];
     livesLabel.zPosition = LayerLevelTop;
-    [self addChild:livesLabel];
+    
     livesLabel.position = CGPointMake(livesLabel.frame.size.width / 2,
                                       self.size.height - livesLabel.frame.size.height + 10);
     
@@ -512,7 +552,6 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
     cheeseImage = [SKSpriteNode spriteNodeWithTexture:
                                  [SKTexture textureWithImageNamed:@"cheese"] size:CGSizeMake(40, 40)];
     cheeseImage.zPosition = LayerLevelTop;
-    [self addChild:cheeseImage];
     cheeseImage.position = CGPointMake(self.size.width - cheeseImage.frame.size.width / 2,
                                        self.size.height - cheeseImage.frame.size.height / 2);
     
@@ -521,7 +560,6 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
     cheeseLabel.zPosition = LayerLevelTop;
     cheeseLabel.fontSize = 48;
     cheeseLabel.text = [NSString stringWithFormat:@"%i", [SELPlayer player].cheese];
-    [self addChild:cheeseLabel];
     cheeseLabel.position = CGPointMake(cheeseImage.position.x - cheeseImage.frame.size.width / 2 - cheeseLabel.frame.size.width / 2, cheeseImage.position.y  - cheeseLabel.frame.size.height /2);//self.size.height - cheeseLabel.frame.size.height);
     
     
