@@ -255,16 +255,22 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
     helpCenterNode.position = CGPointMake(self.size.width - gameCenterNode.frame.size.width /2 - 10, self.size.height - gameCenterNode.frame.size.height / 2 + - 10);
     helpCenterNode.name = @"helpCenter";
     helpCenterNode.zPosition = LayerLevelTop;
+    
+    if (!_newGame || [SELPlayer player].currentLevel >= 2) {
+        [self addChild:livesLabel];
+        [self addChild:cheeseImage];
+        [self addChild:cheeseLabel];
+    }
 }
 
 -(void)startGame {
     
-    [gameCenterNode removeFromParent];
-    [helpCenterNode removeFromParent];
+    if (gameCenterNode.parent) [gameCenterNode removeFromParent];
+    if (helpCenterNode.parent) [helpCenterNode removeFromParent];
     
-    [self addChild:livesLabel];
-    [self addChild:cheeseImage];
-    [self addChild:cheeseLabel];
+    if (!livesLabel.parent) [self addChild:livesLabel];
+    if (!cheeseImage.parent) [self addChild:cheeseImage];
+    if (!cheeseLabel.parent) [self addChild:cheeseLabel];
 
     // Unpause the game and pause the players physics body.
     [SELPlayer player].physicsBody.resting = YES;
@@ -313,7 +319,6 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
 //    _swipeUp.delegate = self;
 //    
 //    [self.view addGestureRecognizer:_swipeUp];
-    NSLog(@"test");
     [self removeAllActions];
     
     if (_newGame) {
@@ -350,7 +355,6 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
             [self startGame];
         }
     }
-        NSLog(@"test");
 }
 
 -(void)createStartLabel {
