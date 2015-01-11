@@ -60,7 +60,7 @@ static GCHelper *sharedHelper = nil;
     GKGameCenterViewController *gcViewController = [[GKGameCenterViewController alloc] init];
     gcViewController.gameCenterDelegate = gvc;
     gcViewController.viewState = GKGameCenterViewControllerStateAchievements;
-    gcViewController.leaderboardIdentifier = @"com.slgames.cheeseLeaderboard";
+//    gcViewController.leaderboardIdentifier = @"com.slgames.cheeseLeaderboard";
 
     [gvc presentViewController:gcViewController animated:YES completion:nil];
 }

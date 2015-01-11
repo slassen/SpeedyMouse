@@ -106,7 +106,7 @@
 
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
-    _gameCenterTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(alertGameCenter:) userInfo:nil repeats:NO];
+    _gameCenterTimer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(alertGameCenter:) userInfo:nil repeats:NO];
 
     // Configure the view.
 //    SKView * skView = (SKView *)self.view;

@@ -69,8 +69,9 @@
 }
 
 -(void)didMoveToView:(SKView *)view {
-    _bgLayer = [[SELRandomMaze alloc] initWithTileSize:(self.frame.size.width / 6) fromString:@"XXXXXXXX\nXCCCCCCX\nXCCCPCCX\nXCCCCCCX\nXCCCCCCX\nXCCCCCCX\nXCCCCCCX\nXXXXXXXX"];
+    _bgLayer = [[SELRandomMaze alloc] initWithTileSize:(self.frame.size.width / 6) fromString:@"XXXXXXXX\nXCCCCCCX\nXCCCCCCX\nXCCCCCCX\nXCCCPCCX\nXCCCCCCX\nXCCCCCCX\nXXXXXXXX"];
     mazeSize = _bgLayer.mazeSize; //So didSimulatePhysics can calculate size
+    _starting = true;
     NSLog(@"x %f y %f", mazeSize.width, mazeSize.height);
     [self addChild:_bgLayer];
     if (_showTutorial) {
@@ -114,6 +115,16 @@
     else if (alertView.tag == 7) {
         [self startGame];
     }
+    else if (alertView.tag == 8) {
+        [SELPlayer player].position = _bgLayer.playerStartingPosition;
+        [SELPlayer player].zRotation = 1.575;
+        [SELPlayer player].physicsBody.resting = YES;
+        _starting = YES;
+        [self startGame];
+    }
+    else if (alertView.tag == 9) {
+        [self returnToMaze];
+    }
 }
 
 -(void)didBeginContact:(SKPhysicsContact *)contact {
@@ -129,8 +140,6 @@
     else if (![contact.bodyB.node.name isEqualToString:@"mouse"]) object = (SKSpriteNode*)contact.bodyB.node;
     
     if ([object.name isEqualToString:@"wallTile"]) {
-        _cheeseCount = 0;
-
         [SELPlayer player].physicsBody.contactTestBitMask = 0;
         [SELPlayer player].stopped = YES;
             
@@ -146,20 +155,21 @@
         }];
             
         //move player and restart current level
-            
-        [self runAction:[SKAction sequence:@[[SKAction waitForDuration:3.0], [SKAction runBlock:^{
-            [SELPlayer player].position = _bgLayer.playerStartingPosition;
-            [SELPlayer player].zRotation = 1.575;
-            [SELPlayer player].physicsBody.resting = YES;
-            _starting = YES;
-            [self startGame];
-        }]]]];
+        UIAlertView *av8 = [[UIAlertView alloc] initWithTitle:@"Speedy Mouse" message:@"Watch out for road cones and blocks. In the game you'll lose a life each time you hit one." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        av8.tag = 8;
+        [av8 show];
     }
     
     else if ([object.name isEqualToString:@"cheese"]) {
         [object removeFromParent];
         _cheeseCount++;
-        if (_cheeseCount >= _bgLayer.cheeseCount) [self returnToMaze];
+        if (_cheeseCount >= _bgLayer.cheeseCount) {
+            [SELPlayer player].stopped = YES;
+            [SELPlayer player].physicsBody.resting = YES;
+            UIAlertView *av9 = [[UIAlertView alloc] initWithTitle:@"Speedy Mouse" message:@"You've completed the tutorial. Now go out and help Speedy get fat!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            av9.tag = 9;
+            [av9 show];
+        }
     }
 }
 
