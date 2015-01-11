@@ -313,14 +313,14 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
 //    _swipeUp.delegate = self;
 //    
 //    [self.view addGestureRecognizer:_swipeUp];
-    
+    NSLog(@"test");
     [self removeAllActions];
     
     if (_newGame) {
         if ([GKLocalPlayer localPlayer].isAuthenticated) {
-            [self addChild:gameCenterNode];
+            if (!gameCenterNode.parent) [self addChild:gameCenterNode];
         }
-        [self addChild:helpCenterNode];
+        if (!helpCenterNode.parent) [self addChild:helpCenterNode];
         [[SELPlayer player] resetLives];
         startLabel = [SKLabelNode labelNodeWithFontNamed:@"Super Mario 256"];
         startLabel.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter;
@@ -350,6 +350,7 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
             [self startGame];
         }
     }
+        NSLog(@"test");
 }
 
 -(void)createStartLabel {

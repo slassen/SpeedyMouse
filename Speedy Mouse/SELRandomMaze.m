@@ -304,8 +304,15 @@
                 [self addCheeseOnlyToPosition:CGPointMake(xPos, yPos)];
             }
             else if ([xString characterAtIndex:x] == 'P') { //player
+                if ([SELPlayer player].parent) {
+                    [[SELPlayer player] removeFromParent];
+                }
                 [self addBGTileAtPostion:CGPointMake(xPos, yPos)];
                 //add player too
+                [self addChild:[SELPlayer player]];
+                [SELPlayer player].position = CGPointMake(xPos, yPos);
+                [SELPlayer player].zRotation = 1.575;
+                [SELPlayer player].physicsBody.resting = YES;
             }
             else { //blank
                 [self addBGTileAtPostion:CGPointMake(xPos, yPos)];

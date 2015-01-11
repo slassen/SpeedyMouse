@@ -8,6 +8,7 @@
 
 #import "HelpScene.h"
 #import "SELRandomMaze.h"
+#import "SELPlayer.h"
 
 @implementation HelpScene
 
@@ -26,8 +27,33 @@
 }
 
 -(void)didMoveToView:(SKView *)view {
-    _bgLayer = [[SELRandomMaze alloc] initWithTileSize:(self.frame.size.width / 6) fromString:@"XXXXXX\nX--C-X\nX----X\nX----X\nX----X\nXXXXXX"];
+    _bgLayer = [[SELRandomMaze alloc] initWithTileSize:(self.frame.size.width / 6) fromString:@"XXXPXX\nX--C-X\nX----X\nX----X\nX----X\nXXXXXX"];
     [self addChild:_bgLayer];
+}
+
+-(void)returnToMaze {
+    if ([SELPlayer player].parent) {
+        [[SELPlayer player] removeFromParent];
+    }
+    
+    MazeScene *scene = [[MazeScene alloc] initWithSize:self.size];
+    scene.newGame = YES;
+    [Settings backgroundMusicPlayer];
+    scene.scaleMode = SKSceneScaleModeAspectFill;
+//    SKTransition *transition = [SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.5];
+//    [self.view presentScene:scene transition:transition];
+    [self.view presentScene:scene];
+    
+//    [_returnMaze.bgLayer addChild:[SELPlayer player]];
+//    [SELPlayer player].position = _returnMaze.bgLayer.playerStartingPosition;
+    [SELPlayer player].zRotation = 1.575;
+    [SELPlayer player].physicsBody.resting = YES;
+    
+//    [self.view presentScene:_returnMaze];
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self returnToMaze];
 }
 
 @end
