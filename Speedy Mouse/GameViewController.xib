@@ -7,6 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GameViewController">
             <connections>
+                <outlet property="loaderIndicator" destination="b5T-z2-Hj4" id="lxN-wk-ap9"/>
+                <outlet property="loaderView" destination="4mx-1k-khl" id="LoS-dl-VdO"/>
                 <outlet property="view" destination="iN0-l3-epB" id="cNn-6z-4K8"/>
             </connections>
         </placeholder>
@@ -14,8 +16,40 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SKView">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4mx-1k-khl">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loadScreen.png" translatesAutoresizingMaskIntoConstraints="NO" id="S3P-At-HUq">
+                            <rect key="frame" x="60" y="240" width="480" height="120"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="120" id="Yrw-n6-6V4"/>
+                                <constraint firstAttribute="width" constant="480" id="g9x-xo-kvH"/>
+                            </constraints>
+                        </imageView>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="b5T-z2-Hj4">
+                            <rect key="frame" x="290" y="368" width="20" height="20"/>
+                        </activityIndicatorView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="b5T-z2-Hj4" firstAttribute="top" secondItem="S3P-At-HUq" secondAttribute="bottom" constant="8" id="IYP-7y-3Ht"/>
+                        <constraint firstAttribute="centerY" secondItem="S3P-At-HUq" secondAttribute="centerY" id="Soe-WD-GRM"/>
+                        <constraint firstAttribute="centerX" secondItem="S3P-At-HUq" secondAttribute="centerX" id="XPT-lJ-56a"/>
+                    </constraints>
+                </view>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="4mx-1k-khl" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Jn7-a7-my4"/>
+                <constraint firstItem="4mx-1k-khl" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Yva-EG-fuW"/>
+                <constraint firstAttribute="trailing" secondItem="4mx-1k-khl" secondAttribute="trailing" id="pGB-TF-mp8"/>
+                <constraint firstAttribute="bottom" secondItem="4mx-1k-khl" secondAttribute="bottom" id="sVx-lv-09d"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
         </view>
     </objects>
+    <resources>
+        <image name="loadScreen.png" width="851" height="142"/>
+    </resources>
 </document>

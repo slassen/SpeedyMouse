@@ -256,7 +256,7 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
     helpCenterNode.name = @"helpCenter";
     helpCenterNode.zPosition = LayerLevelTop;
     
-    if (!_newGame || [SELPlayer player].currentLevel >= 2) {
+    if ([SELPlayer player].currentLevel >= 2) {
         [self addChild:livesLabel];
         [self addChild:cheeseImage];
         [self addChild:cheeseLabel];
@@ -428,8 +428,8 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
             
             SKEmitterNode *crashEmitter = [self nodeWithFileNamed:@"CrashEmitter.sks"];
             crashEmitter.zPosition = -1;
-            [_bgLayer addChild:crashEmitter];
-            SKAction *waitAction = [SKAction waitForDuration:0.5];
+            [[SELPlayer player] addChild:crashEmitter];
+            SKAction *waitAction = [SKAction waitForDuration:0.2];
             [self runAction:waitAction completion:^{
                 [crashEmitter removeFromParent];
             }];

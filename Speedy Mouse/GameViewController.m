@@ -62,6 +62,9 @@
         scene.scaleMode = SKSceneScaleModeAspectFill;
         SKTransition *transition = [SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.5];
         [skView presentScene:scene transition:transition];
+        _loaderView.hidden = true;
+        [_loaderIndicator stopAnimating];
+        _loaderIndicator.hidden = true;
     }
     
 //    if (![GCHelper sharedInstance].signedIn) {
@@ -80,6 +83,8 @@
 }
 
 -(void)viewDidLoad {
+    [_loaderIndicator startAnimating];
+    
     // Start the motion manager
     [Settings motionManager];
     
@@ -106,7 +111,7 @@
 
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
-    _gameCenterTimer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(alertGameCenter:) userInfo:nil repeats:NO];
+    _gameCenterTimer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(alertGameCenter:) userInfo:nil repeats:NO];
 
     // Configure the view.
 //    SKView * skView = (SKView *)self.view;

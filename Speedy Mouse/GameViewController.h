@@ -18,6 +18,8 @@
 
 @property (nonatomic) SELLoadScene *maze;
 @property (nonatomic) NSTimer *gameCenterTimer;
+@property (nonatomic) IBOutlet UIView *loaderView;
+@property (nonatomic) IBOutlet UIActivityIndicatorView *loaderIndicator;
 
 +(GameViewController*) gameView;
 -(void) gameCenterAlert;
