@@ -153,7 +153,7 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
 
 -(void)gameOver {
     [[SELPlayer player] resetLives];
-    _gameOver = YES;
+//    _gameOver = YES;
     [SELPlayer player].physicsBody.contactTestBitMask = 0;
     [SELPlayer player].stopped = YES;
     [SELPlayer player].playerSpeed = 100.0f;
@@ -175,6 +175,7 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
         
         [GCHelper recordAchievements];
         if (!startLabel.parent) [self addChild:startLabel];
+        startLabel.position = [self centerLabelOnBackground: startLabel];
         startLabel.text = @"Game Over";
         [startLabel runAction:[SKAction fadeInWithDuration:0]];
         [self addChild:levelLabel];
@@ -185,6 +186,7 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
             startLabel.text = @"Try again?";
             [startLabel runAction:[SKAction repeatActionForever:[SKAction sequence:@[[SKAction fadeOutWithDuration:0.0], [SKAction waitForDuration:0.2], [SKAction fadeInWithDuration:0.0], [SKAction waitForDuration:1.0]]]]];
             _canRestart = YES;
+            _gameOver = true;
             _startAutomatically = YES;
         }];
     }];
@@ -280,6 +282,7 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
     CGFloat durationBetweenNumbers = 1.0f;
     
     startLabel.fontSize = 72;
+    [startLabel runAction:[SKAction moveTo:CGPointMake(self.size.width /2, self.size.height - self.size.height /4) duration:0.25]];
     startLabel.text =  @"READY";
     [startLabel runAction:[SKAction waitForDuration:durationBetweenNumbers] completion:^{
         
@@ -338,7 +341,7 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
         [startLabel runAction:[SKAction repeatActionForever:[SKAction sequence:@[[SKAction fadeOutWithDuration:0.0],[SKAction waitForDuration:0.2], [SKAction fadeInWithDuration:0.0], [SKAction waitForDuration:1.0]]]]];
     }
     else {
-        if ([SELPlayer player].currentLevel >= 2 && ![GCHelper sharedInstance].signedIn) {
+        if (![GCHelper sharedInstance].signedIn) {
             [[GameViewController gameView] gameCenterAlert];
         }
         _canRestart = YES;

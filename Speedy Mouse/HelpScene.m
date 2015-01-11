@@ -74,6 +74,8 @@
     _starting = true;
     NSLog(@"x %f y %f", mazeSize.width, mazeSize.height);
     [self addChild:_bgLayer];
+    [SELPlayer player].stopped = true;
+    [SELPlayer player].physicsBody.resting = true;
     if (_showTutorial) {
         UIAlertView *av1 = [[UIAlertView alloc] initWithTitle:@"Speedy Mouse" message:@"Speedy loves cheese. Collect all of the cheese you can." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         av1.tag = 1;
