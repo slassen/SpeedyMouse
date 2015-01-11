@@ -231,15 +231,15 @@
         }
         xTiles = [xTiles stringByAppendingString:[NSString stringWithFormat:@"%c", [string characterAtIndex:i]]];
     }
+    [yTiles addObject:xTiles]; // add last object
     
     NSLog(@"array count %lu, string length = %lu", yTiles.count, [[yTiles firstObject] length]);
-    NSLog(@"%@%@%@", yTiles[0], yTiles[1], yTiles[2]);
     
     
     self = [super init];
     if (self) {
         _tileSize = tileSize;
-        [self addBackgroundLayerWithImageNamed:@"asphalt512" ofSize:CGSizeMake(tileSize * yTiles.count, tileSize * [[yTiles firstObject] length])];
+        [self addBackgroundLayerWithImageNamed:@"asphalt512" ofSize:CGSizeMake(tileSize * [[yTiles firstObject] length], tileSize * yTiles.count)];
         [self addWallTilesFromArray:yTiles]; //need to implement this method
         [self addGates];
     }
@@ -295,7 +295,6 @@
         NSString *xString = array[y];
         for (int x = 0; x < xString.length; x++) {
             if ([xString characterAtIndex:x] == 'X') { //cone
-                NSLog(@"x %f, y %f", xPos, yPos);
                 SKSpriteNode *wallTile = [self addTileAtPosition:CGPointMake(xPos, yPos)];
                 [_wallTiles addObject:wallTile];
             }
@@ -308,6 +307,7 @@
                     [[SELPlayer player] removeFromParent];
                 }
                 [self addBGTileAtPostion:CGPointMake(xPos, yPos)];
+                _playerStartingPosition = CGPointMake(xPos, yPos);
                 //add player too
                 [self addChild:[SELPlayer player]];
                 [SELPlayer player].position = CGPointMake(xPos, yPos);

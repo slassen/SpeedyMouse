@@ -9,8 +9,8 @@
 #import <SpriteKit/SpriteKit.h>
 #import "MazeScene.h"
 
-@interface HelpScene : SKScene <SKPhysicsContactDelegate>
+@interface HelpScene : SKScene <SKPhysicsContactDelegate, UIAlertViewDelegate>
 
--(instancetype) initWithSize:(CGSize)size returnMaze:(MazeScene*)maze;
+-(instancetype) initWithSize:(CGSize)size returnMaze:(MazeScene*)maze tutorial:(BOOL)tutorial;
 
 @end

@@ -107,7 +107,7 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
     }
     else if ([node.name isEqualToString:@"helpCenter"]) {
         NSLog(@"help");
-        HelpScene *help = [[HelpScene alloc] initWithSize:self.size returnMaze:self];
+        HelpScene *help = [[HelpScene alloc] initWithSize:self.size returnMaze:self tutorial:true];
         [self.view presentScene:help];
         return;
     }
