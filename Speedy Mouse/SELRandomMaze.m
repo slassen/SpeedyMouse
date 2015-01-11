@@ -218,6 +218,34 @@
     return starting;
 }
 
+-(instancetype)initWithTileSize:(CGFloat)tileSize fromString:(NSString *)string {
+    NSMutableArray *yTiles = [NSMutableArray array];
+    NSString *xTiles = [NSString string];
+    for (int i = 0; i < string.length; i++) { // allocate y tiles array with x tile strings
+        
+        //need to implement conversion from string
+        if ([[NSCharacterSet whitespaceAndNewlineCharacterSet] characterIsMember:[string characterAtIndex:i]]) {
+            [yTiles addObject:xTiles];
+            xTiles = [NSString string];
+            continue;
+        }
+        xTiles = [xTiles stringByAppendingString:[NSString stringWithFormat:@"%c", [string characterAtIndex:i]]];
+    }
+    
+    NSLog(@"array count %lu, string length = %lu", yTiles.count, [[yTiles firstObject] length]);
+    NSLog(@"%@%@%@", yTiles[0], yTiles[1], yTiles[2]);
+    
+    
+    self = [super init];
+    if (self) {
+        _tileSize = tileSize;
+        [self addBackgroundLayerWithImageNamed:@"asphalt512" ofSize:CGSizeMake(tileSize * yTiles.count, tileSize * [[yTiles firstObject] length])];
+        [self addWallTilesFromArray:yTiles]; //need to implement this method
+        [self addGates];
+    }
+    return self;
+}
+
 -(instancetype)initWithTileSize:(CGFloat)tileSize {
     self = [super init];
     if (self) {
@@ -256,6 +284,37 @@
     
     // Add the level size to _tileSize so that didSimulatePhysics can determine it.
     _mazeSize = size;
+}
+
+-(void)addWallTilesFromArray:(NSMutableArray*)array {
+    // Insert a wall tile for each space on the map.
+    _wallTiles = [[NSMutableArray alloc] init];
+    CGFloat yPos = _tileSize / 2;
+    CGFloat xPos = _tileSize / 2;
+    for (int y = 0; y < array.count; y++) {
+        NSString *xString = array[y];
+        for (int x = 0; x < xString.length; x++) {
+            if ([xString characterAtIndex:x] == 'X') { //cone
+                NSLog(@"x %f, y %f", xPos, yPos);
+                SKSpriteNode *wallTile = [self addTileAtPosition:CGPointMake(xPos, yPos)];
+                [_wallTiles addObject:wallTile];
+            }
+            else if ([xString characterAtIndex:x] == 'C') { //cheese
+                [self addBGTileAtPostion:CGPointMake(xPos, yPos)];
+                [self addCheeseOnlyToPosition:CGPointMake(xPos, yPos)];
+            }
+            else if ([xString characterAtIndex:x] == 'P') { //player
+                [self addBGTileAtPostion:CGPointMake(xPos, yPos)];
+                //add player too
+            }
+            else { //blank
+                [self addBGTileAtPostion:CGPointMake(xPos, yPos)];
+            }
+            xPos += _tileSize;
+        }
+        xPos = _tileSize / 2;
+        yPos += _tileSize;
+    }
 }
 
 -(void)addWallTiles {
@@ -304,23 +363,16 @@
     return body;
 }
 
--(SKSpriteNode* )addTileAtPosition:(CGPoint)position { //path tiles
-    // make sure to add bg tile to background
-    SKSpriteNode *bgTile = [SKSpriteNode spriteNodeWithTexture:_backgroundTexture size:CGSizeMake(_tileSize, _tileSize)];
-    bgTile.name = @"bgTile";
-    bgTile.position = position;
-    bgTile.zPosition = LayerLevelBackground;
-    [_background addChild:bgTile];
-    
+-(SKSpriteNode*)addConeAtPosition:(CGPoint)position {
     // do normal stuff now
     SKSpriteNode *tile = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"cone"] size:CGSizeMake(_tileSize, _tileSize)];
     tile.name = @"wallTile";
     tile.position = position;
     tile.zPosition = LayerLevelBelowPlayer;
     /*if ([UIDevice currentDevice].systemVersion.floatValue >= 8.0f) {
-        tile.physicsBody = [SKPhysicsBody bodyWithTexture:[SKTexture textureWithImageNamed:@"roadCone"] size:CGSizeMake(_tileSize, _tileSize)];
-    }
-    else*/ tile.physicsBody = [self coneTileWithSize:_tileSize];
+     tile.physicsBody = [SKPhysicsBody bodyWithTexture:[SKTexture textureWithImageNamed:@"roadCone"] size:CGSizeMake(_tileSize, _tileSize)];
+     }
+     else*/ tile.physicsBody = [self coneTileWithSize:_tileSize];
     tile.physicsBody.categoryBitMask = ColliderTypeBlock;
     tile.physicsBody.collisionBitMask = ColliderTypePlayer;
     tile.physicsBody.contactTestBitMask = ColliderTypePlayer;
@@ -329,6 +381,45 @@
     [self addChild:tile];
     return tile;
 }
+
+-(void)addBGTileAtPostion:(CGPoint)position {
+    // make sure to add bg tile to background
+    SKSpriteNode *bgTile = [SKSpriteNode spriteNodeWithTexture:_backgroundTexture size:CGSizeMake(_tileSize, _tileSize)];
+    bgTile.name = @"bgTile";
+    bgTile.position = position;
+    bgTile.zPosition = LayerLevelBackground;
+    [_background addChild:bgTile];
+}
+
+-(SKSpriteNode* )addTileAtPosition:(CGPoint)position { //path tiles
+    // make sure to add bg tile to background
+    SKSpriteNode *bgTile = [SKSpriteNode spriteNodeWithTexture:_backgroundTexture size:CGSizeMake(_tileSize, _tileSize)];
+    bgTile.name = @"bgTile";
+    bgTile.position = position;
+    bgTile.zPosition = LayerLevelBackground;
+    [_background addChild:bgTile];
+    
+    // add cone
+    SKSpriteNode *tile = [self addConeAtPosition:position];
+    return tile;
+}
+
+-(CGPoint)addCheeseOnlyToPosition:(CGPoint)position {
+    // Add the cheese.
+    _cheeseCount++;
+    SKSpriteNode *cheese = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"cheeseDeface"] size:CGSizeMake(_tileSize / 2, _tileSize / 2)];
+    cheese.name = @"cheese";
+    //    cheese.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:cheese.size.width / 2];
+    cheese.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(_tileSize /1.5, _tileSize /1.5)];
+    cheese.physicsBody.dynamic = NO;
+    cheese.physicsBody.categoryBitMask = ColliderTypeCheese;
+    cheese.physicsBody.contactTestBitMask = ColliderTypePlayer;
+    cheese.position = position;
+    cheese.zPosition = LayerLevelBelowPlayer;
+    [self addChild:cheese];
+    return cheese.position;
+}
+
 
 -(CGPoint)addCheeseToPosition:(CGPoint)position {
     // Remove wall tile since new available position is chosen.

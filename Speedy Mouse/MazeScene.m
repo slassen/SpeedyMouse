@@ -12,6 +12,7 @@
 #import "GCHelper.h"
 #import "MazeScene.h"
 #import "SELRootController.h"
+#import "HelpScene.h"
 
 #pragma mark Maze Scene
 
@@ -100,11 +101,14 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
     
     SKNode *node = [self nodeAtPoint:[[touches anyObject] locationInNode:self ]];
     if ([node.name isEqualToString:@"gameCenter"]) {
+        NSLog(@"game center");
         [self enterAchievements:nil];
         return;
     }
     else if ([node.name isEqualToString:@"helpCenter"]) {
         NSLog(@"help");
+        HelpScene *help = [[HelpScene alloc] initWithSize:self.size returnMaze:self];
+        [self.view presentScene:help];
         return;
     }
     
@@ -313,7 +317,9 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
     [self removeAllActions];
     
     if (_newGame) {
-        [self addChild:gameCenterNode];
+        if ([GKLocalPlayer localPlayer].isAuthenticated) {
+            [self addChild:gameCenterNode];
+        }
         [self addChild:helpCenterNode];
         [[SELPlayer player] resetLives];
         startLabel = [SKLabelNode labelNodeWithFontNamed:@"Super Mario 256"];

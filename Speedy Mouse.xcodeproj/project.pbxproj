@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F24BFC9A1A60C26700AB4A59 /* HelpScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F24BFC991A60C26700AB4A59 /* HelpScene.m */; };
 		F2FD79B41A5E303A00E9C123 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD79B31A5E303A00E9C123 /* main.m */; };
 		F2FD79B71A5E303A00E9C123 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD79B61A5E303A00E9C123 /* AppDelegate.m */; };
 		F2FD79D31A5E303A00E9C123 /* Speedy_MouseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD79D21A5E303A00E9C123 /* Speedy_MouseTests.m */; };
@@ -53,6 +54,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F24BFC981A60C26700AB4A59 /* HelpScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpScene.h; sourceTree = "<group>"; };
+		F24BFC991A60C26700AB4A59 /* HelpScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpScene.m; sourceTree = "<group>"; };
 		F2FD79AE1A5E303A00E9C123 /* Speedy Mouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Speedy Mouse.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2FD79B21A5E303A00E9C123 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2FD79B31A5E303A00E9C123 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -169,6 +172,8 @@
 				F2FD7A1C1A5E334D00E9C123 /* GameViewController.xib */,
 				F2FD7A021A5E318500E9C123 /* MazeScene.h */,
 				F2FD7A031A5E318500E9C123 /* MazeScene.m */,
+				F24BFC981A60C26700AB4A59 /* HelpScene.h */,
+				F24BFC991A60C26700AB4A59 /* HelpScene.m */,
 				F2FD7A051A5E319300E9C123 /* GCHelper.h */,
 				F2FD7A061A5E319300E9C123 /* GCHelper.m */,
 				F2FD7A071A5E319300E9C123 /* Settings.h */,
@@ -376,6 +381,7 @@
 				F2FD7A0A1A5E319300E9C123 /* Settings.m in Sources */,
 				F2FD7A151A5E32F800E9C123 /* SELRootController.m in Sources */,
 				F2FD7A011A5E317D00E9C123 /* GameViewController.m in Sources */,
+				F24BFC9A1A60C26700AB4A59 /* HelpScene.m in Sources */,
 				F2FD7A141A5E32F800E9C123 /* SELRandomMaze.m in Sources */,
 				F2FD79B41A5E303A00E9C123 /* main.m in Sources */,
 				F2FD7A091A5E319300E9C123 /* GCHelper.m in Sources */,

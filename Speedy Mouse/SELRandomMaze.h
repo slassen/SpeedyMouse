@@ -12,6 +12,7 @@
 @interface SELRandomMaze : SKSpriteNode
 
 -(instancetype)initWithTileSize:(CGFloat)tileSize;
+-(instancetype)initWithTileSize:(CGFloat)tileSize fromString:(NSString*)string;
 
 -(CGPoint)playerStartingPosition;
 -(CGSize)mazeSize;

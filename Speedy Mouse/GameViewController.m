@@ -64,9 +64,9 @@
         [skView presentScene:scene transition:transition];
     }
     
-    if (![GCHelper sharedInstance].signedIn) {
-        [[[UIAlertView alloc] initWithTitle:@"Game Center Unavailable" message:@"You aren't connected to the internet or game center isn't signed in.\nYou are unable to earn achievements without Game Center." delegate:self cancelButtonTitle:@"I want trophies!" otherButtonTitles:@"Who Cares?", nil] show];
-    }
+//    if (![GCHelper sharedInstance].signedIn) {
+//        [[[UIAlertView alloc] initWithTitle:@"Game Center Unavailable" message:@"You aren't connected to the internet or game center isn't signed in.\nYou are unable to earn achievements without Game Center." delegate:self cancelButtonTitle:@"I want trophies!" otherButtonTitles:@"Who Cares?", nil] show];
+//    }
 }
 
 -(void) gameCenterAlert {
@@ -80,8 +80,6 @@
 }
 
 -(void)viewDidLoad {
-//    _gameCenterTimer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(alertGameCenter:) userInfo:nil repeats:NO];
-    
     // Start the motion manager
     [Settings motionManager];
     
@@ -108,9 +106,10 @@
 
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
+    _gameCenterTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(alertGameCenter:) userInfo:nil repeats:NO];
 
     // Configure the view.
-    SKView * skView = (SKView *)self.view;
+//    SKView * skView = (SKView *)self.view;
     
     // Debug Options
 //    skView.showsFPS = YES;
@@ -118,27 +117,27 @@
 //    skView.showsPhysics = YES;
     
     // Create and configure the maze scene.
-    CGSize sceneSize = skView.bounds.size;
+//    CGSize sceneSize = skView.bounds.size;
     
     // On iPhone/iPod touch we want to see a similar amount of the scene as on iPad.
     // So, we set the size of the scene to be double the size of the view, which is
     // the whole screen, 3.5- or 4- inch. This effectively scales the scene to 50%.
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        sceneSize.height /= 2;
-        sceneSize.width /= 2;
-    }
-    
-    skView.ignoresSiblingOrder = YES;
-    
-    static MazeScene *scene;
-    if (!scene) {
-        scene = [[MazeScene alloc] initWithSize:sceneSize];
-        scene.newGame = YES;
-        [Settings backgroundMusicPlayer];
-        scene.scaleMode = SKSceneScaleModeAspectFill;
-        SKTransition *transition = [SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.5];
-        [skView presentScene:scene transition:transition];
-    }
+//    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+//        sceneSize.height /= 2;
+//        sceneSize.width /= 2;
+//    }
+//    
+//    skView.ignoresSiblingOrder = YES;
+//    
+//    static MazeScene *scene;
+//    if (!scene) {
+//        scene = [[MazeScene alloc] initWithSize:sceneSize];
+//        scene.newGame = YES;
+//        [Settings backgroundMusicPlayer];
+//        scene.scaleMode = SKSceneScaleModeAspectFill;
+//        SKTransition *transition = [SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.5];
+//        [skView presentScene:scene transition:transition];
+//    }
 }
 
 -(void)gameCenterViewControllerDidFinish:(GKGameCenterViewController *)gameCenterViewController {
