@@ -24,7 +24,7 @@
     // Add gates between cones that kart could squeeze through normally.
     for (SKSpriteNode *cone in _wallTiles) {
         if ([self coneNorthWestOfCone:cone]) {
-            [self addGateToPosition:CGPointMake(cone.position.x - (_tileSize /2), cone.position.y + ((_tileSize /2) - (_tileSize / 8))) withRotation:-.8]; //-.8
+            [self addGateToPosition:CGPointMake(cone.position.x - (_tileSize /2), cone.position.y + ((_tileSize /2) - (_tileSize / 8))) withRotation:2.34]; //-.8
         }
         
         if ([self coneNorthEastOfCone:cone]) {
@@ -34,15 +34,15 @@
 }
 
 -(void) addGateToPosition:(CGPoint)position withRotation:(CGFloat)rotation {
-    SKSpriteNode *gate;
-    if (rotation > 0) {
-        gate = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"Roadblock"] size:CGSizeMake(_tileSize / 2, _tileSize / 4)]; // west
-    }
-    else {
-        gate = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"Roadblock"] size:CGSizeMake(_tileSize / 2, _tileSize / 4)]; // east
-    }
+//    SKSpriteNode *gate;
+//    if (rotation > 0) {
+//        gate = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"Roadblock"] size:CGSizeMake(_tileSize / 2, _tileSize / 4)]; // west
+//    }
+//    else {
+//        gate = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"Roadblock"] size:CGSizeMake(_tileSize / 2, _tileSize / 4)]; // east
+//    }
     
-//    SKSpriteNode *gate = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"cone"] size:CGSizeMake(_tileSize / 2, _tileSize / 2)];
+    SKSpriteNode *gate = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"Roadblock"] size:CGSizeMake(_tileSize / 2, _tileSize / 4)];
     gate.name = @"wallTile";
     gate.position = position;
     gate.zPosition = LayerLevelBackground;
