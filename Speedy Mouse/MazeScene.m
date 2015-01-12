@@ -54,20 +54,13 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
 
 -(void)update:(NSTimeInterval)currentTime {
     
-//    NSLog(@"%f %f %f", [Settings motionManager].accelerometerData.acceleration.x, [Settings motionManager].accelerometerData.acceleration.y, [Settings motionManager].accelerometerData.acceleration.z);
+    // Smooth out jumpy movements by calulating update intervals.
+    if (_lastUpdateTime) {
+        _dt = currentTime - _lastUpdateTime;
+    } else _dt = 0;
+    _lastUpdateTime = currentTime;
     
-        // Smooth out jumpy movements by calulating update intervals.
-        if (_lastUpdateTime) {
-            _dt = currentTime - _lastUpdateTime;
-        } else _dt = 0;
-        _lastUpdateTime = currentTime;
-    
-    // Add time to the interval if game is active.
-    // Enable this method to accumulate lives based on time
-//    if (!_paused && !_gameOver) [[SELPlayer player] addActiveTime:_dt];
-    
-        // Move the player.
-//    return;
+    // Move the player.
     if (!_gameOver && [SELPlayer player].stopped && !_crashed) {
         [[SELPlayer player] changeStoppedRotationWithDT:_dt];
     }
@@ -75,10 +68,10 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
         [[SELPlayer player] updateWithTimeInterval:_dt];
     }
         
-        // Make the cones jump.
-        if (currentTime >= _lastJump + jumpInterval && !_paused) {
-            _lastJump = currentTime;
-            [self randomConeJump];
+    // Make the cones jump.
+    if (currentTime >= _lastJump + jumpInterval && !_paused) {
+        _lastJump = currentTime;
+        [self randomConeJump];
     }
 }
 
@@ -101,12 +94,10 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
     
     SKNode *node = [self nodeAtPoint:[[touches anyObject] locationInNode:self ]];
     if ([node.name isEqualToString:@"gameCenter"]) {
-        NSLog(@"game center");
         [self enterAchievements:nil];
         return;
     }
     else if ([node.name isEqualToString:@"helpCenter"]) {
-        NSLog(@"help");
         HelpScene *help = [[HelpScene alloc] initWithSize:self.size returnMaze:self tutorial:true];
         [self.view presentScene:help];
         return;
@@ -176,7 +167,7 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
         
         [GCHelper recordAchievements];
         if (!startLabel.parent) [self addChild:startLabel];
-        startLabel.position = [self centerLabelOnBackground: startLabel];
+        startLabel.position = CGPointMake(self.size.width /2, self.size.height /2);
         startLabel.text = @"Game Over";
         [startLabel runAction:[SKAction fadeInWithDuration:0]];
         [self addChild:levelLabel];
@@ -271,7 +262,7 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
     
     if (gameCenterNode.parent) [gameCenterNode removeFromParent];
     if (helpCenterNode.parent) [helpCenterNode removeFromParent];
-    
+    NSLog(@"ok");
     if (!livesLabel.parent) [self addChild:livesLabel];
     if (!cheeseImage.parent) [self addChild:cheeseImage];
     if (!cheeseLabel.parent) [self addChild:cheeseLabel];
@@ -290,8 +281,9 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
         
         // Set the default position of the game to how the player is holding the device now.
         [Settings setTiltPosition];
-        
+        [startLabel runAction:[SKAction moveTo:CGPointMake(self.size.width /2, self.size.height + self.size.height /4) duration:2.0]];
         startLabel.text = @"GO!";
+        
 //        _gameOver = NO;
         
         // Make the player start.
@@ -339,7 +331,7 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
         startLabel.zPosition = LayerLevelTop;
         startLabel.text = @"Tap to start";
         [self addChild:startLabel];
-        startLabel.position = [self centerLabelOnBackground: startLabel];
+        startLabel.position = CGPointMake(self.size.width /2, self.size.height /2);
         [startLabel runAction:[SKAction repeatActionForever:[SKAction sequence:@[[SKAction fadeOutWithDuration:0.0],[SKAction waitForDuration:0.2], [SKAction fadeInWithDuration:0.0], [SKAction waitForDuration:1.0]]]]];
     }
     else {
@@ -350,7 +342,7 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
         startLabel = [SKLabelNode labelNodeWithFontNamed:@"Super Mario 256"];
         startLabel.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter;
         startLabel.text = [NSString stringWithFormat:@"Level: %i", [SELPlayer player].currentLevel];
-        startLabel.position = [self centerLabelOnBackground: startLabel];
+        startLabel.position = CGPointMake(self.size.width /2, self.size.height /2);
         startLabel.fontSize = 72;
         startLabel.zPosition = LayerLevelTop;
         [self addChild:startLabel];
@@ -367,6 +359,7 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
     [startLabel runAction:[SKAction fadeInWithDuration:0]];
 //    startLabel = [SKLabelNode labelNodeWithFontNamed:@"MisterVampire"];
 //    startLabel.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter;
+    startLabel.position = CGPointMake(self.size.width /2, self.size.height /2);
     startLabel.text = [NSString stringWithFormat:@"Level: %i", [SELPlayer player].currentLevel];
 //    startLabel.fontSize = 72;
 //    startLabel.zPosition = LayerLevelTop;
@@ -399,7 +392,7 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
 //        cheeseLabel.text = [NSString stringWithFormat:@"%i", [SELPlayer player].cheese];
         [self addChild:bonus];
         [bonus runAction:[SKAction waitForDuration:0] completion:^{
-            [bonus runAction:[SKAction moveByX:0 y:self.size.height duration:3.0] completion:^{
+            [bonus runAction:[SKAction moveTo:CGPointMake(self.size.width /2, self.size.height + self.size.height /4) duration:3.0] completion:^{
                 [bonus removeFromParent];
             }];
         }];

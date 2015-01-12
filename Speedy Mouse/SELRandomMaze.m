@@ -233,9 +233,6 @@
     }
     [yTiles addObject:xTiles]; // add last object
     
-    NSLog(@"array count %lu, string length = %lu", yTiles.count, [[yTiles firstObject] length]);
-    
-    
     self = [super init];
     if (self) {
         _tileSize = tileSize;

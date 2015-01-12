@@ -72,7 +72,6 @@
     _bgLayer = [[SELRandomMaze alloc] initWithTileSize:(self.frame.size.width / 6) fromString:@"XXXXXXXX\nXCCCCCCX\nXCCCCCCX\nXCCCCCCX\nXCCCPCCX\nXCCCCCCX\nXCCCCCCX\nXXXXXXXX"];
     mazeSize = _bgLayer.mazeSize; //So didSimulatePhysics can calculate size
     _starting = true;
-    NSLog(@"x %f y %f", mazeSize.width, mazeSize.height);
     [self addChild:_bgLayer];
     [SELPlayer player].stopped = true;
     [SELPlayer player].physicsBody.resting = true;
@@ -176,8 +175,6 @@
 }
 
 -(void)startGame {
-    NSLog(@"ok");
-    
     // Unpause the game and pause the players physics body.
     [SELPlayer player].physicsBody.resting = YES;
     self.paused = NO;
@@ -231,9 +228,10 @@
     if ([SELPlayer player].parent) {
         [[SELPlayer player] removeFromParent];
     }
+    [SELPlayer player].currentLevel = 1;
     [SELPlayer player].stopped = YES;
     MazeScene *scene = [[MazeScene alloc] initWithSize:self.size];
-    scene.newGame = YES;
+    scene.newGame = true;
     [Settings backgroundMusicPlayer];
     scene.scaleMode = SKSceneScaleModeAspectFill;
 //    SKTransition *transition = [SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.5];
