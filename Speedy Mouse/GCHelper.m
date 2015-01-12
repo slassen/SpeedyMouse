@@ -97,10 +97,11 @@ static GCHelper *sharedHelper = nil;
     scoreReporter.value = [SELPlayer player].cheese;
     scoreReporter.context = 0;
     
-    GKScore *levelReporter = [[GKScore alloc] initWithLeaderboardIdentifier:@"com.slgames.levelLeaderboard"];
-    levelReporter.value = [SELPlayer player].currentLevel;
-    levelReporter.context = 0;
-    [GKScore reportScores:@[scoreReporter, levelReporter] withCompletionHandler:^(NSError *error) {}];
+//    GKScore *levelReporter = [[GKScore alloc] initWithLeaderboardIdentifier:@"com.slgames.levelLeaderboard"];
+//    levelReporter.value = [SELPlayer player].currentLevel;
+//    levelReporter.context = 0;
+//    [GKScore reportScores:@[scoreReporter, levelReporter] withCompletionHandler:^(NSError *error) {}];
+    [GKScore reportScores:@[scoreReporter] withCompletionHandler:^(NSError *error) {}];
     
     // Allocate an array for achievement names.
     NSMutableArray *achievementNames = [NSMutableArray array];

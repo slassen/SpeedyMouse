@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GameViewController">
             <connections>
-                <outlet property="loaderIndicator" destination="b5T-z2-Hj4" id="lxN-wk-ap9"/>
+                <outlet property="loaderIndicator" destination="CtW-dt-Gqo" id="05v-Ew-sQb"/>
                 <outlet property="loaderView" destination="4mx-1k-khl" id="LoS-dl-VdO"/>
                 <outlet property="view" destination="iN0-l3-epB" id="cNn-6z-4K8"/>
             </connections>
@@ -20,22 +20,21 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4mx-1k-khl">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loadScreen.png" translatesAutoresizingMaskIntoConstraints="NO" id="S3P-At-HUq">
-                            <rect key="frame" x="60" y="240" width="480" height="120"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="120" id="Yrw-n6-6V4"/>
-                                <constraint firstAttribute="width" constant="480" id="g9x-xo-kvH"/>
-                            </constraints>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LoadingScreen2208Loading.png" translatesAutoresizingMaskIntoConstraints="NO" id="LsH-xy-jB4">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         </imageView>
-                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="b5T-z2-Hj4">
-                            <rect key="frame" x="290" y="368" width="20" height="20"/>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="CtW-dt-Gqo">
+                            <rect key="frame" x="290" y="550" width="20" height="20"/>
                         </activityIndicatorView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="b5T-z2-Hj4" firstAttribute="top" secondItem="S3P-At-HUq" secondAttribute="bottom" constant="8" id="IYP-7y-3Ht"/>
-                        <constraint firstAttribute="centerY" secondItem="S3P-At-HUq" secondAttribute="centerY" id="Soe-WD-GRM"/>
-                        <constraint firstAttribute="centerX" secondItem="S3P-At-HUq" secondAttribute="centerX" id="XPT-lJ-56a"/>
+                        <constraint firstAttribute="trailing" secondItem="LsH-xy-jB4" secondAttribute="trailing" id="EFQ-Kv-8gL"/>
+                        <constraint firstAttribute="centerX" secondItem="CtW-dt-Gqo" secondAttribute="centerX" id="Geb-qJ-eFD"/>
+                        <constraint firstAttribute="bottom" secondItem="LsH-xy-jB4" secondAttribute="bottom" id="Uvt-Hx-Wuu"/>
+                        <constraint firstAttribute="bottom" secondItem="CtW-dt-Gqo" secondAttribute="bottom" constant="30" id="eaC-KE-tGf"/>
+                        <constraint firstItem="LsH-xy-jB4" firstAttribute="leading" secondItem="4mx-1k-khl" secondAttribute="leading" id="tla-Ij-x1G"/>
+                        <constraint firstItem="LsH-xy-jB4" firstAttribute="top" secondItem="4mx-1k-khl" secondAttribute="top" id="wj2-gI-VEe"/>
                     </constraints>
                 </view>
             </subviews>
@@ -50,6 +49,6 @@
         </view>
     </objects>
     <resources>
-        <image name="loadScreen.png" width="851" height="142"/>
+        <image name="LoadingScreen2208Loading.png" width="2208" height="1242"/>
     </resources>
 </document>

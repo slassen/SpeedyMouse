@@ -154,6 +154,7 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
 -(void)gameOver {
     [[SELPlayer player] resetLives];
 //    _gameOver = YES;
+    _crashed = true;
     [SELPlayer player].physicsBody.contactTestBitMask = 0;
     [SELPlayer player].stopped = YES;
     [SELPlayer player].playerSpeed = 100.0f;
@@ -187,6 +188,7 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
             [startLabel runAction:[SKAction repeatActionForever:[SKAction sequence:@[[SKAction fadeOutWithDuration:0.0], [SKAction waitForDuration:0.2], [SKAction fadeInWithDuration:0.0], [SKAction waitForDuration:1.0]]]]];
             _canRestart = YES;
             _gameOver = true;
+            _crashed = false;
             _startAutomatically = YES;
         }];
     }];
@@ -247,13 +249,13 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
                                        self.size.height - cheeseCountLabel.frame.size.height - cheeseCountLabel.frame.size.height / 2);
     
     // Setup Game Center Node
-    gameCenterNode = [SKSpriteNode spriteNodeWithTexture:[[SKTextureAtlas atlasNamed:@"Art"] textureNamed:@"gameCenter"] size:CGSizeMake(40, 40)];
+    gameCenterNode = [SKSpriteNode spriteNodeWithTexture:[[SKTextureAtlas atlasNamed:@"Art"] textureNamed:@"gameCenter"] size:CGSizeMake(60, 60)];
     gameCenterNode.position = CGPointMake(gameCenterNode.frame.size.width /2 + 10, self.size.height - gameCenterNode.frame.size.height / 2 + - 10);
     gameCenterNode.name = @"gameCenter";
     gameCenterNode.zPosition = LayerLevelTop;
     
     // Setup Help Center Node
-    helpCenterNode = [SKSpriteNode spriteNodeWithTexture:[[SKTextureAtlas atlasNamed:@"Art"] textureNamed:@"help"] size:CGSizeMake(40, 40)];
+    helpCenterNode = [SKSpriteNode spriteNodeWithTexture:[[SKTextureAtlas atlasNamed:@"Art"] textureNamed:@"help"] size:CGSizeMake(60, 60)];
     helpCenterNode.position = CGPointMake(self.size.width - gameCenterNode.frame.size.width /2 - 10, self.size.height - gameCenterNode.frame.size.height / 2 + - 10);
     helpCenterNode.name = @"helpCenter";
     helpCenterNode.zPosition = LayerLevelTop;

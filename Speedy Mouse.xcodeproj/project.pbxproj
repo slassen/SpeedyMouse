@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		F24BFC9A1A60C26700AB4A59 /* HelpScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F24BFC991A60C26700AB4A59 /* HelpScene.m */; };
+		F2CF19B71A632FB400AA50B0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2CF19B61A632FB400AA50B0 /* LaunchScreen.xib */; };
+		F2CF19B91A63300200AA50B0 /* LoadingScreen2208.png in Resources */ = {isa = PBXBuildFile; fileRef = F2CF19B81A63300200AA50B0 /* LoadingScreen2208.png */; };
+		F2CF19BD1A634EF000AA50B0 /* LoadingScreen2208Loading.png in Resources */ = {isa = PBXBuildFile; fileRef = F2CF19BC1A634EF000AA50B0 /* LoadingScreen2208Loading.png */; };
 		F2FD79B41A5E303A00E9C123 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD79B31A5E303A00E9C123 /* main.m */; };
 		F2FD79B71A5E303A00E9C123 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD79B61A5E303A00E9C123 /* AppDelegate.m */; };
 		F2FD79D31A5E303A00E9C123 /* Speedy_MouseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD79D21A5E303A00E9C123 /* Speedy_MouseTests.m */; };
@@ -37,7 +40,6 @@
 		F2FD7A191A5E331200E9C123 /* CrashEmitter.sks in Resources */ = {isa = PBXBuildFile; fileRef = F2FD7A181A5E331200E9C123 /* CrashEmitter.sks */; };
 		F2FD7A1B1A5E331D00E9C123 /* BurnoutEmitter.sks in Resources */ = {isa = PBXBuildFile; fileRef = F2FD7A1A1A5E331D00E9C123 /* BurnoutEmitter.sks */; };
 		F2FD7A1D1A5E334D00E9C123 /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2FD7A1C1A5E334D00E9C123 /* GameViewController.xib */; };
-		F2FD7A1F1A5E33F600E9C123 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2FD7A1E1A5E33F600E9C123 /* LaunchScreen.xib */; };
 		F2FD7A211A5E34AD00E9C123 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FD7A201A5E34AD00E9C123 /* SystemConfiguration.framework */; };
 		F2FD7A271A5E362C00E9C123 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FD7A261A5E362C00E9C123 /* libz.dylib */; };
 		F2FD7A2A1A5E371D00E9C123 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FD7A291A5E371D00E9C123 /* AdSupport.framework */; };
@@ -56,6 +58,9 @@
 /* Begin PBXFileReference section */
 		F24BFC981A60C26700AB4A59 /* HelpScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpScene.h; sourceTree = "<group>"; };
 		F24BFC991A60C26700AB4A59 /* HelpScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpScene.m; sourceTree = "<group>"; };
+		F2CF19B61A632FB400AA50B0 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		F2CF19B81A63300200AA50B0 /* LoadingScreen2208.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LoadingScreen2208.png; path = Images.xcassets/LaunchImage.launchimage/LoadingScreen2208.png; sourceTree = "<group>"; };
+		F2CF19BC1A634EF000AA50B0 /* LoadingScreen2208Loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LoadingScreen2208Loading.png; sourceTree = "<group>"; };
 		F2FD79AE1A5E303A00E9C123 /* Speedy Mouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Speedy Mouse.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2FD79B21A5E303A00E9C123 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2FD79B31A5E303A00E9C123 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -100,7 +105,6 @@
 		F2FD7A181A5E331200E9C123 /* CrashEmitter.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CrashEmitter.sks; sourceTree = "<group>"; };
 		F2FD7A1A1A5E331D00E9C123 /* BurnoutEmitter.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BurnoutEmitter.sks; sourceTree = "<group>"; };
 		F2FD7A1C1A5E334D00E9C123 /* GameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameViewController.xib; sourceTree = "<group>"; };
-		F2FD7A1E1A5E33F600E9C123 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		F2FD7A201A5E34AD00E9C123 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		F2FD7A221A5E34D700E9C123 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		F2FD7A261A5E362C00E9C123 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -178,7 +182,7 @@
 				F2FD7A061A5E319300E9C123 /* GCHelper.m */,
 				F2FD7A071A5E319300E9C123 /* Settings.h */,
 				F2FD7A081A5E319300E9C123 /* Settings.m */,
-				F2FD7A1E1A5E33F600E9C123 /* LaunchScreen.xib */,
+				F2CF19B61A632FB400AA50B0 /* LaunchScreen.xib */,
 				F2FD79B11A5E303A00E9C123 /* Supporting Files */,
 			);
 			path = "Speedy Mouse";
@@ -248,6 +252,8 @@
 		F2FD79F61A5E30C200E9C123 /* Art */ = {
 			isa = PBXGroup;
 			children = (
+				F2CF19B81A63300200AA50B0 /* LoadingScreen2208.png */,
+				F2CF19BC1A634EF000AA50B0 /* LoadingScreen2208Loading.png */,
 				F2FD7A161A5E330000E9C123 /* spark.png */,
 				F2FD7A181A5E331200E9C123 /* CrashEmitter.sks */,
 				F2FD7A1A1A5E331D00E9C123 /* BurnoutEmitter.sks */,
@@ -346,6 +352,8 @@
 				F2FD79F81A5E30D200E9C123 /* Art.atlas in Resources */,
 				F2FD7A171A5E330000E9C123 /* spark.png in Resources */,
 				F2FD79ED1A5E30B600E9C123 /* gameOver.mp3 in Resources */,
+				F2CF19B91A63300200AA50B0 /* LoadingScreen2208.png in Resources */,
+				F2CF19BD1A634EF000AA50B0 /* LoadingScreen2208Loading.png in Resources */,
 				F2FD79F31A5E30BF00E9C123 /* FU5.wav in Resources */,
 				F2FD79FA1A5E30DD00E9C123 /* loadScreen.png in Resources */,
 				F2FD79F41A5E30BF00E9C123 /* FU6.wav in Resources */,
@@ -357,7 +365,7 @@
 				F2FD7A1D1A5E334D00E9C123 /* GameViewController.xib in Resources */,
 				F2FD79EB1A5E30AD00E9C123 /* burnout.mp3 in Resources */,
 				F2FD79F21A5E30BF00E9C123 /* FU4.wav in Resources */,
-				F2FD7A1F1A5E33F600E9C123 /* LaunchScreen.xib in Resources */,
+				F2CF19B71A632FB400AA50B0 /* LaunchScreen.xib in Resources */,
 				F2FD79F51A5E30BF00E9C123 /* FU7.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

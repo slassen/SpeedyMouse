@@ -36,10 +36,10 @@
 -(void) addGateToPosition:(CGPoint)position withRotation:(CGFloat)rotation {
     SKSpriteNode *gate;
     if (rotation > 0) {
-        gate = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"tirePileWest"] size:CGSizeMake(_tileSize / 2, _tileSize / 4)];
+        gate = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"Roadblock"] size:CGSizeMake(_tileSize / 2, _tileSize / 4)]; // west
     }
     else {
-        gate = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"tirePileEast"] size:CGSizeMake(_tileSize / 2, _tileSize / 4)];
+        gate = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"Roadblock"] size:CGSizeMake(_tileSize / 2, _tileSize / 4)]; // east
     }
     
 //    SKSpriteNode *gate = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"cone"] size:CGSizeMake(_tileSize / 2, _tileSize / 2)];
