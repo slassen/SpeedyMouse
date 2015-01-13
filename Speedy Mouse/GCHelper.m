@@ -107,16 +107,18 @@ static GCHelper *sharedHelper = nil;
     NSMutableArray *achievementNames = [NSMutableArray array];
     // Add achievements for cheese collected.
     if (scoreReporter.value >= 1000) [achievementNames addObject:@"com.slgames.collect1000"];
-    if (scoreReporter.value >= 500) [achievementNames addObject:@"com.slgames.collect500"];
+//    if (scoreReporter.value >= 500) [achievementNames addObject:@"com.slgames.collect500"];
     if (scoreReporter.value >= 300) [achievementNames addObject:@"com.slgames.collect300"];
-    if (scoreReporter.value >= 100) [achievementNames addObject:@"com.slgames.collect100"];
-    if (scoreReporter.value >= 50) [achievementNames addObject:@"com.slgames.collect50"];
-    if (scoreReporter.value >= 25) [achievementNames addObject:@"com.slgames.collect25"];
+//    if (scoreReporter.value >= 100) [achievementNames addObject:@"com.slgames.collect100"];
+//    if (scoreReporter.value >= 50) [achievementNames addObject:@"com.slgames.collect50"];
+//    if (scoreReporter.value >= 25) [achievementNames addObject:@"com.slgames.collect25"];
 
     // Add achievements for level.
     if ([SELPlayer player].currentLevel >=25) [achievementNames addObject:@"com.slgames.level25"];
     if ([SELPlayer player].currentLevel >=10) [achievementNames addObject:@"com.slgames.level10"];
+    if ([SELPlayer player].currentLevel >=15) [achievementNames addObject:@"com.slgames.level15"];
     if ([SELPlayer player].currentLevel >=5) [achievementNames addObject:@"com.slgames.level5"];
+    if ([SELPlayer player].currentLevel >=3) [achievementNames addObject:@"com.slgames.level3"];
     if ([SELPlayer player].currentLevel >=2) [achievementNames addObject:@"com.slgames.level2"];
     
     // Add achievement for max speed.

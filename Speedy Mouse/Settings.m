@@ -159,27 +159,27 @@
 
 +(void) restartBackgroundMusic {
     int level = [SELPlayer player].currentLevel;
-    if (level == 1) {
+    if (level == 1) { //0-25 1
         [[Settings FU3] setCurrentTime:0.0f];
         [[Settings FU3] play];
     }
     
-    else if (level == 2) {
+    else if (level == 3) {//55 2
         [[Settings FU4] setCurrentTime:0.0f];
         [[Settings FU4] play];
         [[Settings FU3] pause];
     }
-    else if (level == 4) {
+    else if (level == 5) { //88 4
         [[Settings FU5] setCurrentTime:0.0f];
         [[Settings FU5] play];
         [[Settings FU4] pause];
     }
-    else if (level == 6) {
+    else if (level == 7) { //160 6
         [[Settings FU6] setCurrentTime:0.0f];
         [[Settings FU6] play];
         [[Settings FU5] pause];
     }
-    else if (level == 7) {
+    else if (level == 9) { //200 7
         [[Settings FU7] setCurrentTime:0.0f];
         [[Settings FU7] play];
         [[Settings FU6] pause];

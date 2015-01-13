@@ -247,8 +247,8 @@
     self = [super init];
     if (self) {
         _tileSize = tileSize;
-        int yTiles = ([SELPlayer player].currentLevel + 11);
-        int xTiles = (([SELPlayer player].currentLevel / 10) * 2) + 6; //last # needs to be 6.
+        int yTiles = (([SELPlayer player].currentLevel / 5) * 2) + 8;//([SELPlayer player].currentLevel + 5);
+        int xTiles = (([SELPlayer player].currentLevel / 5) * 2) + 8; //last # needs to be 6.
         [self addBackgroundLayerWithImageNamed:@"asphalt512" ofSize:CGSizeMake(tileSize * xTiles, tileSize * yTiles)];
         [self addWallTiles];
         [self createMazePath];

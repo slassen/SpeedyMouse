@@ -167,7 +167,7 @@
         if (_cheeseCount >= _bgLayer.cheeseCount) {
             [SELPlayer player].stopped = YES;
             [SELPlayer player].physicsBody.resting = YES;
-            UIAlertView *av9 = [[UIAlertView alloc] initWithTitle:@"Speedy Mouse" message:@"You've completed the tutorial. Now go out and help Speedy get fat!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *av9 = [[UIAlertView alloc] initWithTitle:@"Speedy Mouse" message:@"You've completed the tutorial. You can enter this tutorial at any time by pressing the \"How to play\" button.\n\nNow go out and help Speedy get fat!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             av9.tag = 9;
             [av9 show];
         }

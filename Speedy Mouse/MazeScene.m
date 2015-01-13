@@ -270,7 +270,7 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
     // Unpause the game and pause the players physics body.
     [SELPlayer player].physicsBody.resting = YES;
     self.paused = NO;
-//    [self resetAchievements]; // to reset game center server stored achievements
+    [self resetAchievements]; // to reset game center server stored achievements
     // Create and load a label that displays a count down at start of level.
     CGFloat durationBetweenNumbers = 1.0f;
     
@@ -375,7 +375,7 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
     cheeseLabel.text = [NSString stringWithFormat:@"%i", [SELPlayer player].cheese];
     cheeseLabel.position = CGPointMake(cheeseImage.position.x - cheeseImage.frame.size.width / 2 - cheeseLabel.frame.size.width / 2, cheeseImage.position.y - (cheeseImage.frame.size.height /2));
     // Increase player speed if it hasn't reached maximum speed.
-    if ([SELPlayer player].playerSpeed < maxPlayerSpeed) [SELPlayer player].playerSpeed += 1;
+    if ([SELPlayer player].playerSpeed < maxPlayerSpeed && [SELPlayer player].cheese %2 ==0) [SELPlayer player].playerSpeed += 1;
     
     // Increase cheeseCollected count
     _cheeseCollected++;
@@ -412,6 +412,7 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
     else if (![contact.bodyB.node.name isEqualToString:@"mouse"]) object = (SKSpriteNode*)contact.bodyB.node;
     
     if ([object.name isEqualToString:@"wallTile"]) {
+//        return;
         
         if ([SELPlayer player].lives > 1) { // if player has lives
             [SELPlayer player].lives--;
@@ -489,10 +490,8 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
         [blackScreen runAction:fadeIn completion:^{
             [self runAction:[SKAction waitForDuration:1.0] completion:^{
                 SKTransition *transition = [SKTransition pushWithDirection:SKTransitionDirectionUp duration:0.5];
-                [blackScreen runAction:[SKAction fadeOutWithDuration:0.5] completion:^{
                     [self.view presentScene:_newScene transition:transition];
                     [Settings restartBackgroundMusic];
-                }];
             }];
         }];
     }
