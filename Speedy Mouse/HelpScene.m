@@ -60,6 +60,7 @@
 
 -(instancetype) initWithSize:(CGSize)size returnMaze:(MazeScene*)maze tutorial:(BOOL)tutorial {
     if (self = [super initWithSize:size]) {
+        [SELPlayer player].playerSpeed = 150.0f;
         _returnMaze = maze;
         self.physicsWorld.gravity = CGVectorMake(0, 0);
         self.physicsWorld.contactDelegate = self;
@@ -69,7 +70,7 @@
 }
 
 -(void)didMoveToView:(SKView *)view {
-    _bgLayer = [[SELRandomMaze alloc] initWithTileSize:(self.frame.size.width / 6) fromString:@"XXXXXXXX\nXCCCCCCX\nXCCCCCCX\nXCCCCCCX\nXCCCPCCX\nXCCCCCCX\nXCCCCCCX\nXXXXXXXX"];
+    _bgLayer = [[SELRandomMaze alloc] initWithTileSize:(self.frame.size.width / 6) fromString:@"XXXXXX\nXCCCCX\nXCCPCX\nXCCCCX\nXCCCCX\nXXXXXX"];
     mazeSize = _bgLayer.mazeSize; //So didSimulatePhysics can calculate size
     _starting = true;
     [self addChild:_bgLayer];
@@ -89,12 +90,12 @@
         [av2 show];
     }
     else if (alertView.tag == 2) {
-        UIAlertView *av3 = [[UIAlertView alloc] initWithTitle:@"Speedy Mouse" message:@"Each new level is larger and Speedy's kart speeds up with each cheese collected." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *av3 = [[UIAlertView alloc] initWithTitle:@"Speedy Mouse" message:@"Each new level is larger and Speedy's kart speeds up as you collect more cheese.." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         av3.tag = 3;
         [av3 show];
     }
     else if (alertView.tag == 3) {
-        UIAlertView *av4 = [[UIAlertView alloc] initWithTitle:@"Speedy Mouse" message:@"Speedy starts off with only one life, but he earns his first new life at 25 cheese, his second at 50, third at 100, and so on. The amount of cheese needed to earn a new life doubles each time." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *av4 = [[UIAlertView alloc] initWithTitle:@"Speedy Mouse" message:@"Speedy starts off with only one life, but he earns his first new life at 25 cheese, his second at 50, third at 100, and so on.\n\nThe amount of cheese needed to earn a new life doubles each time." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         av4.tag = 4;
         [av4 show];
     }
@@ -109,7 +110,7 @@
         [av6 show];
     }
     else if (alertView.tag == 6) {
-        UIAlertView *av7 = [[UIAlertView alloc] initWithTitle:@"Speedy Mouse" message:@"Now try moving around the maze. Collect all of the cheese in the tutorial to go back to the game." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *av7 = [[UIAlertView alloc] initWithTitle:@"Speedy Mouse" message:@"Collect all of the cheese in the tutorial to go back to the game.\n\nNow try moving around the maze." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         av7.tag = 7;
         [av7 show];
     }
@@ -229,6 +230,7 @@
         [[SELPlayer player] removeFromParent];
     }
     [SELPlayer player].currentLevel = 1;
+    [[SELPlayer player] resetLives];
     [SELPlayer player].stopped = YES;
     MazeScene *scene = [[MazeScene alloc] initWithSize:self.size];
     scene.newGame = true;

@@ -138,6 +138,7 @@ static inline CGFloat ScalarShortestAngleBetween(const CGFloat a, const CGFloat 
 -(void) resetLives {
     _lives = 3;
     _cheeseToLives = 25;
+    _playerSpeed = 100.0f;
 }
 
 -(void)updateWithTimeInterval:(NSTimeInterval)dt {

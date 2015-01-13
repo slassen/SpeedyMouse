@@ -50,6 +50,8 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
     
     SKSpriteNode *gameCenterNode;
     SKSpriteNode *helpCenterNode;
+    
+    CGPoint _lastCheesePosition;
 }
 
 -(void)update:(NSTimeInterval)currentTime {
@@ -148,7 +150,6 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
     _crashed = true;
     [SELPlayer player].physicsBody.contactTestBitMask = 0;
     [SELPlayer player].stopped = YES;
-    [SELPlayer player].playerSpeed = 100.0f;
     
     SKEmitterNode *crashEmitter = [self nodeWithFileNamed:@"CrashEmitter.sks"];
     crashEmitter.zPosition = -1;
@@ -273,34 +274,39 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
     // Create and load a label that displays a count down at start of level.
     CGFloat durationBetweenNumbers = 1.0f;
     
-    startLabel.fontSize = 72;
-    [startLabel runAction:[SKAction moveTo:CGPointMake(self.size.width /2, self.size.height - self.size.height /4) duration:0.25]];
-    startLabel.text =  @"READY";
+startLabel.fontSize = 72;
+    startLabel.text = [NSString stringWithFormat:@"Level: %i", [SELPlayer player].currentLevel];
+
     [startLabel runAction:[SKAction waitForDuration:durationBetweenNumbers] completion:^{
         
         // Set the default position of the game to how the player is holding the device now.
         [Settings setTiltPosition];
-        [startLabel runAction:[SKAction moveTo:CGPointMake(self.size.width /2, self.size.height + self.size.height /4) duration:2.0]];
-        startLabel.text = @"GO!";
+        [startLabel runAction:[SKAction moveTo:CGPointMake(self.size.width /2, self.size.height - self.size.height /4) duration:0.25]];
         
-//        _gameOver = NO;
-        
-        // Make the player start.
-        [Settings burnoutSoundEffect];
-        SKEmitterNode *burnoutEmitter = [self nodeWithFileNamed:@"BurnoutEmitter.sks"];
-        burnoutEmitter.zPosition = -1;
-        [[SELPlayer player] addChild:burnoutEmitter];
-        SKAction *waitAction = [SKAction waitForDuration:0.5];
-//        burnoutEmitter.position = [SELPlayer player].position;
-        [self runAction:waitAction completion:^{
-            [burnoutEmitter removeFromParent];
-        }];
-        [SELPlayer player].stopped = NO;
-        [startLabel runAction:[SKAction waitForDuration:0.25] completion:^{
-            SKAction *fade = [SKAction fadeOutWithDuration:0.0];
-            SKAction *blink = [SKAction sequence:@[fade, [SKAction waitForDuration:0.25], fade.reversedAction, [SKAction waitForDuration:0.25]]];
-            [startLabel runAction:[SKAction repeatAction:blink count:3] completion:^{
-                [startLabel removeFromParent];
+        startLabel.text =  @"READY";
+        [startLabel runAction:[SKAction waitForDuration:durationBetweenNumbers] completion:^{
+            [startLabel runAction:[SKAction moveTo:CGPointMake(self.size.width /2, self.size.height + self.size.height /4) duration:2.0]];
+            startLabel.text = @"GO!";
+            
+            //        _gameOver = NO;
+            
+            // Make the player start.
+            [Settings burnoutSoundEffect];
+            SKEmitterNode *burnoutEmitter = [self nodeWithFileNamed:@"BurnoutEmitter.sks"];
+            burnoutEmitter.zPosition = -1;
+            [[SELPlayer player] addChild:burnoutEmitter];
+            SKAction *waitAction = [SKAction waitForDuration:0.5];
+            //        burnoutEmitter.position = [SELPlayer player].position;
+            [self runAction:waitAction completion:^{
+                [burnoutEmitter removeFromParent];
+            }];
+            [SELPlayer player].stopped = NO;
+            [startLabel runAction:[SKAction waitForDuration:0.25] completion:^{
+                SKAction *fade = [SKAction fadeOutWithDuration:0.0];
+                SKAction *blink = [SKAction sequence:@[fade, [SKAction waitForDuration:0.25], fade.reversedAction, [SKAction waitForDuration:0.25]]];
+                [startLabel runAction:[SKAction repeatAction:blink count:3] completion:^{
+                    [startLabel removeFromParent];
+                }];
             }];
         }];
     }];
@@ -340,9 +346,10 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
         _canRestart = YES;
         startLabel = [SKLabelNode labelNodeWithFontNamed:@"Super Mario 256"];
         startLabel.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter;
-        startLabel.text = [NSString stringWithFormat:@"Level: %i", [SELPlayer player].currentLevel];
+        startLabel.text = @"Tap to start";
+                startLabel.fontSize = 48;
+//        startLabel.text = [NSString stringWithFormat:@"Level: %i", [SELPlayer player].currentLevel];
         startLabel.position = CGPointMake(self.size.width /2, self.size.height /2);
-        startLabel.fontSize = 72;
         startLabel.zPosition = LayerLevelTop;
         [self addChild:startLabel];
         [startLabel runAction:[SKAction repeatActionForever:[SKAction sequence:@[[SKAction fadeOutWithDuration:0.0], [SKAction waitForDuration:0.2], [SKAction fadeInWithDuration:0.0], [SKAction waitForDuration:1.0]]]]];
@@ -359,7 +366,8 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
 //    startLabel = [SKLabelNode labelNodeWithFontNamed:@"MisterVampire"];
 //    startLabel.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter;
     startLabel.position = CGPointMake(self.size.width /2, self.size.height /2);
-    startLabel.text = [NSString stringWithFormat:@"Level: %i", [SELPlayer player].currentLevel];
+    startLabel.text = @"Tap to start";
+            startLabel.fontSize = 48;
 //    startLabel.fontSize = 72;
 //    startLabel.zPosition = LayerLevelTop;
     [self addChild:startLabel];
@@ -368,6 +376,7 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
 }
 
 -(void) collectCheeseAtPoint:(CGPoint)point {
+    _lastCheesePosition = point;
     
     // Increase the score.
     [SELPlayer player].cheese++;
@@ -398,31 +407,8 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
     }
 }
 
--(void)findStartingPositionFromPoint:(CGPoint)playerPosition {
-    NSArray *nodes = [_bgLayer nodesAtPoint:playerPosition];
-
-    for (SKSpriteNode *node in nodes) {
-        if ([node.name isEqualToString:@"bgTile"]) { // find the bg tile.
-            if ([[_bgLayer nodeAtPoint:node.position].name isEqualToString:@"wallTile"]) { //is there a cone on this tile?
-                CGPoint rightPoint = CGPointMake(node.position.x + node.frame.size.width, node.position.y);
-                if ([[_bgLayer nodeAtPoint:rightPoint].name isEqualToString:@"wallTile"]) {
-                    CGPoint leftPoint = CGPointMake(node.position.x - node.frame.size.width, node.position.y);
-                    if ([[_bgLayer nodeAtPoint:rightPoint].name isEqualToString:@"wallTile"]) {
-                        NSLog(@"not to left or right");
-                        [self placeStartingPositionAtPoint:CGPointMake(node.position.x, node.position.y + node.frame.size.width)];
-                    }
-                    else [self placeStartingPositionAtPoint:leftPoint];
-                }
-                else [self placeStartingPositionAtPoint:rightPoint];
-            }
-            else [self placeStartingPositionAtPoint:node.position];
-        }
-    }
-}
-
--(void) placeStartingPositionAtPoint:(CGPoint)position {
-    _bgLayer.playerStartingPosition = position;
-    NSLog(@"wall tile not here");
+-(void) placeStartingPosition {
+    _bgLayer.playerStartingPosition = _lastCheesePosition;
 }
 
 -(void)didBeginContact:(SKPhysicsContact *)contact {
@@ -438,7 +424,7 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
     else if (![contact.bodyB.node.name isEqualToString:@"mouse"]) object = (SKSpriteNode*)contact.bodyB.node;
     
     if ([object.name isEqualToString:@"wallTile"]) {
-        [self findStartingPositionFromPoint:[SELPlayer player].position];
+        [self placeStartingPosition];
 //        return;
         
         if ([SELPlayer player].lives > 1) { // if player has lives
