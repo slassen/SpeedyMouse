@@ -30,5 +30,6 @@
 -(void)resetLives;
 
 +(instancetype)player;
+-(void)launchPlayerGradually;
 
 @end

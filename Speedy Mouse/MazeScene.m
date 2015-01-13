@@ -301,6 +301,7 @@ startLabel.fontSize = 72;
                 [burnoutEmitter removeFromParent];
             }];
             [SELPlayer player].stopped = NO;
+            [[SELPlayer player] launchPlayerGradually]; // added to launch player gradually
             [startLabel runAction:[SKAction waitForDuration:0.25] completion:^{
                 SKAction *fade = [SKAction fadeOutWithDuration:0.0];
                 SKAction *blink = [SKAction sequence:@[fade, [SKAction waitForDuration:0.25], fade.reversedAction, [SKAction waitForDuration:0.25]]];

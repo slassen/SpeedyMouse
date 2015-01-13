@@ -16,6 +16,7 @@ static const float tiltSensitivity = 0.15f;
 @interface SELPlayer() 
 
 @property (nonatomic) CGFloat tileSize;
+@property (nonatomic) CGFloat speedModifier;
 
 @end
 
@@ -60,6 +61,21 @@ static inline CGFloat ScalarShortestAngleBetween(const CGFloat a, const CGFloat 
 }
 
 // End Zombie Conga Methods
+
+-(void)launchPlayerGradually {
+    _speedModifier = 0;
+    float speedInterval = 1.0f / 12;
+    
+    SKAction *increaseSpeedAction = [SKAction sequence:@[[SKAction runBlock:^{
+        _speedModifier += speedInterval;
+    }], [SKAction waitForDuration:0.25f]]];
+    
+    SKAction *repeatIncrease = [SKAction repeatAction:increaseSpeedAction count:12];
+    
+    [self runAction:repeatIncrease completion:^{
+        _speedModifier = 1;
+    }];
+}
 
 -(void)changeRotationWithDT:(NSTimeInterval)dt {
     CGFloat newAngle = CGPointToAngle(CGPointMake(self.physicsBody.velocity.dx, self.physicsBody.velocity.dy));
@@ -132,6 +148,14 @@ static inline CGFloat ScalarShortestAngleBetween(const CGFloat a, const CGFloat 
     }
 //    if (_playerSpeed > 300.0f) _playerSpeed = 300.0f;
     float accelerationPerSecond = _playerSpeed;
+    
+    // modified to gradually increase speed
+    float accelerationPerSecondMod = accelerationPerSecond - 100;
+    accelerationPerSecondMod *= _speedModifier;
+    accelerationPerSecond = 100 + accelerationPerSecondMod;
+//    NSLog(@"speed %f speedMod = %f, accelPerS = %f", _playerSpeed, _speedModifier, accelerationPerSecond);
+    // end gradual speed modification
+    
     self.physicsBody.velocity = CGVectorMake(accel2D.x * accelerationPerSecond, accel2D.y * accelerationPerSecond);
 }
 
