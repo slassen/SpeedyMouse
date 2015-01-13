@@ -174,12 +174,12 @@
         [[Settings FU5] play];
         [[Settings FU4] pause];
     }
-    else if (level == 7) { //160 6
+    else if (level == 10) { //160 6
         [[Settings FU6] setCurrentTime:0.0f];
         [[Settings FU6] play];
         [[Settings FU5] pause];
     }
-    else if (level == 9) { //200 7
+    else if (level == 15) { //200 7
         [[Settings FU7] setCurrentTime:0.0f];
         [[Settings FU7] play];
         [[Settings FU6] pause];

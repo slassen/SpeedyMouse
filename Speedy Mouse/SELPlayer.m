@@ -136,7 +136,7 @@ static inline CGFloat ScalarShortestAngleBetween(const CGFloat a, const CGFloat 
 }
 
 -(void) resetLives {
-    _lives = 1;
+    _lives = 3;
     _cheeseToLives = 25;
 }
 

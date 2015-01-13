@@ -262,7 +262,6 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
     
     if (gameCenterNode.parent) [gameCenterNode removeFromParent];
     if (helpCenterNode.parent) [helpCenterNode removeFromParent];
-    NSLog(@"ok");
     if (!livesLabel.parent) [self addChild:livesLabel];
     if (!cheeseImage.parent) [self addChild:cheeseImage];
     if (!cheeseLabel.parent) [self addChild:cheeseLabel];
@@ -399,6 +398,33 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
     }
 }
 
+-(void)findStartingPositionFromPoint:(CGPoint)playerPosition {
+    NSArray *nodes = [_bgLayer nodesAtPoint:playerPosition];
+
+    for (SKSpriteNode *node in nodes) {
+        if ([node.name isEqualToString:@"bgTile"]) { // find the bg tile.
+            if ([[_bgLayer nodeAtPoint:node.position].name isEqualToString:@"wallTile"]) { //is there a cone on this tile?
+                CGPoint rightPoint = CGPointMake(node.position.x + node.frame.size.width, node.position.y);
+                if ([[_bgLayer nodeAtPoint:rightPoint].name isEqualToString:@"wallTile"]) {
+                    CGPoint leftPoint = CGPointMake(node.position.x - node.frame.size.width, node.position.y);
+                    if ([[_bgLayer nodeAtPoint:rightPoint].name isEqualToString:@"wallTile"]) {
+                        NSLog(@"not to left or right");
+                        [self placeStartingPositionAtPoint:CGPointMake(node.position.x, node.position.y + node.frame.size.width)];
+                    }
+                    else [self placeStartingPositionAtPoint:leftPoint];
+                }
+                else [self placeStartingPositionAtPoint:rightPoint];
+            }
+            else [self placeStartingPositionAtPoint:node.position];
+        }
+    }
+}
+
+-(void) placeStartingPositionAtPoint:(CGPoint)position {
+    _bgLayer.playerStartingPosition = position;
+    NSLog(@"wall tile not here");
+}
+
 -(void)didBeginContact:(SKPhysicsContact *)contact {
     if ([SELPlayer player].stopped) return; // To disable multiple calls when game is over.
     
@@ -412,6 +438,7 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
     else if (![contact.bodyB.node.name isEqualToString:@"mouse"]) object = (SKSpriteNode*)contact.bodyB.node;
     
     if ([object.name isEqualToString:@"wallTile"]) {
+        [self findStartingPositionFromPoint:[SELPlayer player].position];
 //        return;
         
         if ([SELPlayer player].lives > 1) { // if player has lives
