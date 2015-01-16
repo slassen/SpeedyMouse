@@ -15,7 +15,6 @@
 		F2FD79B71A5E303A00E9C123 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD79B61A5E303A00E9C123 /* AppDelegate.m */; };
 		F2FD79D31A5E303A00E9C123 /* Speedy_MouseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD79D21A5E303A00E9C123 /* Speedy_MouseTests.m */; };
 		F2FD79DF1A5E308600E9C123 /* libFlurry_5.4.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FD79DE1A5E308600E9C123 /* libFlurry_5.4.0.a */; };
-		F2FD79E41A5E308B00E9C123 /* libFlurryAds_5.4.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FD79E31A5E308B00E9C123 /* libFlurryAds_5.4.0.a */; };
 		F2FD79E81A5E30A600E9C123 /* crash.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F2FD79E61A5E30A600E9C123 /* crash.mp3 */; };
 		F2FD79E91A5E30A600E9C123 /* FU3.wav in Resources */ = {isa = PBXBuildFile; fileRef = F2FD79E71A5E30A600E9C123 /* FU3.wav */; };
 		F2FD79EB1A5E30AD00E9C123 /* burnout.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F2FD79EA1A5E30AD00E9C123 /* burnout.mp3 */; };
@@ -42,7 +41,6 @@
 		F2FD7A1D1A5E334D00E9C123 /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2FD7A1C1A5E334D00E9C123 /* GameViewController.xib */; };
 		F2FD7A211A5E34AD00E9C123 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FD7A201A5E34AD00E9C123 /* SystemConfiguration.framework */; };
 		F2FD7A271A5E362C00E9C123 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FD7A261A5E362C00E9C123 /* libz.dylib */; };
-		F2FD7A2A1A5E371D00E9C123 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FD7A291A5E371D00E9C123 /* AdSupport.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,9 +69,6 @@
 		F2FD79D21A5E303A00E9C123 /* Speedy_MouseTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Speedy_MouseTests.m; sourceTree = "<group>"; };
 		F2FD79DD1A5E308600E9C123 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
 		F2FD79DE1A5E308600E9C123 /* libFlurry_5.4.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_5.4.0.a; sourceTree = "<group>"; };
-		F2FD79E11A5E308B00E9C123 /* FlurryAdDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurryAdDelegate.h; sourceTree = "<group>"; };
-		F2FD79E21A5E308B00E9C123 /* FlurryAds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurryAds.h; sourceTree = "<group>"; };
-		F2FD79E31A5E308B00E9C123 /* libFlurryAds_5.4.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurryAds_5.4.0.a; sourceTree = "<group>"; };
 		F2FD79E61A5E30A600E9C123 /* crash.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = crash.mp3; sourceTree = "<group>"; };
 		F2FD79E71A5E30A600E9C123 /* FU3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = FU3.wav; sourceTree = "<group>"; };
 		F2FD79EA1A5E30AD00E9C123 /* burnout.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = burnout.mp3; sourceTree = "<group>"; };
@@ -108,7 +103,6 @@
 		F2FD7A201A5E34AD00E9C123 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		F2FD7A221A5E34D700E9C123 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		F2FD7A261A5E362C00E9C123 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		F2FD7A291A5E371D00E9C123 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,9 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2FD7A2A1A5E371D00E9C123 /* AdSupport.framework in Frameworks */,
 				F2FD7A211A5E34AD00E9C123 /* SystemConfiguration.framework in Frameworks */,
-				F2FD79E41A5E308B00E9C123 /* libFlurryAds_5.4.0.a in Frameworks */,
 				F2FD79DF1A5E308600E9C123 /* libFlurry_5.4.0.a in Frameworks */,
 				F2FD7A271A5E362C00E9C123 /* libz.dylib in Frameworks */,
 			);
@@ -137,13 +129,11 @@
 		F2FD79A51A5E303A00E9C123 = {
 			isa = PBXGroup;
 			children = (
-				F2FD7A291A5E371D00E9C123 /* AdSupport.framework */,
 				F2FD7A261A5E362C00E9C123 /* libz.dylib */,
 				F2FD7A221A5E34D700E9C123 /* Security.framework */,
 				F2FD7A201A5E34AD00E9C123 /* SystemConfiguration.framework */,
 				F2FD79F61A5E30C200E9C123 /* Art */,
 				F2FD79E51A5E309F00E9C123 /* Sounds */,
-				F2FD79E01A5E308B00E9C123 /* FlurryAds */,
 				F2FD79DC1A5E308600E9C123 /* Flurry */,
 				F2FD79B01A5E303A00E9C123 /* Speedy Mouse */,
 				F2FD79CF1A5E303A00E9C123 /* Speedy MouseTests */,
@@ -221,17 +211,6 @@
 				F2FD79DE1A5E308600E9C123 /* libFlurry_5.4.0.a */,
 			);
 			path = Flurry;
-			sourceTree = "<group>";
-		};
-		F2FD79E01A5E308B00E9C123 /* FlurryAds */ = {
-			isa = PBXGroup;
-			children = (
-				F2FD79E11A5E308B00E9C123 /* FlurryAdDelegate.h */,
-				F2FD79E21A5E308B00E9C123 /* FlurryAds.h */,
-				F2FD79E31A5E308B00E9C123 /* libFlurryAds_5.4.0.a */,
-			);
-			name = FlurryAds;
-			path = Flurry/FlurryAds;
 			sourceTree = "<group>";
 		};
 		F2FD79E51A5E309F00E9C123 /* Sounds */ = {

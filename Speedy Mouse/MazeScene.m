@@ -257,6 +257,8 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
         [self addChild:cheeseImage];
         [self addChild:cheeseLabel];
     }
+    
+    _lastCheesePosition = _bgLayer.playerStartingPosition;
 }
 
 -(void)startGame {

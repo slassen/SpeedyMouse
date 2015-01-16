@@ -60,7 +60,7 @@
 
 -(instancetype) initWithSize:(CGSize)size returnMaze:(MazeScene*)maze tutorial:(BOOL)tutorial {
     if (self = [super initWithSize:size]) {
-        [SELPlayer player].playerSpeed = 150.0f;
+        [SELPlayer player].playerSpeed = 200.0f;
         _returnMaze = maze;
         self.physicsWorld.gravity = CGVectorMake(0, 0);
         self.physicsWorld.contactDelegate = self;
@@ -209,6 +209,7 @@
         }];
         [SELPlayer player].stopped = NO;
         _starting = NO;
+        [[SELPlayer player] launchPlayerGradually];
         [startLabel runAction:[SKAction waitForDuration:0.25] completion:^{
             SKAction *fade = [SKAction fadeOutWithDuration:0.0];
             SKAction *blink = [SKAction sequence:@[fade, [SKAction waitForDuration:0.25], fade.reversedAction, [SKAction waitForDuration:0.25]]];

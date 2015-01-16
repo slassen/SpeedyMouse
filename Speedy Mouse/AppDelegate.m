@@ -11,7 +11,6 @@
 #import "Settings.h"
 #import "MazeScene.h"
 #import "SELRootController.h"
-#import "FlurryAds.h"
 #import "Flurry.h"
 
 @interface AppDelegate ()
@@ -32,7 +31,6 @@
     [Flurry startSession:@"JJDNBSFVBRSTJGH8NRXW"];
     [Flurry setSessionReportsOnCloseEnabled:YES];
     [Flurry setSessionReportsOnPauseEnabled:YES];
-    [FlurryAds initialize:root];
     return YES;
 }
 

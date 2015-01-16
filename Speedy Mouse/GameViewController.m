@@ -11,7 +11,6 @@
 #import "SELPlayer.h"
 #import "GCHelper.h"
 #import "Flurry.h"
-#import "FlurryAds.h"
 //#import <AdColony/AdColony.h>
 @import SpriteKit;
 
@@ -99,13 +98,13 @@
 }
 
 +(void)showAd {
-    if ([FlurryAds adReadyForSpace:@"INTERSTITIAL_MAIN_VIEW"]) {
+//    if ([FlurryAds adReadyForSpace:@"INTERSTITIAL_MAIN_VIEW"]) {
 //        [FlurryAds displayAdForSpace:@"INTERSTITIAL_MAIN_VIEW" onView:nil viewControllerForPresentation:self];
-    }
-    else {
-    // Fetch an ad (note: optimize ad // serving by fetching early)
+//    }
+//    else {
+//    // Fetch an ad (note: optimize ad // serving by fetching early)
 //    [FlurryAds fetchAdForSpace:@"INTERSTITIAL_MAIN_VIEW" frame:self.view size:FULLSCREEN];
-    }
+//    }
 }
 
 
