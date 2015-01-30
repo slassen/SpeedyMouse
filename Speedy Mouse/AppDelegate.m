@@ -29,9 +29,13 @@
     SELRootController *root = [[SELRootController alloc] init];
     self.window.rootViewController = root;
     [self.window makeKeyAndVisible];
+    
+    // Setup Flurry
 //    [Flurry startSession:@"JJDNBSFVBRSTJGH8NRXW"];
 //    [Flurry setSessionReportsOnCloseEnabled:YES];
 //    [Flurry setSessionReportsOnPauseEnabled:YES];
+    
+    // Setup Appirator
     [Appirater setAppId:@"936513414"];
     [Appirater setDaysUntilPrompt:7];
     [Appirater setUsesUntilPrompt:5];
@@ -42,9 +46,9 @@
     [Appirater  setCustomAlertCancelButtonTitle:@"I only care about myself."];
     [Appirater  setCustomAlertRateButtonTitle:@"Um, yeah! 5 stars!"];
     [Appirater  setCustomAlertRateLaterButtonTitle:@"I'll do it later... I swear!"];
-
     [Appirater setDebug:YES];
     [Appirater appLaunched:YES];
+    
     return YES;
 }
 

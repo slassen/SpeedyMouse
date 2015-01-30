@@ -11,9 +11,11 @@
 		F2CF19B71A632FB400AA50B0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2CF19B61A632FB400AA50B0 /* LaunchScreen.xib */; };
 		F2CF19B91A63300200AA50B0 /* LoadingScreen2208.png in Resources */ = {isa = PBXBuildFile; fileRef = F2CF19B81A63300200AA50B0 /* LoadingScreen2208.png */; };
 		F2CF19BD1A634EF000AA50B0 /* LoadingScreen2208Loading.png in Resources */ = {isa = PBXBuildFile; fileRef = F2CF19BC1A634EF000AA50B0 /* LoadingScreen2208Loading.png */; };
-		F2D20E2C1A7B3A0C008FCC24 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = F2D20E2A1A7B3A0C008FCC24 /* Appirater.m */; };
 		F2D20E2F1A7B3A3B008FCC24 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2D20E2E1A7B3A3B008FCC24 /* CFNetwork.framework */; };
 		F2D20E311A7B3A44008FCC24 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2D20E301A7B3A44008FCC24 /* StoreKit.framework */; };
+		F2D20E381A7B415E008FCC24 /* dsym_upload.sh in Resources */ = {isa = PBXBuildFile; fileRef = F2D20E361A7B415E008FCC24 /* dsym_upload.sh */; };
+		F2D20E391A7B415E008FCC24 /* libCrittercism_v5_0_7.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2D20E371A7B415E008FCC24 /* libCrittercism_v5_0_7.a */; };
+		F2D20E3D1A7B4174008FCC24 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = F2D20E3B1A7B4174008FCC24 /* Appirater.m */; };
 		F2FD79B41A5E303A00E9C123 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD79B31A5E303A00E9C123 /* main.m */; };
 		F2FD79B71A5E303A00E9C123 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD79B61A5E303A00E9C123 /* AppDelegate.m */; };
 		F2FD79D31A5E303A00E9C123 /* Speedy_MouseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD79D21A5E303A00E9C123 /* Speedy_MouseTests.m */; };
@@ -62,11 +64,16 @@
 		F2CF19B61A632FB400AA50B0 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		F2CF19B81A63300200AA50B0 /* LoadingScreen2208.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LoadingScreen2208.png; path = Images.xcassets/LaunchImage.launchimage/LoadingScreen2208.png; sourceTree = "<group>"; };
 		F2CF19BC1A634EF000AA50B0 /* LoadingScreen2208Loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LoadingScreen2208Loading.png; sourceTree = "<group>"; };
-		F2D20E291A7B3A0C008FCC24 /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Appirater.h; path = ../../Documents/appirater/Appirater.h; sourceTree = "<group>"; };
-		F2D20E2A1A7B3A0C008FCC24 /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Appirater.m; path = ../../Documents/appirater/Appirater.m; sourceTree = "<group>"; };
-		F2D20E2B1A7B3A0C008FCC24 /* AppiraterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppiraterDelegate.h; path = ../../Documents/appirater/AppiraterDelegate.h; sourceTree = "<group>"; };
 		F2D20E2E1A7B3A3B008FCC24 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		F2D20E301A7B3A44008FCC24 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		F2D20E331A7B415E008FCC24 /* CRFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRFilter.h; sourceTree = "<group>"; };
+		F2D20E341A7B415E008FCC24 /* Crittercism.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Crittercism.h; sourceTree = "<group>"; };
+		F2D20E351A7B415E008FCC24 /* CrittercismDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrittercismDelegate.h; sourceTree = "<group>"; };
+		F2D20E361A7B415E008FCC24 /* dsym_upload.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = dsym_upload.sh; sourceTree = "<group>"; };
+		F2D20E371A7B415E008FCC24 /* libCrittercism_v5_0_7.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCrittercism_v5_0_7.a; sourceTree = "<group>"; };
+		F2D20E3A1A7B4174008FCC24 /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
+		F2D20E3B1A7B4174008FCC24 /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
+		F2D20E3C1A7B4174008FCC24 /* AppiraterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppiraterDelegate.h; sourceTree = "<group>"; };
 		F2FD79AE1A5E303A00E9C123 /* Speedy Mouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Speedy Mouse.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2FD79B21A5E303A00E9C123 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2FD79B31A5E303A00E9C123 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -119,6 +126,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2D20E311A7B3A44008FCC24 /* StoreKit.framework in Frameworks */,
+				F2D20E391A7B415E008FCC24 /* libCrittercism_v5_0_7.a in Frameworks */,
 				F2D20E2F1A7B3A3B008FCC24 /* CFNetwork.framework in Frameworks */,
 				F2FD7A211A5E34AD00E9C123 /* SystemConfiguration.framework in Frameworks */,
 				F2FD79DF1A5E308600E9C123 /* libFlurry_5.4.0.a in Frameworks */,
@@ -139,11 +147,23 @@
 		F2D20E2D1A7B3A13008FCC24 /* Appirator */ = {
 			isa = PBXGroup;
 			children = (
-				F2D20E291A7B3A0C008FCC24 /* Appirater.h */,
-				F2D20E2A1A7B3A0C008FCC24 /* Appirater.m */,
-				F2D20E2B1A7B3A0C008FCC24 /* AppiraterDelegate.h */,
+				F2D20E3A1A7B4174008FCC24 /* Appirater.h */,
+				F2D20E3B1A7B4174008FCC24 /* Appirater.m */,
+				F2D20E3C1A7B4174008FCC24 /* AppiraterDelegate.h */,
 			);
 			name = Appirator;
+			sourceTree = "<group>";
+		};
+		F2D20E321A7B413D008FCC24 /* Crittercism */ = {
+			isa = PBXGroup;
+			children = (
+				F2D20E331A7B415E008FCC24 /* CRFilter.h */,
+				F2D20E341A7B415E008FCC24 /* Crittercism.h */,
+				F2D20E351A7B415E008FCC24 /* CrittercismDelegate.h */,
+				F2D20E361A7B415E008FCC24 /* dsym_upload.sh */,
+				F2D20E371A7B415E008FCC24 /* libCrittercism_v5_0_7.a */,
+			);
+			name = Crittercism;
 			sourceTree = "<group>";
 		};
 		F2FD79A51A5E303A00E9C123 = {
@@ -158,6 +178,7 @@
 				F2FD79E51A5E309F00E9C123 /* Sounds */,
 				F2FD79DC1A5E308600E9C123 /* Flurry */,
 				F2D20E2D1A7B3A13008FCC24 /* Appirator */,
+				F2D20E321A7B413D008FCC24 /* Crittercism */,
 				F2FD79B01A5E303A00E9C123 /* Speedy Mouse */,
 				F2FD79CF1A5E303A00E9C123 /* Speedy MouseTests */,
 				F2FD79AF1A5E303A00E9C123 /* Products */,
@@ -349,6 +370,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2D20E381A7B415E008FCC24 /* dsym_upload.sh in Resources */,
 				F2FD7A0B1A5E326300E9C123 /* MisterVampire.TTF in Resources */,
 				F2FD7A0C1A5E326300E9C123 /* SuperMario256.ttf in Resources */,
 				F2FD79F81A5E30D200E9C123 /* Art.atlas in Resources */,
@@ -387,7 +409,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2FD79B71A5E303A00E9C123 /* AppDelegate.m in Sources */,
-				F2D20E2C1A7B3A0C008FCC24 /* Appirater.m in Sources */,
+				F2D20E3D1A7B4174008FCC24 /* Appirater.m in Sources */,
 				F2FD7A041A5E318500E9C123 /* MazeScene.m in Sources */,
 				F2FD7A0A1A5E319300E9C123 /* Settings.m in Sources */,
 				F2FD7A151A5E32F800E9C123 /* SELRootController.m in Sources */,
@@ -511,6 +533,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flurry",
 					"$(PROJECT_DIR)/Flurry/FlurryAds",
+					"$(PROJECT_DIR)",
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -533,6 +556,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flurry",
 					"$(PROJECT_DIR)/Flurry/FlurryAds",
+					"$(PROJECT_DIR)",
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
