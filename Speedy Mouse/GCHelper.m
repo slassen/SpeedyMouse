@@ -122,8 +122,7 @@ static GCHelper *sharedHelper = nil;
     if ([SELPlayer player].currentLevel >=2) [achievementNames addObject:@"com.slgames.level2"];
     
     // Add achievement for max speed.
-    // Max speed = 300 and base speed = 200 and cheese collecting = +1 so at 200 cheese max speed is reached.
-    if (scoreReporter.value >= 200) [achievementNames addObject:@"com.slgames.maxSpeed"];
+    if (scoreReporter.value >= 400) [achievementNames addObject:@"com.slgames.maxSpeed"];
     
     // Add achievement for failing levels.
     if ([Settings settings].failCount >= 10) [achievementNames addObject:@"com.slgames.fail10"];

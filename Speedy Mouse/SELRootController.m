@@ -15,7 +15,8 @@
 @implementation SELRootController
 
 -(instancetype) init {
-    _gameViewController = [[GameViewController alloc] initWithNibName:@"GameViewController" bundle:nil];
+//    _gameViewController = [[GameViewController alloc] initWithNibName:@"GameViewController" bundle:nil];
+    _gameViewController = [GameViewController gameView];
     self = [super initWithRootViewController:_gameViewController];
     if (self) {
         self.navigationBarHidden = YES;

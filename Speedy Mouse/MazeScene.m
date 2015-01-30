@@ -57,6 +57,8 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
 
 -(void)update:(NSTimeInterval)currentTime {
     
+    NSLog(@"x: %f, y: %f, z: %f", [Settings motionManager].accelerometerData.acceleration.x, [Settings motionManager].accelerometerData.acceleration.y, [Settings motionManager].accelerometerData.acceleration.z);
+    
     // Smooth out jumpy movements by calulating update intervals.
     if (_lastUpdateTime) {
         _dt = currentTime - _lastUpdateTime;
@@ -94,6 +96,7 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    if (_inConfig) return;
     
     SKNode *node = [self nodeAtPoint:[[touches anyObject] locationInNode:self ]];
     if ([node.name isEqualToString:@"gameCenter"]) {
@@ -101,8 +104,9 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
         return;
     }
     else if ([node.name isEqualToString:@"helpCenter"]) {
-        HelpScene *help = [[HelpScene alloc] initWithSize:self.size returnMaze:self tutorial:true];
-        [self.view presentScene:help];
+        _inConfig = true;
+        [GameViewController gameView].configurationView.hidden = false;
+        [GameViewController gameView].maze = self;
         return;
     }
     
@@ -286,7 +290,7 @@ startLabel.fontSize = 72;
     [startLabel runAction:[SKAction waitForDuration:durationBetweenNumbers] completion:^{
         
         // Set the default position of the game to how the player is holding the device now.
-        [Settings setTiltPosition];
+//        [Settings setTiltPosition];
         [startLabel runAction:[SKAction moveTo:CGPointMake(self.size.width /2, self.size.height - self.size.height /4) duration:0.25]];
         
         startLabel.text =  @"READY";
@@ -330,6 +334,11 @@ startLabel.fontSize = 72;
 //    [self.view addGestureRecognizer:_swipeUp];
     [self removeAllActions];
     
+    if (![GCHelper sharedInstance].signedIn) {
+        // Show game center alert if not signed in.
+//        [[GameViewController gameView] gameCenterAlert];
+    }
+
     if (_newGame) {
         [Flurry logEvent:@"GameStarted" timed:true];
         if ([GKLocalPlayer localPlayer].isAuthenticated) {
@@ -348,9 +357,6 @@ startLabel.fontSize = 72;
         [startLabel runAction:[SKAction repeatActionForever:[SKAction sequence:@[[SKAction fadeOutWithDuration:0.0],[SKAction waitForDuration:0.2], [SKAction fadeInWithDuration:0.0], [SKAction waitForDuration:1.0]]]]];
     }
     else {
-        if (![GCHelper sharedInstance].signedIn) {
-            [[GameViewController gameView] gameCenterAlert];
-        }
         _canRestart = YES;
         startLabel = [SKLabelNode labelNodeWithFontNamed:@"Super Mario 256"];
         startLabel.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter;

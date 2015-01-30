@@ -16,6 +16,9 @@
 		F2D20E381A7B415E008FCC24 /* dsym_upload.sh in Resources */ = {isa = PBXBuildFile; fileRef = F2D20E361A7B415E008FCC24 /* dsym_upload.sh */; };
 		F2D20E391A7B415E008FCC24 /* libCrittercism_v5_0_7.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2D20E371A7B415E008FCC24 /* libCrittercism_v5_0_7.a */; };
 		F2D20E3D1A7B4174008FCC24 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = F2D20E3B1A7B4174008FCC24 /* Appirater.m */; };
+		F2D20E481A7B5D07008FCC24 /* bedtime.png in Resources */ = {isa = PBXBuildFile; fileRef = F2D20E451A7B5D07008FCC24 /* bedtime.png */; };
+		F2D20E491A7B5D07008FCC24 /* normal.png in Resources */ = {isa = PBXBuildFile; fileRef = F2D20E461A7B5D07008FCC24 /* normal.png */; };
+		F2D20E4A1A7B5D07008FCC24 /* topDown.png in Resources */ = {isa = PBXBuildFile; fileRef = F2D20E471A7B5D07008FCC24 /* topDown.png */; };
 		F2FD79B41A5E303A00E9C123 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD79B31A5E303A00E9C123 /* main.m */; };
 		F2FD79B71A5E303A00E9C123 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD79B61A5E303A00E9C123 /* AppDelegate.m */; };
 		F2FD79D31A5E303A00E9C123 /* Speedy_MouseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD79D21A5E303A00E9C123 /* Speedy_MouseTests.m */; };
@@ -74,6 +77,9 @@
 		F2D20E3A1A7B4174008FCC24 /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
 		F2D20E3B1A7B4174008FCC24 /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
 		F2D20E3C1A7B4174008FCC24 /* AppiraterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppiraterDelegate.h; sourceTree = "<group>"; };
+		F2D20E451A7B5D07008FCC24 /* bedtime.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bedtime.png; sourceTree = "<group>"; };
+		F2D20E461A7B5D07008FCC24 /* normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = normal.png; sourceTree = "<group>"; };
+		F2D20E471A7B5D07008FCC24 /* topDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topDown.png; sourceTree = "<group>"; };
 		F2FD79AE1A5E303A00E9C123 /* Speedy Mouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Speedy Mouse.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2FD79B21A5E303A00E9C123 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2FD79B31A5E303A00E9C123 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -275,6 +281,9 @@
 		F2FD79F61A5E30C200E9C123 /* Art */ = {
 			isa = PBXGroup;
 			children = (
+				F2D20E451A7B5D07008FCC24 /* bedtime.png */,
+				F2D20E461A7B5D07008FCC24 /* normal.png */,
+				F2D20E471A7B5D07008FCC24 /* topDown.png */,
 				F2CF19B81A63300200AA50B0 /* LoadingScreen2208.png */,
 				F2CF19BC1A634EF000AA50B0 /* LoadingScreen2208Loading.png */,
 				F2FD7A161A5E330000E9C123 /* spark.png */,
@@ -373,11 +382,13 @@
 				F2D20E381A7B415E008FCC24 /* dsym_upload.sh in Resources */,
 				F2FD7A0B1A5E326300E9C123 /* MisterVampire.TTF in Resources */,
 				F2FD7A0C1A5E326300E9C123 /* SuperMario256.ttf in Resources */,
+				F2D20E491A7B5D07008FCC24 /* normal.png in Resources */,
 				F2FD79F81A5E30D200E9C123 /* Art.atlas in Resources */,
 				F2FD7A171A5E330000E9C123 /* spark.png in Resources */,
 				F2FD79ED1A5E30B600E9C123 /* gameOver.mp3 in Resources */,
 				F2CF19B91A63300200AA50B0 /* LoadingScreen2208.png in Resources */,
 				F2CF19BD1A634EF000AA50B0 /* LoadingScreen2208Loading.png in Resources */,
+				F2D20E4A1A7B5D07008FCC24 /* topDown.png in Resources */,
 				F2FD79F31A5E30BF00E9C123 /* FU5.wav in Resources */,
 				F2FD79FA1A5E30DD00E9C123 /* loadScreen.png in Resources */,
 				F2FD79F41A5E30BF00E9C123 /* FU6.wav in Resources */,
@@ -390,6 +401,7 @@
 				F2FD79EB1A5E30AD00E9C123 /* burnout.mp3 in Resources */,
 				F2FD79F21A5E30BF00E9C123 /* FU4.wav in Resources */,
 				F2CF19B71A632FB400AA50B0 /* LaunchScreen.xib in Resources */,
+				F2D20E481A7B5D07008FCC24 /* bedtime.png in Resources */,
 				F2FD79F51A5E30BF00E9C123 /* FU7.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

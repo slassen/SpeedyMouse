@@ -11,6 +11,7 @@
 #import "SELPlayer.h"
 #import "GCHelper.h"
 #import "Flurry.h"
+#import "HelpScene.h"
 //#import <AdColony/AdColony.h>
 @import SpriteKit;
 
@@ -71,6 +72,53 @@
 //        [[[UIAlertView alloc] initWithTitle:@"Game Center Unavailable" message:@"You aren't connected to the internet or game center isn't signed in.\nYou are unable to earn achievements without Game Center." delegate:self cancelButtonTitle:@"I want trophies!" otherButtonTitles:@"Who Cares?", nil] show];
 //    }
 }
+- (IBAction)tiltNormalSelected:(id)sender {
+    NSLog(@"normal");
+    [Settings settings].ay = GLKVector3Make(0.63f, 0.0f, -0.92f);
+    [[Settings settings] saveSettings];
+}
+
+- (IBAction)tiltTopdownSelected:(id)sender {
+    NSLog(@"top down");
+    [Settings settings].ay = GLKVector3Make(0.3f, 0.0f, -0.97f);
+    [[Settings settings] saveSettings];
+}
+
+- (IBAction)tiltBedtimeSelected:(id)sender {
+    NSLog(@"bedtime");
+//    [Settings settings].ay = GLKVector3Make(0.63f, 0.0f, 0.76f);
+    [Settings settings].ay = GLKVector3Make(0.92f, 0.0f, 0.36f);
+    [[Settings settings] saveSettings];
+}
+
+- (IBAction)configurationDoneSelected:(id)sender {
+    _configurationView.hidden = true;
+    _maze.inConfig = false;
+    [Settings settings].tiltSensitivity = 0.45f - _tiltSensitivity.value;
+    [[Settings settings] saveSettings];
+}
+
+- (IBAction)tutorialButtonSelected:(id)sender {
+    _configurationView.hidden = true;
+    _maze.inConfig = false;
+    
+    SKView *skView = (SKView*)self.view;
+    // Create and configure the maze scene.
+    CGSize sceneSize = skView.bounds.size;
+    
+    // On iPhone/iPod touch we want to see a similar amount of the scene as on iPad.
+    // So, we set the size of the scene to be double the size of the view, which is
+    // the whole screen, 3.5- or 4- inch. This effectively scales the scene to 50%.
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        sceneSize.height /= 2;
+        sceneSize.width /= 2;
+    }
+    
+    skView.ignoresSiblingOrder = YES;
+    HelpScene *help = [[HelpScene alloc] initWithSize:sceneSize returnMaze:nil tutorial:true];
+    
+    [skView presentScene:help];
+}
 
 -(void) gameCenterAlert {
     [[[UIAlertView alloc] initWithTitle:@"Game Center Unavailable" message:@"You aren't connected to the internet or game center isn't signed in.\n\nYou are unable to earn achievements without Game Center." delegate:self cancelButtonTitle:@"I want trophies!" otherButtonTitles:@"Who Cares?", nil] show];
@@ -83,6 +131,10 @@
 }
 
 -(void)viewDidLoad {
+    // Curve configuration view
+    _configurationView.layer.cornerRadius = 15;
+    _configurationView.layer.masksToBounds = YES;
+    
     // Setup Crittercism
 //    [Crittercism enableWithAppID:@"yourRegisteredOnCrittercismAppId" andDelegate:self];
     

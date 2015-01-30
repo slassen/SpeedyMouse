@@ -13,14 +13,18 @@
 #import "Crittercism.h"
 @import GameKit;
 
-@class MazeScene, SELLoadScene;
+@class MazeScene;
 
 @interface GameViewController : UIViewController <GKGameCenterControllerDelegate, UIAlertViewDelegate, CrittercismDelegate>
 
-@property (nonatomic) SELLoadScene *maze;
+@property (nonatomic) MazeScene *maze;
 @property (nonatomic) NSTimer *gameCenterTimer;
 @property (nonatomic) IBOutlet UIView *loaderView;
 @property (nonatomic) IBOutlet UIActivityIndicatorView *loaderIndicator;
+
+@property (weak, nonatomic) IBOutlet UIView *configurationView;
+@property (weak, nonatomic) IBOutlet UISlider *tiltSensitivity;
+
 
 +(GameViewController*) gameView;
 -(void) gameCenterAlert;

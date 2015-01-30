@@ -23,18 +23,20 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 //     Override point for customization after application launch.
-    [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
-    [[GCHelper sharedInstance] authenticateLocalUser];
+
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     SELRootController *root = [[SELRootController alloc] init];
     self.window.rootViewController = root;
     [self.window makeKeyAndVisible];
     
+    [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
+    [[GCHelper sharedInstance] authenticateLocalUser];
+    
     // Setup Flurry
 //    [Flurry startSession:@"JJDNBSFVBRSTJGH8NRXW"];
 //    [Flurry setSessionReportsOnCloseEnabled:YES];
 //    [Flurry setSessionReportsOnPauseEnabled:YES];
-    
+
     // Setup Appirator
     [Appirater setAppId:@"936513414"];
     [Appirater setDaysUntilPrompt:7];
@@ -46,7 +48,7 @@
     [Appirater  setCustomAlertCancelButtonTitle:@"I only care about myself."];
     [Appirater  setCustomAlertRateButtonTitle:@"Um, yeah! 5 stars!"];
     [Appirater  setCustomAlertRateLaterButtonTitle:@"I'll do it later... I swear!"];
-    [Appirater setDebug:YES];
+//    [Appirater setDebug:YES];
     [Appirater appLaunched:YES];
     
     return YES;

@@ -14,6 +14,7 @@
 @interface Settings : NSObject <NSCoding>
 
 @property (nonatomic) GLKVector3 ay;
+@property (nonatomic) float tiltSensitivity;
 @property (nonatomic) BOOL soundOff;
 @property (nonatomic) BOOL playerHasPlayedTutorial;
 @property (nonatomic) int failCount;

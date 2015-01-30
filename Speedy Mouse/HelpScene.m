@@ -193,7 +193,7 @@
     [startLabel runAction:[SKAction waitForDuration:durationBetweenNumbers] completion:^{
         
         // Set the default position of the game to how the player is holding the device now.
-        [Settings setTiltPosition];
+//        [Settings setTiltPosition];
         
         startLabel.text = @"GO!";
         

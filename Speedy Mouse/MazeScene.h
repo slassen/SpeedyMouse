@@ -35,6 +35,7 @@ enum LayerLevel {
 @property (nonatomic) BOOL newGame;
 @property (nonatomic) BOOL startAutomatically;
 @property (nonatomic) BOOL continuing;
+@property (nonatomic) BOOL inConfig;
 @property (nonatomic) int cheeseCollected;
 
 -(void)setPlayerPosition:(CGPoint)position;

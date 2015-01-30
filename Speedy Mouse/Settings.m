@@ -16,6 +16,7 @@
     self = [super init];
     if (self) {
         _ay = GLKVector3Make(0.63f, 0.0f, -0.92f);
+        _tiltSensitivity = .15; // .3 on settings menu
         _savedLevelMaps = [NSMutableArray array];
     }
     return self;
@@ -24,6 +25,7 @@
 -(instancetype) initWithCoder:(NSCoder *)aDecoder {
     self = [super init];
     if (self) {
+        _tiltSensitivity = [aDecoder decodeFloatForKey:@"tiltSensitivity"];
         _ay = GLKVector3Make([aDecoder decodeFloatForKey:@"ay1"], [aDecoder decodeFloatForKey:@"ay2"], [aDecoder decodeFloatForKey:@"ay3"]);
         _soundOff = [aDecoder decodeBoolForKey:@"soundOff"];
         _playerHasPlayedTutorial = [aDecoder decodeBoolForKey:@"pPlayTutorial"];
@@ -34,6 +36,7 @@
 }
 
 -(void) encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeFloat:_tiltSensitivity forKey:@"tiltSensitivity"];
     [aCoder encodeFloat:_ay.v[0] forKey:@"ay1"];
     [aCoder encodeFloat:_ay.v[1] forKey:@"ay2"];
     [aCoder encodeFloat:_ay.v[2] forKey:@"ay3"];
@@ -264,6 +267,9 @@
     [Settings settings].ay = GLKVector3Make(0.63f, 0.0f, -0.92f);
     [[Settings settings] saveSettings];
 }
+
+
+
 
 
 @end

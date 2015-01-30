@@ -11,7 +11,7 @@
 @import CoreMotion;
 
 static const float ZOMBIE_ROTATE_RADIANS_PER_SECOND = 4 * M_PI;
-static const float tiltSensitivity = 0.15f;
+//static const float tiltSensitivity = 0.45f; // Range from 0.05 to 0.45 ~ 0.4 total range
 
 @interface SELPlayer() 
 
@@ -96,7 +96,7 @@ static inline CGFloat ScalarShortestAngleBetween(const CGFloat a, const CGFloat 
     }
     
     static GLKVector3 ax, ay, az;
-    ay = GLKVector3Make(0.63f, 0.0f, -0.92f);//[Settings settings].ay;
+    ay = [Settings settings].ay; //GLKVector3Make(0.63f, 0.0f, -0.92f);
     az = GLKVector3Make(0.0f, 1.0f, 0.0f);
     ax = GLKVector3Normalize(GLKVector3CrossProduct(az, ay));
     
@@ -105,12 +105,13 @@ static inline CGFloat ScalarShortestAngleBetween(const CGFloat a, const CGFloat 
     accel2D.y = GLKVector3DotProduct(raw, ax);
     accel2D = CGPointNormalize(accel2D);
     
-    float steerDeadZone = tiltSensitivity;
+    float steerDeadZone = [Settings settings].tiltSensitivity; //tiltSensitivity;
     if (fabsf(accel2D.x) < steerDeadZone) accel2D.x = 0;
     if (fabsf(accel2D.y) < steerDeadZone) accel2D.y = 0;
     if (accel2D.x == 0 && accel2D.y == 0) {
         return;
     }
+    if (ay.z == 0.76f) accel2D.x = -accel2D.x;
     //    if (_playerSpeed > 300.0f) _playerSpeed = 300.0f;
     float accelerationPerSecond = _playerSpeed;
     CGFloat newAngle = CGPointToAngle(CGPointMake(accel2D.x * accelerationPerSecond, accel2D.y * accelerationPerSecond));
@@ -131,7 +132,7 @@ static inline CGFloat ScalarShortestAngleBetween(const CGFloat a, const CGFloat 
     }
     
     static GLKVector3 ax, ay, az;
-    ay = GLKVector3Make(0.63f, 0.0f, -0.92f);//[Settings settings].ay;
+    ay = [Settings settings].ay; //GLKVector3Make(0.63f, 0.0f, -0.92f);
     az = GLKVector3Make(0.0f, 1.0f, 0.0f);
     ax = GLKVector3Normalize(GLKVector3CrossProduct(az, ay));
     
@@ -140,12 +141,13 @@ static inline CGFloat ScalarShortestAngleBetween(const CGFloat a, const CGFloat 
     accel2D.y = GLKVector3DotProduct(raw, ax);
     accel2D = CGPointNormalize(accel2D);
     
-    float steerDeadZone = tiltSensitivity;
+    float steerDeadZone = [Settings settings].tiltSensitivity; //tiltSensitivity;
     if (fabsf(accel2D.x) < steerDeadZone) accel2D.x = 0;
     if (fabsf(accel2D.y) < steerDeadZone) accel2D.y = 0;
     if (accel2D.x == 0 && accel2D.y == 0) {
         return;
     }
+    if (ay.z == 0.76f) accel2D.x = -accel2D.x;
 //    if (_playerSpeed > 300.0f) _playerSpeed = 300.0f;
     float accelerationPerSecond = _playerSpeed;
     
@@ -155,6 +157,9 @@ static inline CGFloat ScalarShortestAngleBetween(const CGFloat a, const CGFloat 
     accelerationPerSecond = 100 + accelerationPerSecondMod;
 //    NSLog(@"speed %f speedMod = %f, accelPerS = %f", _playerSpeed, _speedModifier, accelerationPerSecond);
     // end gradual speed modification
+//    if ([Settings settings].ay.z == 0.76f) {
+//        accel2D.x = -accel2D.x;
+//    }
     
     self.physicsBody.velocity = CGVectorMake(accel2D.x * accelerationPerSecond, accel2D.y * accelerationPerSecond);
 }
