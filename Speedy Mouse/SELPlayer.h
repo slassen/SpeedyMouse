@@ -22,7 +22,7 @@
 @property (nonatomic) int lives;
 @property (nonatomic) int cheeseToLives;
 
--(void)updateWithTimeInterval:(NSTimeInterval)dt;//regenerate life time (non-paused time)
+-(void)updateWithTimeInterval:(NSTimeInterval)dt;
 
 -(void)resetLives;
 
