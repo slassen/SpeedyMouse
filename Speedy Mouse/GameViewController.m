@@ -84,8 +84,7 @@
 
 -(void)viewDidLoad {
     // Setup Crittercism
-    [Crittercism enableWithAppID:@"4ce2d43766d78766a1000013" andDelegate:self];
-    
+//    [Crittercism enableWithAppID:@"yourRegisteredOnCrittercismAppId" andDelegate:self];
     
     [_loaderIndicator startAnimating];
     
