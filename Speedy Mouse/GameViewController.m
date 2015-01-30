@@ -142,6 +142,7 @@
     // Curve configuration view
     _configurationView.layer.cornerRadius = 15;
     _configurationView.layer.masksToBounds = YES;
+    [_tiltSensitivity setValue:0.45f - [Settings settings].tiltSensitivity];
     
     // Setup Crittercism
 //    [Crittercism enableWithAppID:@"yourRegisteredOnCrittercismAppId" andDelegate:self];
