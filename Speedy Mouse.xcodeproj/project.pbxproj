@@ -219,10 +219,10 @@
 				F24BFC981A60C26700AB4A59 /* HelpScene.h */,
 				F24BFC991A60C26700AB4A59 /* HelpScene.m */,
 				F2FD7A051A5E319300E9C123 /* GCHelper.h */,
-				F2FD7A061A5E319300E9C123 /* GCHelper.m */,
 				F2FD7A071A5E319300E9C123 /* Settings.h */,
 				F2FD7A081A5E319300E9C123 /* Settings.m */,
 				F2CF19B61A632FB400AA50B0 /* LaunchScreen.xib */,
+				F2FD7A061A5E319300E9C123 /* GCHelper.m */,
 				F2FD79B11A5E303A00E9C123 /* Supporting Files */,
 			);
 			path = "Speedy Mouse";
@@ -285,13 +285,13 @@
 				F2D20E461A7B5D07008FCC24 /* normal.png */,
 				F2D20E471A7B5D07008FCC24 /* topDown.png */,
 				F2CF19B81A63300200AA50B0 /* LoadingScreen2208.png */,
+				F2FD79FC1A5E30EC00E9C123 /* SuperMario256.ttf */,
 				F2CF19BC1A634EF000AA50B0 /* LoadingScreen2208Loading.png */,
 				F2FD7A161A5E330000E9C123 /* spark.png */,
 				F2FD7A181A5E331200E9C123 /* CrashEmitter.sks */,
 				F2FD7A1A1A5E331D00E9C123 /* BurnoutEmitter.sks */,
 				F2FD79FD1A5E30F700E9C123 /* Images.xcassets */,
 				F2FD79FB1A5E30EC00E9C123 /* MisterVampire.TTF */,
-				F2FD79FC1A5E30EC00E9C123 /* SuperMario256.ttf */,
 				F2FD79F91A5E30DD00E9C123 /* loadScreen.png */,
 				F2FD79F71A5E30D200E9C123 /* Art.atlas */,
 			);
