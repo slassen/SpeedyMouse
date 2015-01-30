@@ -13,6 +13,7 @@
 #import "MazeScene.h"
 #import "SELRootController.h"
 #import "HelpScene.h"
+#import "Flurry.h"
 
 #pragma mark Maze Scene
 
@@ -119,6 +120,7 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
         newScene.scaleMode = SKSceneScaleModeAspectFill;
         SKTransition *transition = [SKTransition pushWithDirection:SKTransitionDirectionUp duration:0.5];
         [self.view presentScene:newScene transition:transition];
+        [Flurry logEvent:@"GameStarted" timed:true];
     }
     if (_canRestart) {
         [startLabel removeAllActions];
@@ -145,6 +147,8 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
 }
 
 -(void)gameOver {
+    [Flurry endTimedEvent:@"GameStarted" withParameters:nil];
+
     [[SELPlayer player] resetLives];
 //    _gameOver = YES;
     _crashed = true;
@@ -272,7 +276,7 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
     // Unpause the game and pause the players physics body.
     [SELPlayer player].physicsBody.resting = YES;
     self.paused = NO;
-    [self resetAchievements]; // to reset game center server stored achievements
+//    [self resetAchievements]; // to reset game center server stored achievements
     // Create and load a label that displays a count down at start of level.
     CGFloat durationBetweenNumbers = 1.0f;
     
@@ -327,6 +331,7 @@ startLabel.fontSize = 72;
     [self removeAllActions];
     
     if (_newGame) {
+        [Flurry logEvent:@"GameStarted" timed:true];
         if ([GKLocalPlayer localPlayer].isAuthenticated) {
             if (!gameCenterNode.parent) [self addChild:gameCenterNode];
         }

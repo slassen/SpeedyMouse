@@ -64,6 +64,7 @@
         _loaderView.hidden = true;
         [_loaderIndicator stopAnimating];
         _loaderIndicator.hidden = true;
+        [Flurry logEvent:@"AppLoaded" timed:true];
     }
     
 //    if (![GCHelper sharedInstance].signedIn) {
