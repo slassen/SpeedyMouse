@@ -66,13 +66,10 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
     _lastUpdateTime = currentTime;
     
     // Move the player.
-    if (!_gameOver && [SELPlayer player].stopped && !_crashed) {
-        [[SELPlayer player] changeStoppedRotationWithDT:_dt];
-    }
-    else {
+    if ((!_gameOver && [SELPlayer player].stopped && !_crashed) || (![SELPlayer player].stopped)) {
         [[SELPlayer player] updateWithTimeInterval:_dt];
     }
-        
+    
     // Make the cones jump.
     if (currentTime >= _lastJump + jumpInterval && !_paused) {
         _lastJump = currentTime;
@@ -443,6 +440,7 @@ startLabel.fontSize = 72;
     else if (![contact.bodyB.node.name isEqualToString:@"mouse"]) object = (SKSpriteNode*)contact.bodyB.node;
     
     if ([object.name isEqualToString:@"wallTile"]) {
+        [SELPlayer player].stopped = true;
         [self placeStartingPosition];
 //        return;
         

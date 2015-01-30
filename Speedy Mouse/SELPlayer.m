@@ -17,6 +17,7 @@ static const float ZOMBIE_ROTATE_RADIANS_PER_SECOND = 4 * M_PI;
 
 @property (nonatomic) CGFloat tileSize;
 @property (nonatomic) CGFloat speedModifier;
+@property (nonatomic) CGPoint accel2D;
 
 @end
 
@@ -51,17 +52,6 @@ static inline CGFloat ScalarShortestAngleBetween(const CGFloat a, const CGFloat 
     return angle;
 }
 
--(void)addActiveTime:(NSTimeInterval)time {
-    self.timeActive += time;
-    if (self.lives < 3 && self.timeActive >= self.lifeRegenerationInterval) {
-        self.lives++;
-        self.timeActive = 0;
-//        label.text = [label.text stringByAppendingString:@"❤"];
-    }
-}
-
-// End Zombie Conga Methods
-
 -(void)launchPlayerGradually {
     _speedModifier = 0;
     float speedInterval = 1.0f / 12;
@@ -77,18 +67,7 @@ static inline CGFloat ScalarShortestAngleBetween(const CGFloat a, const CGFloat 
     }];
 }
 
--(void)changeRotationWithDT:(NSTimeInterval)dt {
-    CGFloat newAngle = CGPointToAngle(CGPointMake(self.physicsBody.velocity.dx, self.physicsBody.velocity.dy));
-    CGFloat shortest = ScalarShortestAngleBetween(self.zRotation, newAngle);
-    CGFloat amtToRotateVar = ZOMBIE_ROTATE_RADIANS_PER_SECOND;
-    if (_playerSpeed >= 200 && _playerSpeed < 250) amtToRotateVar = 6 * M_PI;
-    else if (_playerSpeed >= 250) amtToRotateVar = 8 * M_PI;
-    CGFloat amtToRotate = amtToRotateVar * dt;
-    if (fabsf(shortest) < amtToRotate) self.zRotation += shortest;
-    else self.zRotation += (amtToRotate * ScalarSign(shortest));
-}
-
--(void)changeStoppedRotationWithDT:(NSTimeInterval)dt {
+-(void)parseAccelerometerData {
     // Move mouse
     GLKVector3 raw = GLKVector3Make([Settings motionManager].accelerometerData.acceleration.x, [Settings motionManager].accelerometerData.acceleration.y, [Settings motionManager].accelerometerData.acceleration.z);
     if (GLKVector3AllEqualToScalar(raw, 0)) {
@@ -111,10 +90,14 @@ static inline CGFloat ScalarShortestAngleBetween(const CGFloat a, const CGFloat 
     if (accel2D.x == 0 && accel2D.y == 0) {
         return;
     }
+    _accel2D = CGPointMake(accel2D.x, accel2D.y);
+}
 
-    //    if (_playerSpeed > 300.0f) _playerSpeed = 300.0f;
+-(void)changeStoppedRotationWithDT:(NSTimeInterval)dt {
+    [self parseAccelerometerData];
+    
     float accelerationPerSecond = _playerSpeed;
-    CGFloat newAngle = CGPointToAngle(CGPointMake(accel2D.x * accelerationPerSecond, accel2D.y * accelerationPerSecond));
+    CGFloat newAngle = CGPointToAngle(CGPointMake(_accel2D.x * accelerationPerSecond, _accel2D.y * accelerationPerSecond));
     CGFloat shortest = ScalarShortestAngleBetween(self.zRotation, newAngle);
     CGFloat amtToRotateVar = ZOMBIE_ROTATE_RADIANS_PER_SECOND;
     if (_playerSpeed >= 200 && _playerSpeed < 250) amtToRotateVar = 6 * M_PI;
@@ -125,43 +108,27 @@ static inline CGFloat ScalarShortestAngleBetween(const CGFloat a, const CGFloat 
 }
 
 -(void)moveWithDT:(NSTimeInterval)dt {
-    // Move mouse
-    GLKVector3 raw = GLKVector3Make([Settings motionManager].accelerometerData.acceleration.x, [Settings motionManager].accelerometerData.acceleration.y, [Settings motionManager].accelerometerData.acceleration.z);
-    if (GLKVector3AllEqualToScalar(raw, 0)) {
-        return;
-    }
-    
-    static GLKVector3 ax, ay, az;
-    ay = [Settings settings].ay; //GLKVector3Make(0.63f, 0.0f, -0.92f);
-    az = GLKVector3Make(0.0f, 1.0f, 0.0f);
-    ax = GLKVector3Normalize(GLKVector3CrossProduct(az, ay));
-    
-    CGPoint accel2D = CGPointZero;
-    accel2D.x = GLKVector3DotProduct(raw, az);
-    accel2D.y = GLKVector3DotProduct(raw, ax);
-    accel2D = CGPointNormalize(accel2D);
-    
-    float steerDeadZone = [Settings settings].tiltSensitivity; //tiltSensitivity;
-    if (fabsf(accel2D.x) < steerDeadZone) accel2D.x = 0;
-    if (fabsf(accel2D.y) < steerDeadZone) accel2D.y = 0;
-    if (accel2D.x == 0 && accel2D.y == 0) {
-        return;
-    }
+    [self parseAccelerometerData];
 
-//    if (_playerSpeed > 300.0f) _playerSpeed = 300.0f;
     float accelerationPerSecond = _playerSpeed;
     
     // modified to gradually increase speed
     float accelerationPerSecondMod = accelerationPerSecond - 100;
     accelerationPerSecondMod *= _speedModifier;
     accelerationPerSecond = 100 + accelerationPerSecondMod;
-//    NSLog(@"speed %f speedMod = %f, accelPerS = %f", _playerSpeed, _speedModifier, accelerationPerSecond);
-    // end gradual speed modification
-//    if ([Settings settings].ay.z == 0.76f) {
-//        accel2D.x = -accel2D.x;
-//    }
     
-    self.physicsBody.velocity = CGVectorMake(accel2D.x * accelerationPerSecond, accel2D.y * accelerationPerSecond);
+    self.physicsBody.velocity = CGVectorMake(_accel2D.x * accelerationPerSecond, _accel2D.y * accelerationPerSecond);
+}
+
+-(void)changeRotationWithDT:(NSTimeInterval)dt {
+    CGFloat newAngle = CGPointToAngle(CGPointMake(self.physicsBody.velocity.dx, self.physicsBody.velocity.dy));
+    CGFloat shortest = ScalarShortestAngleBetween(self.zRotation, newAngle);
+    CGFloat amtToRotateVar = ZOMBIE_ROTATE_RADIANS_PER_SECOND;
+    if (_playerSpeed >= 200 && _playerSpeed < 250) amtToRotateVar = 6 * M_PI;
+    else if (_playerSpeed >= 250) amtToRotateVar = 8 * M_PI;
+    CGFloat amtToRotate = amtToRotateVar * dt;
+    if (fabsf(shortest) < amtToRotate) self.zRotation += shortest;
+    else self.zRotation += (amtToRotate * ScalarSign(shortest));
 }
 
 -(void) resetLives {
@@ -175,6 +142,9 @@ static inline CGFloat ScalarShortestAngleBetween(const CGFloat a, const CGFloat 
     if (!_stopped) {
         [self moveWithDT:dt];
         [self changeRotationWithDT:dt];
+    }
+    else {
+        [self changeStoppedRotationWithDT:dt];
     }
 }
 

@@ -23,10 +23,7 @@
 @property (nonatomic) int cheeseToLives;
 
 -(void)updateWithTimeInterval:(NSTimeInterval)dt;//regenerate life time (non-paused time)
--(void)changeStoppedRotationWithDT:(NSTimeInterval)dt;
--(void)addActiveTime:(NSTimeInterval)time;
-@property (nonatomic) NSTimeInterval timeActive;
-@property (nonatomic) float lifeRegenerationInterval;
+
 -(void)resetLives;
 
 +(instancetype)player;

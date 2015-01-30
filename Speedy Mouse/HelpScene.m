@@ -33,10 +33,7 @@
     _lastUpdateTime = currentTime;
     
     // Move the player.
-    if (_starting && [SELPlayer player].stopped) {
-        [[SELPlayer player] changeStoppedRotationWithDT:_dt];
-    }
-    else if (![SELPlayer player].stopped) {
+    if ((![SELPlayer player].stopped) || (_starting && [SELPlayer player].stopped)) {
         [[SELPlayer player] updateWithTimeInterval:_dt];
     }
 }
