@@ -24,6 +24,8 @@
 
 @property (weak, nonatomic) IBOutlet UIView *configurationView;
 @property (weak, nonatomic) IBOutlet UISlider *tiltSensitivity;
+- (IBAction)tutorialButtonSelected:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *tutorialButton;
 
 
 +(GameViewController*) gameView;

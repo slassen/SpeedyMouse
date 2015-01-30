@@ -39,7 +39,6 @@ enum LayerLevel {
 @property (nonatomic) int cheeseCollected;
 
 -(void)setPlayerPosition:(CGPoint)position;
-//-(void)restartGame;
 
 @end
 

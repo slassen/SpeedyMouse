@@ -11,6 +11,7 @@
                 <outlet property="loaderIndicator" destination="CtW-dt-Gqo" id="05v-Ew-sQb"/>
                 <outlet property="loaderView" destination="4mx-1k-khl" id="LoS-dl-VdO"/>
                 <outlet property="tiltSensitivity" destination="Wrw-QE-Z9R" id="raN-An-9L8"/>
+                <outlet property="tutorialButton" destination="QDq-dr-fKh" id="6fT-Xu-uTD"/>
                 <outlet property="view" destination="iN0-l3-epB" id="cNn-6z-4K8"/>
             </connections>
         </placeholder>

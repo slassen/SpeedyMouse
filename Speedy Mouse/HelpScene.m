@@ -60,7 +60,7 @@
 
 -(instancetype) initWithSize:(CGSize)size returnMaze:(MazeScene*)maze tutorial:(BOOL)tutorial {
     if (self = [super initWithSize:size]) {
-        [SELPlayer player].playerSpeed = 200.0f;
+        [SELPlayer player].playerSpeed = 150.0f;
         _returnMaze = maze;
         self.physicsWorld.gravity = CGVectorMake(0, 0);
         self.physicsWorld.contactDelegate = self;
@@ -95,7 +95,7 @@
         [av3 show];
     }
     else if (alertView.tag == 3) {
-        UIAlertView *av4 = [[UIAlertView alloc] initWithTitle:@"Speedy Mouse" message:@"Speedy starts off with only one life, but he earns his first new life at 25 cheese, his second at 50, third at 100, and so on.\n\nThe amount of cheese needed to earn a new life doubles each time." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *av4 = [[UIAlertView alloc] initWithTitle:@"Speedy Mouse" message:@"Speedy starts off with three lives and he earns his first extra life at 25 cheese, second at 50, third at 100, and so on.\n\nThe amount of cheese needed to earn a new life doubles each time." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         av4.tag = 4;
         [av4 show];
     }
@@ -105,9 +105,14 @@
         [av5 show];
     }
     else if (alertView.tag == 5) {
-        UIAlertView *av6 = [[UIAlertView alloc] initWithTitle:@"Speedy Mouse" message:@"But stay away from the road cones and road blocks so you can fill Speedy and his friends' bellies!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        av6.tag = 6;
-        [av6 show];
+        UIAlertView *av10 = [[UIAlertView alloc] initWithTitle:@"Speedy Mouse" message:@"On the next screen you'll adjust your position and the movement sensitivity.\n\nYou can do this in the future when inbetween games through the settings menu." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        av10.tag = 10;
+        [av10 show];
+    }
+    else if (alertView.tag == 10) {
+        [GameViewController gameView].configurationView.hidden = false;
+        [GameViewController gameView].maze = (MazeScene*)self;
+        [GameViewController gameView].tutorialButton.enabled = false;
     }
     else if (alertView.tag == 6) {
         UIAlertView *av7 = [[UIAlertView alloc] initWithTitle:@"Speedy Mouse" message:@"Collect all of the cheese in the tutorial to go back to the game.\n\nNow try moving around the maze." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -168,9 +173,11 @@
         if (_cheeseCount >= _bgLayer.cheeseCount) {
             [SELPlayer player].stopped = YES;
             [SELPlayer player].physicsBody.resting = YES;
-            UIAlertView *av9 = [[UIAlertView alloc] initWithTitle:@"Speedy Mouse" message:@"You've completed the tutorial. You can enter this tutorial at any time by pressing the \"How to play\" button.\n\nNow go out and help Speedy get fat!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *av9 = [[UIAlertView alloc] initWithTitle:@"Speedy Mouse" message:@"You've completed the tutorial. You can enter this tutorial at any time by pressing the \"Tutorial\" button in the settings menu.\n\nNow go out and help Speedy get fat!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             av9.tag = 9;
             [av9 show];
+            [Settings settings].playerHasPlayedTutorial = true;
+            [[Settings settings] saveSettings];
         }
     }
 }

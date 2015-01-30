@@ -93,9 +93,17 @@
 
 - (IBAction)configurationDoneSelected:(id)sender {
     _configurationView.hidden = true;
-    _maze.inConfig = false;
+    
     [Settings settings].tiltSensitivity = 0.45f - _tiltSensitivity.value;
     [[Settings settings] saveSettings];
+    
+    if ([SELPlayer player].playerSpeed == 150.0f) {
+        [GameViewController gameView].tutorialButton.enabled = true;
+        UIAlertView *av6 = [[UIAlertView alloc] initWithTitle:@"Speedy Mouse" message:@"Stay away from the road cones and road blocks. If you hit one of them you lose a life!" delegate:self.maze cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        av6.tag = 6;
+        [av6 show];
+    }
+    else _maze.inConfig = false;
 }
 
 - (IBAction)tutorialButtonSelected:(id)sender {

@@ -372,6 +372,11 @@ startLabel.fontSize = 72;
             [self startGame];
         }
     }
+    
+    if (![Settings settings].playerHasPlayedTutorial) {
+        HelpScene *help = [[HelpScene alloc] initWithSize:self.size returnMaze:nil tutorial:true];
+        [self.view presentScene:help];
+    }
 }
 
 -(void)createStartLabel {
