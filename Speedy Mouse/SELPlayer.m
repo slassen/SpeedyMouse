@@ -111,7 +111,7 @@ static inline CGFloat ScalarShortestAngleBetween(const CGFloat a, const CGFloat 
     if (accel2D.x == 0 && accel2D.y == 0) {
         return;
     }
-    if (ay.z == 0.76f) accel2D.x = -accel2D.x;
+
     //    if (_playerSpeed > 300.0f) _playerSpeed = 300.0f;
     float accelerationPerSecond = _playerSpeed;
     CGFloat newAngle = CGPointToAngle(CGPointMake(accel2D.x * accelerationPerSecond, accel2D.y * accelerationPerSecond));
@@ -147,7 +147,7 @@ static inline CGFloat ScalarShortestAngleBetween(const CGFloat a, const CGFloat 
     if (accel2D.x == 0 && accel2D.y == 0) {
         return;
     }
-    if (ay.z == 0.76f) accel2D.x = -accel2D.x;
+
 //    if (_playerSpeed > 300.0f) _playerSpeed = 300.0f;
     float accelerationPerSecond = _playerSpeed;
     

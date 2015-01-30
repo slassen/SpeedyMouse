@@ -74,20 +74,21 @@
 }
 - (IBAction)tiltNormalSelected:(id)sender {
     NSLog(@"normal");
-    [Settings settings].ay = GLKVector3Make(0.63f, 0.0f, -0.92f);
+    [Settings settings].ay = GLKVector3Make(0.82f, 0.0f, -0.58f);
     [[Settings settings] saveSettings];
 }
 
 - (IBAction)tiltTopdownSelected:(id)sender {
     NSLog(@"top down");
-    [Settings settings].ay = GLKVector3Make(0.3f, 0.0f, -0.97f);
+//    [Settings settings].ay = GLKVector3Make(0.39f, 0.0f, -0.92f);
+    [Settings settings].ay = GLKVector3Make(0.63f, 0.0f, -0.92f);
     [[Settings settings] saveSettings];
 }
 
 - (IBAction)tiltBedtimeSelected:(id)sender {
     NSLog(@"bedtime");
-//    [Settings settings].ay = GLKVector3Make(0.63f, 0.0f, 0.76f);
-    [Settings settings].ay = GLKVector3Make(0.92f, 0.0f, 0.36f);
+    [Settings settings].ay = GLKVector3Make(1.0f, 0.0f, 0.0f);
+//    [Settings settings].ay = GLKVector3Make(0.66f, 0.0f, 0.73f);
     [[Settings settings] saveSettings];
 }
 
@@ -175,7 +176,7 @@
 
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
-    _gameCenterTimer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(alertGameCenter:) userInfo:nil repeats:NO];
+    _gameCenterTimer = [NSTimer scheduledTimerWithTimeInterval:0.0 target:self selector:@selector(alertGameCenter:) userInfo:nil repeats:NO]; //5 second timer
 
     // Configure the view.
 //    SKView * skView = (SKView *)self.view;
