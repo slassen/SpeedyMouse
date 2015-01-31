@@ -56,9 +56,6 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
 }
 
 -(void)update:(NSTimeInterval)currentTime {
-    
-//    NSLog(@"x: %f, y: %f, z: %f", [Settings motionManager].accelerometerData.acceleration.x, [Settings motionManager].accelerometerData.acceleration.y, [Settings motionManager].accelerometerData.acceleration.z);
-    
     // Smooth out jumpy movements by calulating update intervals.
     if (_lastUpdateTime) {
         _dt = currentTime - _lastUpdateTime;
@@ -123,14 +120,13 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
         [self.view presentScene:newScene transition:transition];
         [Flurry logEvent:@"GameStarted" timed:true];
     }
-    if (_canRestart) {
+    else if (_canRestart) {
         [startLabel removeAllActions];
         [startLabel runAction:[SKAction fadeInWithDuration:0]];
-//        [Settings restartBackgroundMusic];
         [self startGame];
         _canRestart = NO;
     }
-    if (_newGame) {
+    else if (_newGame) {
         [startLabel removeAllActions];
         [startLabel runAction:[SKAction fadeInWithDuration:0]];
         _newGame = NO;

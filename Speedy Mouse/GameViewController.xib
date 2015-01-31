@@ -10,7 +10,9 @@
                 <outlet property="configurationView" destination="l66-bc-Sxk" id="iwp-NO-wgI"/>
                 <outlet property="loaderIndicator" destination="CtW-dt-Gqo" id="05v-Ew-sQb"/>
                 <outlet property="loaderView" destination="4mx-1k-khl" id="LoS-dl-VdO"/>
+                <outlet property="normalButton" destination="fyG-Hg-juL" id="qAM-TO-NSW"/>
                 <outlet property="tiltSensitivity" destination="Wrw-QE-Z9R" id="raN-An-9L8"/>
+                <outlet property="topDownButton" destination="gYY-Hh-5Zn" id="CAG-3v-OMe"/>
                 <outlet property="tutorialButton" destination="QDq-dr-fKh" id="6fT-Xu-uTD"/>
                 <outlet property="view" destination="iN0-l3-epB" id="cNn-6z-4K8"/>
             </connections>
@@ -20,77 +22,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l66-bc-Sxk">
-                    <rect key="frame" x="182" y="184" width="236" height="232"/>
-                    <subviews>
-                        <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.29999999999999999" minValue="0.0" maxValue="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="Wrw-QE-Z9R">
-                            <rect key="frame" x="59" y="134" width="118" height="31"/>
-                        </slider>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gYY-Hh-5Zn">
-                            <rect key="frame" x="20" y="37" width="60" height="60"/>
-                            <state key="normal" image="topDown.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="tiltTopdownSelected:" destination="-1" eventType="touchUpInside" id="GbT-hF-SWt"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fyG-Hg-juL">
-                            <rect key="frame" x="88" y="37" width="60" height="60"/>
-                            <state key="normal" image="normal.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="tiltNormalSelected:" destination="-1" eventType="touchUpInside" id="F2L-fj-M8R"/>
-                            </connections>
-                        </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tilt Sensitivity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UP6-8V-MPN">
-                            <rect key="frame" x="65" y="105" width="106" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="How are you playing?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZVj-Ol-R5W">
-                            <rect key="frame" x="35" y="8" width="166" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e8B-NV-S5f">
-                            <rect key="frame" x="156" y="37" width="60" height="60"/>
-                            <state key="normal" image="bedtime.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="tiltBedtimeSelected:" destination="-1" eventType="touchUpInside" id="toU-7r-pR6"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QDq-dr-fKh">
-                            <rect key="frame" x="8" y="172" width="100" height="60"/>
-                            <state key="normal" title="Tutorial">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="tutorialButtonSelected:" destination="-1" eventType="touchUpInside" id="Y65-pe-MqS"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OOs-Y6-Ipt">
-                            <rect key="frame" x="116" y="172" width="100" height="60"/>
-                            <state key="normal" title="Done">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="configurationDoneSelected:" destination="-1" eventType="touchUpInside" id="cPI-Bw-by6"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="236" id="AIn-6J-Be3"/>
-                        <constraint firstAttribute="height" constant="232" id="Xa5-ms-FdC"/>
-                    </constraints>
-                </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4mx-1k-khl">
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4mx-1k-khl">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LoadingScreen2208Loading.png" translatesAutoresizingMaskIntoConstraints="NO" id="LsH-xy-jB4">
@@ -110,6 +42,67 @@
                         <constraint firstItem="LsH-xy-jB4" firstAttribute="top" secondItem="4mx-1k-khl" secondAttribute="top" id="wj2-gI-VEe"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l66-bc-Sxk">
+                    <rect key="frame" x="182" y="184" width="236" height="232"/>
+                    <subviews>
+                        <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.29999999999999999" minValue="0.0" maxValue="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="Wrw-QE-Z9R">
+                            <rect key="frame" x="59" y="134" width="118" height="31"/>
+                        </slider>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gYY-Hh-5Zn">
+                            <rect key="frame" x="35" y="37" width="60" height="60"/>
+                            <state key="normal" image="topDown.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="tiltTopdownSelected:" destination="-1" eventType="touchUpInside" id="GbT-hF-SWt"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tilt Sensitivity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UP6-8V-MPN">
+                            <rect key="frame" x="65" y="105" width="106" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="How are you playing?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZVj-Ol-R5W">
+                            <rect key="frame" x="35" y="8" width="166" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QDq-dr-fKh">
+                            <rect key="frame" x="8" y="172" width="100" height="60"/>
+                            <state key="normal" title="Tutorial">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="tutorialButtonSelected:" destination="-1" eventType="touchUpInside" id="Y65-pe-MqS"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OOs-Y6-Ipt">
+                            <rect key="frame" x="116" y="172" width="100" height="60"/>
+                            <state key="normal" title="Done">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="configurationDoneSelected:" destination="-1" eventType="touchUpInside" id="cPI-Bw-by6"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fyG-Hg-juL">
+                            <rect key="frame" x="141" y="37" width="60" height="60"/>
+                            <state key="normal" image="normal.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="tiltNormalSelected:" destination="-1" eventType="touchUpInside" id="F2L-fj-M8R"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="236" id="AIn-6J-Be3"/>
+                        <constraint firstAttribute="height" constant="232" id="Xa5-ms-FdC"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -125,7 +118,6 @@
     </objects>
     <resources>
         <image name="LoadingScreen2208Loading.png" width="2208" height="1242"/>
-        <image name="bedtime.png" width="71" height="75"/>
         <image name="normal.png" width="71" height="75"/>
         <image name="topDown.png" width="71" height="75"/>
     </resources>

@@ -74,21 +74,26 @@
 }
 - (IBAction)tiltNormalSelected:(id)sender {
     NSLog(@"normal");
+    [_normalButton setImage:[UIImage imageNamed:@"normalSelected"] forState:UIControlStateNormal];
+    [_topDownButton setImage:[UIImage imageNamed:@"topDown"] forState:UIControlStateNormal];
+    [Settings settings].moveByTouch = false;
     [Settings settings].ay = GLKVector3Make(0.82f, 0.0f, -0.58f);
     [[Settings settings] saveSettings];
 }
 
 - (IBAction)tiltTopdownSelected:(id)sender {
     NSLog(@"top down");
+    [_topDownButton setImage:[UIImage imageNamed:@"topDownSelected"] forState:UIControlStateNormal];
+    [_normalButton setImage:[UIImage imageNamed:@"normal"] forState:UIControlStateNormal];
+    [Settings settings].moveByTouch = false;
 //    [Settings settings].ay = GLKVector3Make(0.39f, 0.0f, -0.92f);
     [Settings settings].ay = GLKVector3Make(0.63f, 0.0f, -0.92f);
     [[Settings settings] saveSettings];
 }
 
 - (IBAction)tiltBedtimeSelected:(id)sender {
-    NSLog(@"bedtime");
-    [Settings settings].ay = GLKVector3Make(1.0f, 0.0f, 0.0f);
-//    [Settings settings].ay = GLKVector3Make(0.66f, 0.0f, 0.73f);
+    NSLog(@"touch");
+    [Settings settings].moveByTouch = true;
     [[Settings settings] saveSettings];
 }
 
@@ -140,6 +145,11 @@
 }
 
 -(void)viewDidLoad {
+    
+    if ([Settings settings].ay.z == -0.92f) [_topDownButton setImage:[UIImage imageNamed:@"topDownSelected"] forState:UIControlStateNormal];
+    else [_normalButton setImage:[UIImage imageNamed:@"normalSelected"] forState:UIControlStateNormal];
+    
+
     // Curve configuration view
     _configurationView.layer.cornerRadius = 15;
     _configurationView.layer.masksToBounds = YES;

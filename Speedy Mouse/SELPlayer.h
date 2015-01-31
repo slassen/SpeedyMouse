@@ -22,6 +22,9 @@
 @property (nonatomic) int lives;
 @property (nonatomic) int cheeseToLives;
 
+// For touches
+@property (nonatomic) CGPoint touchVelocity;
+
 -(void)updateWithTimeInterval:(NSTimeInterval)dt;
 
 -(void)resetLives;

@@ -16,7 +16,7 @@ static const float ZOMBIE_ROTATE_RADIANS_PER_SECOND = 4 * M_PI;
 
 @property (nonatomic) CGFloat tileSize;
 @property (nonatomic) CGFloat speedModifier;
-@property (nonatomic) CGPoint accel2D;
+@property (nonatomic) CGPoint accel2D; // velocity
 
 @end
 
@@ -74,6 +74,10 @@ static inline CGFloat ScalarShortestAngleBetween(const CGFloat a, const CGFloat 
     }];
 }
 
+-(void)parseTouchDataWithDT:(NSTimeInterval)dt {
+    
+}
+
 -(void)parseAccelerometerData {
     // Move mouse
     GLKVector3 raw = GLKVector3Make([Settings motionManager].accelerometerData.acceleration.x, [Settings motionManager].accelerometerData.acceleration.y, [Settings motionManager].accelerometerData.acceleration.z);
@@ -83,13 +87,14 @@ static inline CGFloat ScalarShortestAngleBetween(const CGFloat a, const CGFloat 
 //    raw = [self lowPassWithVector:raw];
     
     static GLKVector3 ax, ay, az;
-    ay = [Settings settings].ay; //GLKVector3Make(0.63f, 0.0f, -0.92f);
+    ay = [Settings settings].ay;
     az = GLKVector3Make(0.0f, 1.0f, 0.0f);
     ax = GLKVector3Normalize(GLKVector3CrossProduct(az, ay));
     
     CGPoint accel2D = CGPointZero;
     accel2D.x = GLKVector3DotProduct(raw, az);
     accel2D.y = GLKVector3DotProduct(raw, ax);
+    //.62 -.75
     accel2D = CGPointNormalize(accel2D);
     
     float steerDeadZone = [Settings settings].tiltSensitivity; //tiltSensitivity;
@@ -132,7 +137,12 @@ static inline CGFloat ScalarShortestAngleBetween(const CGFloat a, const CGFloat 
 }
 
 -(void)updateWithTimeInterval:(NSTimeInterval)dt {
-    [self parseAccelerometerData];
+    
+    // Move by touch or by accelerometer?
+    if ([Settings settings].moveByTouch) [self parseTouchDataWithDT:dt];
+    else [self parseAccelerometerData];
+    
+    // If player is stopped only rotate, don't move.
     if (!_stopped) [self moveWithDT:dt];
     [self changeRotationWithDT:dt];
 }
