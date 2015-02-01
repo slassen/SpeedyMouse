@@ -11,11 +11,12 @@
 #import <iAd/iAd.h>
 #import "Settings.h"
 #import "Crittercism.h"
+#import "GADInterstitial.h"
 @import GameKit;
 
 @class MazeScene;
 
-@interface GameViewController : UIViewController <GKGameCenterControllerDelegate, UIAlertViewDelegate, CrittercismDelegate>
+@interface GameViewController : UIViewController <GKGameCenterControllerDelegate, UIAlertViewDelegate, CrittercismDelegate, GADInterstitialDelegate>
 
 @property (nonatomic) MazeScene *maze;
 @property (nonatomic) NSTimer *gameCenterTimer;
@@ -32,5 +33,6 @@
 
 +(GameViewController*) gameView;
 -(void) gameCenterAlert;
++ (void)showAd;
 
 @end

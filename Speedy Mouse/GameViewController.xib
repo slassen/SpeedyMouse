@@ -42,7 +42,7 @@
                         <constraint firstItem="LsH-xy-jB4" firstAttribute="top" secondItem="4mx-1k-khl" secondAttribute="top" id="wj2-gI-VEe"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l66-bc-Sxk">
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l66-bc-Sxk">
                     <rect key="frame" x="182" y="184" width="236" height="232"/>
                     <subviews>
                         <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.29999999999999999" minValue="0.0" maxValue="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="Wrw-QE-Z9R">

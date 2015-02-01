@@ -12,8 +12,17 @@
 #import "GCHelper.h"
 #import "Flurry.h"
 #import "HelpScene.h"
+
+
 //#import <AdColony/AdColony.h>
 @import SpriteKit;
+
+@interface GameViewController ()
+
+@property(nonatomic, strong) GADInterstitial *adOverlay;
+
+@end
+
 
 @implementation GameViewController
 
@@ -25,8 +34,10 @@
     return view;
 }
 
-- (IBAction)watchAd:(id)sender {
-//    [AdColony playVideoAdForZone:@"vz9eb3ffb90f3f4ba29c" withDelegate:nil];
++(void)showAd {
+    if ([GameViewController gameView].adOverlay.isReady) {
+        [[GameViewController gameView].adOverlay presentFromRootViewController:[GameViewController gameView]];
+    }
 }
 
 -(void) alertGameCenter: (id)sender {
@@ -144,7 +155,21 @@
     }
 }
 
+- (void)interstitialDidDismissScreen:(GADInterstitial *)interstitial {
+    _adOverlay = [[GADInterstitial alloc] init];
+    self.adOverlay = [[GADInterstitial alloc] init];
+    self.adOverlay.adUnitID = @"ca-app-pub-3940256099942544/4411468910"; // test ad id
+//    self.adOverlay.adUnitID = @"ca-app-pub-7948552022255043/6854748015";
+
+    _adOverlay.delegate = self;
+    [_adOverlay loadRequest:[GADRequest request]];
+    return;
+}
+
 -(void)viewDidLoad {
+    
+    [self interstitialDidDismissScreen:nil];
+
     
     if ([Settings settings].ay.z == -0.92f) [_topDownButton setImage:[UIImage imageNamed:@"topDownSelected"] forState:UIControlStateNormal];
     else [_normalButton setImage:[UIImage imageNamed:@"normalSelected"] forState:UIControlStateNormal];
@@ -172,17 +197,6 @@
     [Settings FU6];
     [Settings FU7];
 }
-
-+(void)showAd {
-//    if ([FlurryAds adReadyForSpace:@"INTERSTITIAL_MAIN_VIEW"]) {
-//        [FlurryAds displayAdForSpace:@"INTERSTITIAL_MAIN_VIEW" onView:nil viewControllerForPresentation:self];
-//    }
-//    else {
-//    // Fetch an ad (note: optimize ad // serving by fetching early)
-//    [FlurryAds fetchAdForSpace:@"INTERSTITIAL_MAIN_VIEW" frame:self.view size:FULLSCREEN];
-//    }
-}
-
 
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
