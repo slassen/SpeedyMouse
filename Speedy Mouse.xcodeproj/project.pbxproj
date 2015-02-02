@@ -319,10 +319,10 @@
 				F24BFC981A60C26700AB4A59 /* HelpScene.h */,
 				F24BFC991A60C26700AB4A59 /* HelpScene.m */,
 				F2FD7A051A5E319300E9C123 /* GCHelper.h */,
+				F2FD7A061A5E319300E9C123 /* GCHelper.m */,
 				F2FD7A071A5E319300E9C123 /* Settings.h */,
 				F2FD7A081A5E319300E9C123 /* Settings.m */,
 				F2CF19B61A632FB400AA50B0 /* LaunchScreen.xib */,
-				F2FD7A061A5E319300E9C123 /* GCHelper.m */,
 				F2FD79B11A5E303A00E9C123 /* Supporting Files */,
 			);
 			path = "Speedy Mouse";

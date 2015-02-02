@@ -200,38 +200,7 @@
 
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
-    _gameCenterTimer = [NSTimer scheduledTimerWithTimeInterval:0.0 target:self selector:@selector(alertGameCenter:) userInfo:nil repeats:NO]; //5 second timer
-
-    // Configure the view.
-//    SKView * skView = (SKView *)self.view;
-    
-    // Debug Options
-//    skView.showsFPS = YES;
-//    skView.showsNodeCount = YES;
-//    skView.showsPhysics = YES;
-    
-    // Create and configure the maze scene.
-//    CGSize sceneSize = skView.bounds.size;
-    
-    // On iPhone/iPod touch we want to see a similar amount of the scene as on iPad.
-    // So, we set the size of the scene to be double the size of the view, which is
-    // the whole screen, 3.5- or 4- inch. This effectively scales the scene to 50%.
-//    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-//        sceneSize.height /= 2;
-//        sceneSize.width /= 2;
-//    }
-//    
-//    skView.ignoresSiblingOrder = YES;
-//    
-//    static MazeScene *scene;
-//    if (!scene) {
-//        scene = [[MazeScene alloc] initWithSize:sceneSize];
-//        scene.newGame = YES;
-//        [Settings backgroundMusicPlayer];
-//        scene.scaleMode = SKSceneScaleModeAspectFill;
-//        SKTransition *transition = [SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.5];
-//        [skView presentScene:scene transition:transition];
-//    }
+    _gameCenterTimer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(alertGameCenter:) userInfo:nil repeats:NO]; //5 second timer
 }
 
 -(void)gameCenterViewControllerDidFinish:(GKGameCenterViewController *)gameCenterViewController {
