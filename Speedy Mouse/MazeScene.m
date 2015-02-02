@@ -326,11 +326,6 @@ startLabel.fontSize = 72;
 //    
 //    [self.view addGestureRecognizer:_swipeUp];
     [self removeAllActions];
-    
-    if (![GCHelper sharedInstance].signedIn && [SELPlayer player].currentLevel >=5) {
-        // Show game center alert if not signed in.
-        [[GameViewController gameView] gameCenterAlert];
-    }
 
     if (_newGame) {
         [Flurry logEvent:@"GameStarted" timed:true];

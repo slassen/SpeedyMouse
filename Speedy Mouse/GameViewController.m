@@ -141,7 +141,10 @@
     if ([GCHelper sharedInstance].authenticationViewController) {
         [[GameViewController gameView] presentViewController:[GCHelper sharedInstance].authenticationViewController animated:true completion:nil];
     }
-    else NSLog(@"no authentication controller or controller pointer is nil");
+    else {
+        NSLog(@"no authentication controller or controller pointer is nil. launching app instead");
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"gamecenter:"]];
+    }
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
