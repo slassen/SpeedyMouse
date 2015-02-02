@@ -33,7 +33,7 @@
     [[GCHelper sharedInstance] authenticateLocalUser];
     
     // Setup Flurry
-//    [Flurry startSession:@"JJDNBSFVBRSTJGH8NRXW"];
+//    [Flurry startSession:@"F99SH9ZSFGQQZX3XRWY3"];
 //    [Flurry setSessionReportsOnCloseEnabled:YES];
 //    [Flurry setSessionReportsOnPauseEnabled:YES];
 

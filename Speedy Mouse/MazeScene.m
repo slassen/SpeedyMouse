@@ -162,9 +162,9 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
     [Settings pauseFU];
     [Settings gameOverSoundEffect];
     [self runAction:[SKAction waitForDuration:1.0] completion:^{
-        if ([GKLocalPlayer localPlayer].isAuthenticated) {
+//        if ([GKLocalPlayer localPlayer].isAuthenticated) {
             [self addChild:gameCenterNode];
-        }
+//        }
         [self addChild:helpCenterNode];
         
         [GCHelper recordAchievements];
@@ -335,9 +335,9 @@ startLabel.fontSize = 72;
 
     if (_newGame) {
         [Flurry logEvent:@"GameStarted" timed:true];
-        if ([GKLocalPlayer localPlayer].isAuthenticated) {
+//        if ([GKLocalPlayer localPlayer].isAuthenticated) {
             if (!gameCenterNode.parent) [self addChild:gameCenterNode];
-        }
+//        }
         if (!helpCenterNode.parent) [self addChild:helpCenterNode];
         [[SELPlayer player] resetLives];
         startLabel = [SKLabelNode labelNodeWithFontNamed:@"Super Mario 256"];

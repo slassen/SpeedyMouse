@@ -78,10 +78,6 @@
         _loaderIndicator.hidden = true;
         [Flurry logEvent:@"AppLoaded" timed:true];
     }
-    
-//    if (![GCHelper sharedInstance].signedIn) {
-//        [[[UIAlertView alloc] initWithTitle:@"Game Center Unavailable" message:@"You aren't connected to the internet or game center isn't signed in.\nYou are unable to earn achievements without Game Center." delegate:self cancelButtonTitle:@"I want trophies!" otherButtonTitles:@"Who Cares?", nil] show];
-//    }
 }
 - (IBAction)tiltNormalSelected:(id)sender {
     NSLog(@"normal");
@@ -146,7 +142,7 @@
 }
 
 -(void) gameCenterAlert {
-    [[[UIAlertView alloc] initWithTitle:@"Game Center Unavailable" message:@"You aren't connected to the internet or game center isn't signed in.\n\nYou are unable to earn achievements without Game Center." delegate:self cancelButtonTitle:@"I want trophies!" otherButtonTitles:@"Who Cares?", nil] show];
+    [[[UIAlertView alloc] initWithTitle:@"I'm a winner!" message:@"You are unable to earn achievements without Game Center.\n\nSign in to Apple Game Center by pressing the Game Center button on the top left hand of the screen." delegate:self cancelButtonTitle:@"I want trophies!" otherButtonTitles:@"Who Cares?", nil] show];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {

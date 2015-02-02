@@ -59,8 +59,8 @@ static GCHelper *sharedHelper = nil;
     
     GKGameCenterViewController *gcViewController = [[GKGameCenterViewController alloc] init];
     gcViewController.gameCenterDelegate = gvc;
-    gcViewController.viewState = GKGameCenterViewControllerStateAchievements;
-//    gcViewController.leaderboardIdentifier = @"com.slgames.cheeseLeaderboard";
+    gcViewController.viewState = GKGameCenterViewControllerStateLeaderboards;
+    gcViewController.leaderboardIdentifier = @"com.slgames.cheeseLeaderboard";
 
     [gvc presentViewController:gcViewController animated:YES completion:nil];
 }
@@ -135,13 +135,11 @@ static GCHelper *sharedHelper = nil;
 #pragma mark User functions
 
 - (void)authenticateLocalUser {
-    
-    if (!gameCenterAvailable) return;
-    
     NSLog(@"Authenticating local user...");
     if ([GKLocalPlayer localPlayer].authenticated == NO) {
 //        [[GKLocalPlayer localPlayer] authenticateWithCompletionHandler:nil];
         [[GKLocalPlayer localPlayer] setAuthenticateHandler:^(UIViewController *vc, NSError *error){
+            
         }];
     }
     else NSLog(@"Already authenticated!");
