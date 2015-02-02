@@ -25,7 +25,6 @@
 -(instancetype) initWithCoder:(NSCoder *)aDecoder {
     self = [super init];
     if (self) {
-//        _moveByTouch = [aDecoder decodeBoolForKey:@"moveByTouch"];
         _tiltSensitivity = [aDecoder decodeFloatForKey:@"tiltSensitivity"];
         _ay = GLKVector3Make([aDecoder decodeFloatForKey:@"ay1"], [aDecoder decodeFloatForKey:@"ay2"], [aDecoder decodeFloatForKey:@"ay3"]);
         _soundOff = [aDecoder decodeBoolForKey:@"soundOff"];
@@ -38,7 +37,6 @@
 
 -(void) encodeWithCoder:(NSCoder *)aCoder {
     [aCoder encodeFloat:_tiltSensitivity forKey:@"tiltSensitivity"];
-    [aCoder encodeBool:_moveByTouch forKey:@"moveByTouch"];
     [aCoder encodeFloat:_ay.v[0] forKey:@"ay1"];
     [aCoder encodeFloat:_ay.v[1] forKey:@"ay2"];
     [aCoder encodeFloat:_ay.v[2] forKey:@"ay3"];

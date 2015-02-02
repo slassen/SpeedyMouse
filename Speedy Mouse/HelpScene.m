@@ -128,13 +128,11 @@
         [self startGame];
     }
     else if (alertView.tag == 9) {
-        
-        [self returnToMaze];
         if (![Settings settings].playerHasPlayedTutorial) {
-            [[GameViewController gameView] alertGameCenter:nil];
+            [Settings settings].playerHasPlayedTutorial = true;
+            [[Settings settings] saveSettings];
         }
-        [Settings settings].playerHasPlayedTutorial = true;
-        [[Settings settings] saveSettings];
+        [[GameViewController gameView] alertGameCenter:nil];
     }
 }
 

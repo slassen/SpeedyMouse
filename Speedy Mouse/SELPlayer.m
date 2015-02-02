@@ -74,10 +74,6 @@ static inline CGFloat ScalarShortestAngleBetween(const CGFloat a, const CGFloat 
     }];
 }
 
--(void)parseTouchDataWithDT:(NSTimeInterval)dt {
-    
-}
-
 -(void)parseAccelerometerData {
     // Move mouse
     GLKVector3 raw = GLKVector3Make([Settings motionManager].accelerometerData.acceleration.x, [Settings motionManager].accelerometerData.acceleration.y, [Settings motionManager].accelerometerData.acceleration.z);
@@ -137,10 +133,7 @@ static inline CGFloat ScalarShortestAngleBetween(const CGFloat a, const CGFloat 
 }
 
 -(void)updateWithTimeInterval:(NSTimeInterval)dt {
-    
-    // Move by touch or by accelerometer?
-    if ([Settings settings].moveByTouch) [self parseTouchDataWithDT:dt];
-    else [self parseAccelerometerData];
+    [self parseAccelerometerData];
     
     // If player is stopped only rotate, don't move.
     if (!_stopped) [self moveWithDT:dt];

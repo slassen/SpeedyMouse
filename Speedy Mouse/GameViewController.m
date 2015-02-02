@@ -64,22 +64,21 @@
     
     skView.ignoresSiblingOrder = YES;
     static MazeScene *scene;
-    if (!scene) {
-        scene = [[MazeScene alloc] initWithSize:sceneSize];
-        scene.newGame = YES;
-        [Settings backgroundMusicPlayer];
-        scene.scaleMode = SKSceneScaleModeAspectFill;
-        SKTransition *transition = [SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.5];
-        [skView presentScene:scene transition:transition];
-        _loaderView.hidden = true;
-        [_loaderIndicator stopAnimating];
-        _loaderIndicator.hidden = true;
-        [Flurry logEvent:@"AppLoaded" timed:true];
-    }
+    scene = [[MazeScene alloc] initWithSize:sceneSize];
+    scene.newGame = YES;
+    [Settings backgroundMusicPlayer];
+    scene.scaleMode = SKSceneScaleModeAspectFill;
+    _loaderView.hidden = true;
+    [_loaderIndicator stopAnimating];
+    _loaderIndicator.hidden = true;
+    SKTransition *transition = [SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.5];
+    [skView presentScene:scene transition:transition];
+    
 }
 
 -(void) alertGameCenter: (id)sender {
     [self loadMazeScene];
+
     if ([GKLocalPlayer localPlayer].authenticated == NO && [Settings settings].playerHasPlayedTutorial) {
         [self gameCenterAlert];
     }
@@ -88,7 +87,6 @@
     NSLog(@"normal");
     [_normalButton setImage:[UIImage imageNamed:@"normalSelected"] forState:UIControlStateNormal];
     [_topDownButton setImage:[UIImage imageNamed:@"topDown"] forState:UIControlStateNormal];
-    [Settings settings].moveByTouch = false;
     [Settings settings].ay = GLKVector3Make(0.82f, 0.0f, -0.58f);
     [[Settings settings] saveSettings];
 }
@@ -97,15 +95,8 @@
     NSLog(@"top down");
     [_topDownButton setImage:[UIImage imageNamed:@"topDownSelected"] forState:UIControlStateNormal];
     [_normalButton setImage:[UIImage imageNamed:@"normal"] forState:UIControlStateNormal];
-    [Settings settings].moveByTouch = false;
 //    [Settings settings].ay = GLKVector3Make(0.39f, 0.0f, -0.92f);
     [Settings settings].ay = GLKVector3Make(0.63f, 0.0f, -0.92f);
-    [[Settings settings] saveSettings];
-}
-
-- (IBAction)tiltBedtimeSelected:(id)sender {
-    NSLog(@"touch");
-    [Settings settings].moveByTouch = true;
     [[Settings settings] saveSettings];
 }
 
@@ -147,7 +138,10 @@
 }
 
 -(void) gameCenterAlert {
-    [[GameViewController gameView] presentViewController:[GCHelper sharedInstance].authenticationViewController animated:true completion:nil];
+    if ([GCHelper sharedInstance].authenticationViewController) {
+        [[GameViewController gameView] presentViewController:[GCHelper sharedInstance].authenticationViewController animated:true completion:nil];
+    }
+    else NSLog(@"no authentication controller or controller pointer is nil");
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {

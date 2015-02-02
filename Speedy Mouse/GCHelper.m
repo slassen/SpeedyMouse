@@ -70,7 +70,7 @@ static GCHelper *sharedHelper = nil;
     if ([GKLocalPlayer localPlayer].isAuthenticated && !userAuthenticated) {
         NSLog(@"Authentication changed: player authenticated.");
         _signedIn = true;
-        [[GameViewController gameView].gameCenterTimer invalidate];
+//        [[GameViewController gameView].gameCenterTimer invalidate];
         userAuthenticated = TRUE;
     } else if (![GKLocalPlayer localPlayer].isAuthenticated && userAuthenticated) {
         NSLog(@"Authentication changed: player not authenticated");

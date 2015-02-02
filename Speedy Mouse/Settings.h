@@ -18,7 +18,6 @@
 @property (nonatomic) BOOL soundOff;
 @property (nonatomic) BOOL playerHasPlayedTutorial;
 @property (nonatomic) int failCount;
-@property (nonatomic) BOOL moveByTouch;
 
 +(instancetype)settings;
 -(void)saveSettings;
