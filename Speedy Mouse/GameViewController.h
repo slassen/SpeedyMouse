@@ -33,6 +33,7 @@
 
 +(GameViewController*) gameView;
 -(void) gameCenterAlert;
+-(void) alertGameCenter: (id)sender;
 + (void)showAd;
 
 @end

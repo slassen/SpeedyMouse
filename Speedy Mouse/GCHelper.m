@@ -137,9 +137,9 @@ static GCHelper *sharedHelper = nil;
 - (void)authenticateLocalUser {
     NSLog(@"Authenticating local user...");
     if ([GKLocalPlayer localPlayer].authenticated == NO) {
-//        [[GKLocalPlayer localPlayer] authenticateWithCompletionHandler:nil];
         [[GKLocalPlayer localPlayer] setAuthenticateHandler:^(UIViewController *vc, NSError *error){
-            
+            NSLog(@"auth vc %@", vc);
+            _authenticationViewController = vc;
         }];
     }
     else NSLog(@"Already authenticated!");

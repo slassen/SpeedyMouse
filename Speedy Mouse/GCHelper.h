@@ -16,6 +16,7 @@
 
 @property (assign, readonly) BOOL gameCenterAvailable;
 @property (assign, readonly) BOOL signedIn;
+@property (nonatomic) UIViewController *authenticationViewController;
 
 + (GCHelper *)sharedInstance;
 - (void)authenticateLocalUser;

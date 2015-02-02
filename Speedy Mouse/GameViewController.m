@@ -40,9 +40,7 @@
     }
 }
 
--(void) alertGameCenter: (id)sender {
-    
-    
+-(void)loadMazeScene {
     //Setup the rest of the view.
     
     // Configure the view.
@@ -51,7 +49,7 @@
     // Debug Options
     //    skView.showsFPS = YES;
     //    skView.showsNodeCount = YES;
-//    skView.showsPhysics = YES;
+    //    skView.showsPhysics = YES;
     
     // Create and configure the maze scene.
     CGSize sceneSize = skView.bounds.size;
@@ -77,6 +75,13 @@
         [_loaderIndicator stopAnimating];
         _loaderIndicator.hidden = true;
         [Flurry logEvent:@"AppLoaded" timed:true];
+    }
+}
+
+-(void) alertGameCenter: (id)sender {
+    [self loadMazeScene];
+    if ([GKLocalPlayer localPlayer].authenticated == NO && [Settings settings].playerHasPlayedTutorial) {
+        [self gameCenterAlert];
     }
 }
 - (IBAction)tiltNormalSelected:(id)sender {
@@ -142,7 +147,7 @@
 }
 
 -(void) gameCenterAlert {
-    [[[UIAlertView alloc] initWithTitle:@"I'm a winner!" message:@"You are unable to earn achievements without Game Center.\n\nSign in to Apple Game Center by pressing the Game Center button on the top left hand of the screen." delegate:self cancelButtonTitle:@"I want trophies!" otherButtonTitles:@"Who Cares?", nil] show];
+    [[GameViewController gameView] presentViewController:[GCHelper sharedInstance].authenticationViewController animated:true completion:nil];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -192,10 +197,7 @@
     [Settings FU5];
     [Settings FU6];
     [Settings FU7];
-}
-
-- (void)viewWillLayoutSubviews {
-    [super viewWillLayoutSubviews];
+    
     _gameCenterTimer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(alertGameCenter:) userInfo:nil repeats:NO]; //5 second timer
 }
 

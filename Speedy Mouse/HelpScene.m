@@ -9,6 +9,7 @@
 #import "HelpScene.h"
 #import "SELRandomMaze.h"
 #import "SELPlayer.h"
+#import "GCHelper.h"
 
 @implementation HelpScene
 
@@ -127,7 +128,13 @@
         [self startGame];
     }
     else if (alertView.tag == 9) {
+        
         [self returnToMaze];
+        if (![Settings settings].playerHasPlayedTutorial) {
+            [[GameViewController gameView] alertGameCenter:nil];
+        }
+        [Settings settings].playerHasPlayedTutorial = true;
+        [[Settings settings] saveSettings];
     }
 }
 
@@ -173,8 +180,6 @@
             UIAlertView *av9 = [[UIAlertView alloc] initWithTitle:@"Speedy Mouse" message:@"You've completed the tutorial. You can enter this tutorial at any time by pressing the \"Tutorial\" button in the settings menu.\n\nNow go out and help Speedy get fat!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             av9.tag = 9;
             [av9 show];
-            [Settings settings].playerHasPlayedTutorial = true;
-            [[Settings settings] saveSettings];
         }
     }
 }
