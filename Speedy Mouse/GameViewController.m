@@ -83,6 +83,10 @@
         [self gameCenterAlert];
     }
 }
+
+-(void)launchGameCenterApp {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"gamecenter:"]];
+}
 - (IBAction)tiltNormalSelected:(id)sender {
     NSLog(@"normal");
     [_normalButton setImage:[UIImage imageNamed:@"normalSelected"] forState:UIControlStateNormal];
@@ -143,7 +147,9 @@
     }
     else {
         NSLog(@"no authentication controller or controller pointer is nil. launching app instead");
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"gamecenter:"]];
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Game Center" message:@"You are unable to earn achievements while not signed in to game center.\n\nSign in to Apple Game Center now?"  delegate:self cancelButtonTitle:@"Trophies, please!" otherButtonTitles:@"Not now.", nil];
+        av.tag = 1;
+        [av show];
     }
 }
 

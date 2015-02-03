@@ -364,6 +364,10 @@ startLabel.fontSize = 72;
         HelpScene *help = [[HelpScene alloc] initWithSize:self.size returnMaze:nil tutorial:true];
         [self.view presentScene:help];
     }
+    
+    if ([SELPlayer player].currentLevel >=5) {
+        [[GameViewController gameView] gameCenterAlert];
+    }
 }
 
 -(void)createStartLabel {
