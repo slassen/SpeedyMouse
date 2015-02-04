@@ -25,10 +25,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     // testing view controller for version 2.0
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = [[MenuViewController alloc] init];
-    [self.window makeKeyAndVisible];
-    return true;
+//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    self.window.rootViewController = [[MenuViewController alloc] init];
+//    [self.window makeKeyAndVisible];
+//    return true;
     // end testing, delete when finished
     
 //     Override point for customization after application launch.
@@ -42,9 +42,9 @@
     [[GCHelper sharedInstance] authenticateLocalUser];
     
     // Setup Flurry
-//    [Flurry startSession:@"F99SH9ZSFGQQZX3XRWY3"];
-//    [Flurry setSessionReportsOnCloseEnabled:YES];
-//    [Flurry setSessionReportsOnPauseEnabled:YES];
+    [Flurry startSession:@"F99SH9ZSFGQQZX3XRWY3"];
+    [Flurry setSessionReportsOnCloseEnabled:YES];
+    [Flurry setSessionReportsOnPauseEnabled:YES];
 
     // Setup Appirator
     [Appirater setAppId:@"936513414"];

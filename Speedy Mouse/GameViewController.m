@@ -162,8 +162,8 @@
 - (void)interstitialDidDismissScreen:(GADInterstitial *)interstitial {
     _adOverlay = [[GADInterstitial alloc] init];
     self.adOverlay = [[GADInterstitial alloc] init];
-    self.adOverlay.adUnitID = @"ca-app-pub-3940256099942544/4411468910"; // test ad id
-//    self.adOverlay.adUnitID = @"ca-app-pub-7948552022255043/6854748015";
+//    self.adOverlay.adUnitID = @"ca-app-pub-3940256099942544/4411468910"; // test ad id
+    self.adOverlay.adUnitID = @"ca-app-pub-7948552022255043/6854748015";
 
     _adOverlay.delegate = self;
     [_adOverlay loadRequest:[GADRequest request]];
