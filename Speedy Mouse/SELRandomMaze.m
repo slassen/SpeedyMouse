@@ -34,21 +34,12 @@
 }
 
 -(void) addGateToPosition:(CGPoint)position withRotation:(CGFloat)rotation {
-//    SKSpriteNode *gate;
-//    if (rotation > 0) {
-//        gate = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"Roadblock"] size:CGSizeMake(_tileSize / 2, _tileSize / 4)]; // west
-//    }
-//    else {
-//        gate = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"Roadblock"] size:CGSizeMake(_tileSize / 2, _tileSize / 4)]; // east
-//    }
-    
     SKSpriteNode *gate = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"Roadblock"] size:CGSizeMake(_tileSize / 2, _tileSize / 4)];
     gate.name = @"wallTile";
     gate.position = position;
     gate.zPosition = LayerLevelBackground;
     gate.zRotation = rotation;
     gate.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:gate.size];
-//    gate.physicsBody = [self coneTileWithSize:_tileSize / 2];
     gate.physicsBody.categoryBitMask = ColliderTypeBlock;
     gate.physicsBody.collisionBitMask = ColliderTypePlayer;
     gate.physicsBody.contactTestBitMask = ColliderTypePlayer;
@@ -253,7 +244,6 @@
         [self addWallTiles];
         [self createMazePath];
         [self addGates];
-//        self.name = @"wallTile";
     }
     return self;
 }

@@ -49,7 +49,7 @@
                             <rect key="frame" x="59" y="134" width="118" height="31"/>
                         </slider>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gYY-Hh-5Zn">
-                            <rect key="frame" x="35" y="37" width="60" height="60"/>
+                            <rect key="frame" x="35" y="37" width="50" height="60"/>
                             <state key="normal" image="topDown.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -88,7 +88,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fyG-Hg-juL">
-                            <rect key="frame" x="141" y="37" width="60" height="60"/>
+                            <rect key="frame" x="141" y="37" width="50" height="60"/>
                             <state key="normal" image="normal.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -118,7 +118,7 @@
     </objects>
     <resources>
         <image name="LoadingScreen2208Loading.png" width="2208" height="1242"/>
-        <image name="normal.png" width="71" height="75"/>
-        <image name="topDown.png" width="71" height="75"/>
+        <image name="normal.png" width="360" height="432"/>
+        <image name="topDown.png" width="360" height="432"/>
     </resources>
 </document>

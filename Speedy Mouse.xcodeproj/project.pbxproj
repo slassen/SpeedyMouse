@@ -11,6 +11,8 @@
 		F2418F241A7C7C9100F1B9A4 /* topDownSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = F2418F221A7C7C9100F1B9A4 /* topDownSelected.png */; };
 		F24BFC9A1A60C26700AB4A59 /* HelpScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F24BFC991A60C26700AB4A59 /* HelpScene.m */; };
 		F2A6ED791A7ECFE1002177CF /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2A6ED781A7ECFE1002177CF /* libGoogleAdMobAds.a */; };
+		F2C7AB991A81BDB20031EDAE /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C7AB981A81BDB20031EDAE /* MenuViewController.m */; };
+		F2C7AB9B1A81C5710031EDAE /* cheese.png in Resources */ = {isa = PBXBuildFile; fileRef = F2C7AB9A1A81C5710031EDAE /* cheese.png */; };
 		F2CF19B71A632FB400AA50B0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2CF19B61A632FB400AA50B0 /* LaunchScreen.xib */; };
 		F2CF19B91A63300200AA50B0 /* LoadingScreen2208.png in Resources */ = {isa = PBXBuildFile; fileRef = F2CF19B81A63300200AA50B0 /* LoadingScreen2208.png */; };
 		F2CF19BD1A634EF000AA50B0 /* LoadingScreen2208Loading.png in Resources */ = {isa = PBXBuildFile; fileRef = F2CF19BC1A634EF000AA50B0 /* LoadingScreen2208Loading.png */; };
@@ -96,6 +98,9 @@
 		F2A6ED891A7ED02A002177CF /* GADCustomEventRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADCustomEventRequest.h; sourceTree = "<group>"; };
 		F2A6ED8B1A7ED02A002177CF /* GADSearchBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADSearchBannerView.h; sourceTree = "<group>"; };
 		F2A6ED8C1A7ED02A002177CF /* GADSearchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADSearchRequest.h; sourceTree = "<group>"; };
+		F2C7AB971A81BDB20031EDAE /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		F2C7AB981A81BDB20031EDAE /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		F2C7AB9A1A81C5710031EDAE /* cheese.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cheese.png; path = Art.atlas/cheese.png; sourceTree = "<group>"; };
 		F2CF19B61A632FB400AA50B0 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		F2CF19B81A63300200AA50B0 /* LoadingScreen2208.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LoadingScreen2208.png; path = Images.xcassets/LaunchImage.launchimage/LoadingScreen2208.png; sourceTree = "<group>"; };
 		F2CF19BC1A634EF000AA50B0 /* LoadingScreen2208Loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LoadingScreen2208Loading.png; sourceTree = "<group>"; };
@@ -249,6 +254,15 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		F2C7AB961A81BD830031EDAE /* Speedy Mouse 2.0 */ = {
+			isa = PBXGroup;
+			children = (
+				F2C7AB971A81BDB20031EDAE /* MenuViewController.h */,
+				F2C7AB981A81BDB20031EDAE /* MenuViewController.m */,
+			);
+			name = "Speedy Mouse 2.0";
+			sourceTree = "<group>";
+		};
 		F2D20E2D1A7B3A13008FCC24 /* Appirator */ = {
 			isa = PBXGroup;
 			children = (
@@ -286,6 +300,7 @@
 				F2D20E2D1A7B3A13008FCC24 /* Appirator */,
 				F2D20E321A7B413D008FCC24 /* Crittercism */,
 				F2FD79B01A5E303A00E9C123 /* Speedy Mouse */,
+				F2C7AB961A81BD830031EDAE /* Speedy Mouse 2.0 */,
 				F2FD79CF1A5E303A00E9C123 /* Speedy MouseTests */,
 				F2FD79AF1A5E303A00E9C123 /* Products */,
 			);
@@ -381,6 +396,7 @@
 		F2FD79F61A5E30C200E9C123 /* Art */ = {
 			isa = PBXGroup;
 			children = (
+				F2C7AB9A1A81C5710031EDAE /* cheese.png */,
 				F2D20E461A7B5D07008FCC24 /* normal.png */,
 				F2D20E471A7B5D07008FCC24 /* topDown.png */,
 				F2418F211A7C7C9100F1B9A4 /* normalSelected.png */,
@@ -486,6 +502,7 @@
 				F2D20E491A7B5D07008FCC24 /* normal.png in Resources */,
 				F2FD79F81A5E30D200E9C123 /* Art.atlas in Resources */,
 				F2FD7A171A5E330000E9C123 /* spark.png in Resources */,
+				F2C7AB9B1A81C5710031EDAE /* cheese.png in Resources */,
 				F2418F241A7C7C9100F1B9A4 /* topDownSelected.png in Resources */,
 				F2FD79ED1A5E30B600E9C123 /* gameOver.mp3 in Resources */,
 				F2418F231A7C7C9100F1B9A4 /* normalSelected.png in Resources */,
@@ -529,6 +546,7 @@
 				F2FD7A151A5E32F800E9C123 /* SELRootController.m in Sources */,
 				F2FD7A011A5E317D00E9C123 /* GameViewController.m in Sources */,
 				F24BFC9A1A60C26700AB4A59 /* HelpScene.m in Sources */,
+				F2C7AB991A81BDB20031EDAE /* MenuViewController.m in Sources */,
 				F2FD7A141A5E32F800E9C123 /* SELRandomMaze.m in Sources */,
 				F2FD79B41A5E303A00E9C123 /* main.m in Sources */,
 				F2FD7A091A5E319300E9C123 /* GCHelper.m in Sources */,

@@ -13,6 +13,7 @@
 #import "SELRootController.h"
 #import "Flurry.h"
 #import "Appirater.h"
+#import "MenuViewController.h"
 
 @interface AppDelegate ()
 
@@ -22,6 +23,14 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    // testing view controller for version 2.0
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = [[MenuViewController alloc] init];
+    [self.window makeKeyAndVisible];
+    return true;
+    // end testing, delete when finished
+    
 //     Override point for customization after application launch.
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
