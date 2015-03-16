@@ -28,7 +28,7 @@
         _tiltSensitivity = [aDecoder decodeFloatForKey:@"tiltSensitivity"];
         _ay = GLKVector3Make([aDecoder decodeFloatForKey:@"ay1"], [aDecoder decodeFloatForKey:@"ay2"], [aDecoder decodeFloatForKey:@"ay3"]);
         _soundOff = [aDecoder decodeBoolForKey:@"soundOff"];
-        _playerHasPlayedTutorial = [aDecoder decodeBoolForKey:@"pPlayTutorial"];
+        _playerHasPlayedTutorial = [aDecoder decodeBoolForKey:@"pPlayTutorial2"];
         _savedLevelMaps = [aDecoder decodeObjectForKey:@"savedLevelMaps"];
         _levelsOpen = [aDecoder decodeIntForKey:@"levelsOpen"];
     }
@@ -41,7 +41,7 @@
     [aCoder encodeFloat:_ay.v[1] forKey:@"ay2"];
     [aCoder encodeFloat:_ay.v[2] forKey:@"ay3"];
     [aCoder encodeBool:_soundOff forKey:@"soundOff"];
-    [aCoder encodeBool:_playerHasPlayedTutorial forKey:@"pPlayTutorial"];
+    [aCoder encodeBool:_playerHasPlayedTutorial forKey:@"pPlayTutorial2"];
     [aCoder encodeObject:_savedLevelMaps forKey:@"savedLevelMaps"];
     [aCoder encodeInt:_levelsOpen forKey:@"levelsOpen"];
 }
