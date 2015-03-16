@@ -23,6 +23,10 @@
     BOOL _starting;
     CGSize mazeSize; // Size of the maze.
     BOOL _showTutorial;
+    
+    SKNode *_tiltNode;
+    SKNode *_steerNode;
+    CGSize _helpNodeSize;
 }
 
 -(void)update:(NSTimeInterval)currentTime {
@@ -75,17 +79,83 @@
     [SELPlayer player].stopped = true;
     [SELPlayer player].physicsBody.resting = true;
     if (_showTutorial) {
-        UIAlertView *av1 = [[UIAlertView alloc] initWithTitle:@"Speedy Mouse" message:@"Speedy loves cheese. Collect all of the cheese you can." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *av1 = [[UIAlertView alloc] initWithTitle:@"Speedy Mouse" message:@"Speedy loves cheese. Collect all of the cheese you can by tilting, not steering." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         av1.tag = 1;
         [av1 show];
     }
+    
+    // Create steering and tilting help nodes.
+    SKAction *scaleNil =  [SKAction scaleTo:0 duration:0];
+    _tiltNode = [SKSpriteNode node];
+    _steerNode = [SKSpriteNode node];
+    _helpNodeSize = CGSizeMake(self.view.frame.size.width /2.5, self.view.frame.size.width /2.5);
+    SKSpriteNode *tiltHelpNode = [[SKSpriteNode alloc] initWithTexture:[SKTexture textureWithImageNamed:@"tilt1"] color:nil size:_helpNodeSize];
+    SKSpriteNode *noHelpNode = [[SKSpriteNode alloc] initWithTexture:[SKTexture textureWithImageNamed:@"noSign"] color:nil size:_helpNodeSize];
+    CGPoint steerNodePosition = CGPointMake(tiltHelpNode.size.width/2 + 15, tiltHelpNode.size.height);
+    CGPoint tiltNodePosition = CGPointMake(self.view.frame.size.width - tiltHelpNode.size.width/2 - 15, tiltHelpNode.size.height);
+    tiltHelpNode.zPosition = 10;
+    tiltHelpNode.anchorPoint = CGPointMake(0.5, 0.5); //CGPointZero;
+    tiltHelpNode.position = tiltNodePosition;
+    [_tiltNode addChild:tiltHelpNode];
+    [tiltHelpNode runAction:scaleNil];
+    NSMutableArray *animationArray = [NSMutableArray array];
+    for (int i = 1; i < 11; i++) {
+        [animationArray addObject:[SKTexture textureWithImageNamed:[NSString stringWithFormat:@"tilt%i", i]]];
+    }
+    SKAction *tiltLeft = [SKAction animateWithTextures:animationArray timePerFrame:0.1];
+    SKAction *tiltRight = [tiltLeft reversedAction];
+    [tiltHelpNode runAction:[SKAction repeatActionForever:[SKAction sequence:@[tiltLeft, tiltRight]]]];
+    SKSpriteNode *goHelpNode = [[SKSpriteNode alloc] initWithTexture:[SKTexture textureWithImageNamed:@"goSign"] color:nil size:_helpNodeSize];
+    goHelpNode.zPosition = 11;
+    goHelpNode.anchorPoint = CGPointMake(0.5, 0.5); //CGPointZero;
+    goHelpNode.position = tiltNodePosition;
+    [_tiltNode addChild:goHelpNode];
+    [goHelpNode runAction:scaleNil];
+    [_bgLayer addChild:_tiltNode];
+    noHelpNode.zPosition = 11;
+    noHelpNode.anchorPoint = CGPointMake(0.5, 0.5); //CGPointZero;
+    noHelpNode.position = steerNodePosition;
+    [_steerNode addChild:noHelpNode];
+    [noHelpNode runAction:scaleNil];
+    SKSpriteNode *deviceHelpNode = [[SKSpriteNode alloc] initWithTexture:[SKTexture textureWithImageNamed:@"deviceWithHands"] color:nil size:_helpNodeSize];
+    deviceHelpNode.zPosition = 10;
+    deviceHelpNode.anchorPoint = CGPointMake(0.5, 0.5); //CGPointZero;
+    deviceHelpNode.position = steerNodePosition;
+    [_steerNode addChild:deviceHelpNode];
+    [deviceHelpNode runAction:scaleNil];
+    [_bgLayer addChild:_steerNode];
+    SKAction *firstRotate = [SKAction rotateByAngle:-.5 duration:.5];
+    SKAction *rotateLeft = [SKAction rotateByAngle:-1 duration:1];
+    SKAction *rotateRight = [SKAction rotateByAngle:1 duration:1];
+    SKAction *rotate = [SKAction repeatActionForever:[SKAction sequence:@[rotateRight, rotateLeft]]];
+    [deviceHelpNode runAction:[SKAction sequence:@[firstRotate, rotate]]];
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    //Skipping several AV's since I added animations.
+    
     if (alertView.tag == 1) {
-        UIAlertView *av2 = [[UIAlertView alloc] initWithTitle:@"Speedy Mouse" message:@"When you collect all of the cheese in a level the next level begins." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        av2.tag = 2;
-        [av2 show];
+//        UIAlertView *av2 = [[UIAlertView alloc] initWithTitle:@"Speedy Mouse" message:@"When you collect all of the cheese in a level the next level begins." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//        av2.tag = 2;
+//        [av2 show];
+        for (SKNode *node in _steerNode.children) {
+//            [node runAction:[SKAction sequence:@[[SKAction scaleTo:1 duration:0.5], [SKAction waitForDuration:10], [SKAction group:@[[SKAction scaleTo:0.5 duration:3], [SKAction moveTo:CGPointMake(_helpNodeSize.width /2 , _helpNodeSize.height /2) duration:3]]]]]];
+            [node runAction:[SKAction sequence:@[[SKAction scaleTo:1 duration:0.5], [SKAction waitForDuration:10], [SKAction group:@[[SKAction scaleTo:0 duration:3], [SKAction sequence:@[[SKAction waitForDuration:3], [SKAction runBlock:^{
+                [node removeFromParent];
+            }]]]]]]]];
+        }
+        for (SKNode *node in _tiltNode.children) {
+//            [node runAction:[SKAction sequence:@[[SKAction scaleTo:1 duration:0.5], [SKAction waitForDuration:10], [SKAction group:@[[SKAction scaleTo:0.5 duration:3], [SKAction moveTo:CGPointMake(self.view.frame.size.width - _helpNodeSize.width /2 , _helpNodeSize.height /2) duration:3]]]]]];
+            [node runAction:[SKAction sequence:@[[SKAction scaleTo:1 duration:0.5], [SKAction waitForDuration:10], [SKAction group:@[[SKAction scaleTo:0 duration:3], [SKAction sequence:@[[SKAction waitForDuration:3], [SKAction runBlock:^{
+                [node removeFromParent];
+            }]]]]]]]];
+        }
+        [self runAction:[SKAction waitForDuration:10.5] completion:^{
+            UIAlertView *av10 = [[UIAlertView alloc] initWithTitle:@"Speedy Mouse" message:@"On the next screen you'll adjust your position and the movement sensitivity.\n\nYou can do this in the future when between games through the settings menu." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            av10.tag = 10;
+            [av10 show];
+        }];
     }
     else if (alertView.tag == 2) {
         UIAlertView *av3 = [[UIAlertView alloc] initWithTitle:@"Speedy Mouse" message:@"Each new level is larger and Speedy's kart speeds up as you collect more cheese.." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -164,7 +234,7 @@
         }];
             
         //move player and restart current level
-        UIAlertView *av8 = [[UIAlertView alloc] initWithTitle:@"Speedy Mouse" message:@"Watch out for road cones and blocks. In the game you'll lose a life each time you hit one." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *av8 = [[UIAlertView alloc] initWithTitle:@"Speedy Mouse" message:@"Speedy Mouse works best by tilting the device, not steering.\n\nWatch out for road cones and blocks. In the game you'll lose a life each time you hit one." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         av8.tag = 8;
         [av8 show];
     }

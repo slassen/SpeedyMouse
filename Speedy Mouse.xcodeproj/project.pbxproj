@@ -10,6 +10,19 @@
 		F2418F231A7C7C9100F1B9A4 /* normalSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = F2418F211A7C7C9100F1B9A4 /* normalSelected.png */; };
 		F2418F241A7C7C9100F1B9A4 /* topDownSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = F2418F221A7C7C9100F1B9A4 /* topDownSelected.png */; };
 		F24BFC9A1A60C26700AB4A59 /* HelpScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F24BFC991A60C26700AB4A59 /* HelpScene.m */; };
+		F271A1E61AB6B16D00300337 /* noSign.png in Resources */ = {isa = PBXBuildFile; fileRef = F271A1E41AB6B16D00300337 /* noSign.png */; };
+		F271A1E71AB6B16D00300337 /* deviceWithHands.png in Resources */ = {isa = PBXBuildFile; fileRef = F271A1E51AB6B16D00300337 /* deviceWithHands.png */; };
+		F271A1F31AB6BA7400300337 /* tilt2.png in Resources */ = {isa = PBXBuildFile; fileRef = F271A1E91AB6BA7400300337 /* tilt2.png */; };
+		F271A1F41AB6BA7400300337 /* tilt3.png in Resources */ = {isa = PBXBuildFile; fileRef = F271A1EA1AB6BA7400300337 /* tilt3.png */; };
+		F271A1F51AB6BA7400300337 /* tilt4.png in Resources */ = {isa = PBXBuildFile; fileRef = F271A1EB1AB6BA7400300337 /* tilt4.png */; };
+		F271A1F61AB6BA7400300337 /* tilt5.png in Resources */ = {isa = PBXBuildFile; fileRef = F271A1EC1AB6BA7400300337 /* tilt5.png */; };
+		F271A1F71AB6BA7400300337 /* tilt1.png in Resources */ = {isa = PBXBuildFile; fileRef = F271A1ED1AB6BA7400300337 /* tilt1.png */; };
+		F271A1F81AB6BA7400300337 /* tilt10.png in Resources */ = {isa = PBXBuildFile; fileRef = F271A1EE1AB6BA7400300337 /* tilt10.png */; };
+		F271A1F91AB6BA7400300337 /* tilt9.png in Resources */ = {isa = PBXBuildFile; fileRef = F271A1EF1AB6BA7400300337 /* tilt9.png */; };
+		F271A1FA1AB6BA7400300337 /* tilt8.png in Resources */ = {isa = PBXBuildFile; fileRef = F271A1F01AB6BA7400300337 /* tilt8.png */; };
+		F271A1FB1AB6BA7400300337 /* tilt7.png in Resources */ = {isa = PBXBuildFile; fileRef = F271A1F11AB6BA7400300337 /* tilt7.png */; };
+		F271A1FC1AB6BA7400300337 /* tilt6.png in Resources */ = {isa = PBXBuildFile; fileRef = F271A1F21AB6BA7400300337 /* tilt6.png */; };
+		F271A1FE1AB6BCFE00300337 /* goSign.png in Resources */ = {isa = PBXBuildFile; fileRef = F271A1FD1AB6BCFE00300337 /* goSign.png */; };
 		F2A6ED791A7ECFE1002177CF /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2A6ED781A7ECFE1002177CF /* libGoogleAdMobAds.a */; };
 		F2C7AB991A81BDB20031EDAE /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C7AB981A81BDB20031EDAE /* MenuViewController.m */; };
 		F2C7AB9B1A81C5710031EDAE /* cheese.png in Resources */ = {isa = PBXBuildFile; fileRef = F2C7AB9A1A81C5710031EDAE /* cheese.png */; };
@@ -70,6 +83,19 @@
 		F2418F221A7C7C9100F1B9A4 /* topDownSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topDownSelected.png; sourceTree = "<group>"; };
 		F24BFC981A60C26700AB4A59 /* HelpScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpScene.h; sourceTree = "<group>"; };
 		F24BFC991A60C26700AB4A59 /* HelpScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpScene.m; sourceTree = "<group>"; };
+		F271A1E41AB6B16D00300337 /* noSign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noSign.png; sourceTree = "<group>"; };
+		F271A1E51AB6B16D00300337 /* deviceWithHands.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deviceWithHands.png; sourceTree = "<group>"; };
+		F271A1E91AB6BA7400300337 /* tilt2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tilt2.png; sourceTree = "<group>"; };
+		F271A1EA1AB6BA7400300337 /* tilt3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tilt3.png; sourceTree = "<group>"; };
+		F271A1EB1AB6BA7400300337 /* tilt4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tilt4.png; sourceTree = "<group>"; };
+		F271A1EC1AB6BA7400300337 /* tilt5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tilt5.png; sourceTree = "<group>"; };
+		F271A1ED1AB6BA7400300337 /* tilt1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tilt1.png; sourceTree = "<group>"; };
+		F271A1EE1AB6BA7400300337 /* tilt10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tilt10.png; sourceTree = "<group>"; };
+		F271A1EF1AB6BA7400300337 /* tilt9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tilt9.png; sourceTree = "<group>"; };
+		F271A1F01AB6BA7400300337 /* tilt8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tilt8.png; sourceTree = "<group>"; };
+		F271A1F11AB6BA7400300337 /* tilt7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tilt7.png; sourceTree = "<group>"; };
+		F271A1F21AB6BA7400300337 /* tilt6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tilt6.png; sourceTree = "<group>"; };
+		F271A1FD1AB6BCFE00300337 /* goSign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goSign.png; sourceTree = "<group>"; };
 		F2A6ED6C1A7ECFE1002177CF /* GADAdMobExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdMobExtras.h; sourceTree = "<group>"; };
 		F2A6ED6D1A7ECFE1002177CF /* GADAdNetworkExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdNetworkExtras.h; sourceTree = "<group>"; };
 		F2A6ED6E1A7ECFE1002177CF /* GADAdSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdSize.h; sourceTree = "<group>"; };
@@ -187,6 +213,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F271A1E81AB6BA5500300337 /* Tutorial Art */ = {
+			isa = PBXGroup;
+			children = (
+				F271A1FD1AB6BCFE00300337 /* goSign.png */,
+				F271A1E41AB6B16D00300337 /* noSign.png */,
+				F271A1E51AB6B16D00300337 /* deviceWithHands.png */,
+				F271A1E91AB6BA7400300337 /* tilt2.png */,
+				F271A1EA1AB6BA7400300337 /* tilt3.png */,
+				F271A1EB1AB6BA7400300337 /* tilt4.png */,
+				F271A1EC1AB6BA7400300337 /* tilt5.png */,
+				F271A1ED1AB6BA7400300337 /* tilt1.png */,
+				F271A1EE1AB6BA7400300337 /* tilt10.png */,
+				F271A1EF1AB6BA7400300337 /* tilt9.png */,
+				F271A1F01AB6BA7400300337 /* tilt8.png */,
+				F271A1F11AB6BA7400300337 /* tilt7.png */,
+				F271A1F21AB6BA7400300337 /* tilt6.png */,
+			);
+			name = "Tutorial Art";
+			sourceTree = "<group>";
+		};
 		F2A6ED6B1A7ECFCA002177CF /* AdMob */ = {
 			isa = PBXGroup;
 			children = (
@@ -396,6 +442,7 @@
 		F2FD79F61A5E30C200E9C123 /* Art */ = {
 			isa = PBXGroup;
 			children = (
+				F271A1E81AB6BA5500300337 /* Tutorial Art */,
 				F2C7AB9A1A81C5710031EDAE /* cheese.png */,
 				F2D20E461A7B5D07008FCC24 /* normal.png */,
 				F2D20E471A7B5D07008FCC24 /* topDown.png */,
@@ -499,15 +546,25 @@
 				F2D20E381A7B415E008FCC24 /* dsym_upload.sh in Resources */,
 				F2FD7A0B1A5E326300E9C123 /* MisterVampire.TTF in Resources */,
 				F2FD7A0C1A5E326300E9C123 /* SuperMario256.ttf in Resources */,
+				F271A1FC1AB6BA7400300337 /* tilt6.png in Resources */,
+				F271A1FB1AB6BA7400300337 /* tilt7.png in Resources */,
+				F271A1E61AB6B16D00300337 /* noSign.png in Resources */,
 				F2D20E491A7B5D07008FCC24 /* normal.png in Resources */,
 				F2FD79F81A5E30D200E9C123 /* Art.atlas in Resources */,
 				F2FD7A171A5E330000E9C123 /* spark.png in Resources */,
+				F271A1F51AB6BA7400300337 /* tilt4.png in Resources */,
+				F271A1F71AB6BA7400300337 /* tilt1.png in Resources */,
 				F2C7AB9B1A81C5710031EDAE /* cheese.png in Resources */,
 				F2418F241A7C7C9100F1B9A4 /* topDownSelected.png in Resources */,
 				F2FD79ED1A5E30B600E9C123 /* gameOver.mp3 in Resources */,
 				F2418F231A7C7C9100F1B9A4 /* normalSelected.png in Resources */,
 				F2CF19B91A63300200AA50B0 /* LoadingScreen2208.png in Resources */,
+				F271A1E71AB6B16D00300337 /* deviceWithHands.png in Resources */,
+				F271A1F61AB6BA7400300337 /* tilt5.png in Resources */,
 				F2CF19BD1A634EF000AA50B0 /* LoadingScreen2208Loading.png in Resources */,
+				F271A1FA1AB6BA7400300337 /* tilt8.png in Resources */,
+				F271A1F41AB6BA7400300337 /* tilt3.png in Resources */,
+				F271A1F31AB6BA7400300337 /* tilt2.png in Resources */,
 				F2D20E4A1A7B5D07008FCC24 /* topDown.png in Resources */,
 				F2FD79F31A5E30BF00E9C123 /* FU5.wav in Resources */,
 				F2FD79FA1A5E30DD00E9C123 /* loadScreen.png in Resources */,
@@ -520,6 +577,9 @@
 				F2FD7A1D1A5E334D00E9C123 /* GameViewController.xib in Resources */,
 				F2FD79EB1A5E30AD00E9C123 /* burnout.mp3 in Resources */,
 				F2FD79F21A5E30BF00E9C123 /* FU4.wav in Resources */,
+				F271A1FE1AB6BCFE00300337 /* goSign.png in Resources */,
+				F271A1F81AB6BA7400300337 /* tilt10.png in Resources */,
+				F271A1F91AB6BA7400300337 /* tilt9.png in Resources */,
 				F2CF19B71A632FB400AA50B0 /* LaunchScreen.xib in Resources */,
 				F2FD79F51A5E30BF00E9C123 /* FU7.wav in Resources */,
 			);

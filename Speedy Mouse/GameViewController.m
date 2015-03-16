@@ -112,9 +112,12 @@
     
     if ([SELPlayer player].playerSpeed == 150.0f) {
         [GameViewController gameView].tutorialButton.enabled = true;
-        UIAlertView *av6 = [[UIAlertView alloc] initWithTitle:@"Speedy Mouse" message:@"Stay away from the road cones and road blocks. If you hit one of them you lose a life!" delegate:self.maze cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        av6.tag = 6;
-        [av6 show];
+//        UIAlertView *av6 = [[UIAlertView alloc] initWithTitle:@"Speedy Mouse" message:@"Stay away from the road cones and road blocks. If you hit one of them you lose a life!" delegate:self.maze cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//        av6.tag = 6;
+//        [av6 show];
+        UIAlertView *av7 = [[UIAlertView alloc] initWithTitle:@"Speedy Mouse" message:@"Collect all of the cheese in the tutorial to go back to the game.\n\nNow try moving around the maze by tilting the device, not steering." delegate:self.maze cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        av7.tag = 7;
+        [av7 show];
     }
     else _maze.inConfig = false;
 }

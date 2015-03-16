@@ -133,6 +133,7 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
         _newGame = NO;
         [self startGame];
         [Settings restartBackgroundMusic];
+        [Flurry logEvent:@"GameStarted" timed:true];
     }
 }
 
@@ -328,8 +329,6 @@ startLabel.fontSize = 72;
     [self removeAllActions];
 
     if (_newGame) {
-        [Flurry logEvent:@"GameStarted" timed:true];
-        
         if (!gameCenterNode.parent) [self addChild:gameCenterNode];
         if (!helpCenterNode.parent) [self addChild:helpCenterNode];
         [[SELPlayer player] resetLives];
