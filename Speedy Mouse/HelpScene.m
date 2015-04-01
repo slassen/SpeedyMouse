@@ -202,7 +202,6 @@
             [Settings settings].playerHasPlayedTutorial = true;
             [[Settings settings] saveSettings];
         }
-        [[GameViewController gameView] alertGameCenter:nil];
     }
 }
 

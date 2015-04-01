@@ -13,7 +13,6 @@
 #import "SELRootController.h"
 #import "Flurry.h"
 #import "Appirater.h"
-#import "MenuViewController.h"
 
 @interface AppDelegate ()
 
@@ -22,15 +21,7 @@
 @implementation AppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
-    // testing view controller for version 2.0
-//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//    self.window.rootViewController = [[MenuViewController alloc] init];
-//    [self.window makeKeyAndVisible];
-//    return true;
-    // end testing, delete when finished
-    
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
 //     Override point for customization after application launch.
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -48,16 +39,16 @@
 
     // Setup Appirator
     [Appirater setAppId:@"936513414"];
-    [Appirater setDaysUntilPrompt:7];
-    [Appirater setUsesUntilPrompt:5];
-    [Appirater setTimeBeforeReminding:3];
-//    [Appirater setSignificantEventsUntilPrompt:-1];
+    [Appirater setDaysUntilPrompt:5];
+    [Appirater setUsesUntilPrompt:3];
+    [Appirater setTimeBeforeReminding:1];
     [Appirater  setCustomAlertTitle:@"Enjoying yourself?"];
     [Appirater  setCustomAlertMessage:@"If you like the game using one minute of your time to rate it would help the developer out a lot!"];
-    [Appirater  setCustomAlertCancelButtonTitle:@"I only care about myself."];
+    [Appirater setCustomAlertCancelButtonTitle:nil];
+//    [Appirater  setCustomAlertCancelButtonTitle:@"I only care about myself."];
     [Appirater  setCustomAlertRateButtonTitle:@"Um, yeah! 5 stars!"];
     [Appirater  setCustomAlertRateLaterButtonTitle:@"I'll do it later... I swear!"];
-//    [Appirater setDebug:YES];
+    [Appirater setDebug:YES];
     [Appirater appLaunched:YES];
     
     return YES;

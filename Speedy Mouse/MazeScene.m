@@ -177,7 +177,7 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
         [self addChild:cheeseCountLabel];
         cheeseCountLabel.text = [NSString stringWithFormat:@"Cheese: %i", [SELPlayer player].cheese];
         [self runAction:[SKAction waitForDuration:2.0] completion:^{
-            [GameViewController showAd];
+//            [GameViewController showAd];
             startLabel.text = @"Try again?";
             [startLabel runAction:[SKAction repeatActionForever:[SKAction sequence:@[[SKAction fadeOutWithDuration:0.0], [SKAction waitForDuration:0.2], [SKAction fadeInWithDuration:0.0], [SKAction waitForDuration:1.0]]]]];
             _canRestart = YES;
@@ -521,12 +521,6 @@ startLabel.fontSize = 72;
 }
 
 -(void) newScene {
-    int showAd = arc4random() % 2; // 1 = 100%, 2 = 50%, 3 = 33%, et cetera...
-    NSLog(@"show ad? %i", showAd);
-    if (showAd == 0) {
-        [GameViewController showAd];
-    }
-    
     _newScene = [[MazeScene alloc] initWithSize:self.size];
     _newScene.scaleMode = SKSceneScaleModeAspectFill;
 }

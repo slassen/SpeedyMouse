@@ -19,8 +19,6 @@
 
 @interface GameViewController ()
 
-@property(nonatomic, strong) GADInterstitial *adOverlay;
-
 @end
 
 
@@ -34,10 +32,8 @@
     return view;
 }
 
-+(void)showAd {
-    if ([GameViewController gameView].adOverlay.isReady) {
-        [[GameViewController gameView].adOverlay presentFromRootViewController:[GameViewController gameView]];
-    }
+-(void)viewDidLayoutSubviews {
+    [self loadMazeScene];
 }
 
 -(void)loadMazeScene {
@@ -64,20 +60,21 @@
     
     skView.ignoresSiblingOrder = YES;
     static MazeScene *scene;
-    scene = [[MazeScene alloc] initWithSize:sceneSize];
-    scene.newGame = YES;
-    [Settings backgroundMusicPlayer];
-    scene.scaleMode = SKSceneScaleModeAspectFill;
-    _loaderView.hidden = true;
-    [_loaderIndicator stopAnimating];
-    _loaderIndicator.hidden = true;
-    SKTransition *transition = [SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.5];
-    [skView presentScene:scene transition:transition];
-    
+    if (!scene) {
+        scene = [[MazeScene alloc] initWithSize:sceneSize];
+        scene.newGame = YES;
+        [Settings backgroundMusicPlayer];
+        scene.scaleMode = SKSceneScaleModeAspectFill;
+        _loaderView.hidden = true;
+        [_loaderIndicator stopAnimating];
+        _loaderIndicator.hidden = true;
+        SKTransition *transition = [SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.5];
+        [skView presentScene:scene transition:transition];
+    }
 }
 
 -(void) alertGameCenter: (id)sender {
-    [self loadMazeScene];
+    
 
     if ([GKLocalPlayer localPlayer].authenticated == NO && [Settings settings].playerHasPlayedTutorial) {
         [self gameCenterAlert];
@@ -150,9 +147,7 @@
     }
     else {
         NSLog(@"no authentication controller or controller pointer is nil. launching app instead");
-        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Game Center" message:@"You are unable to earn achievements while not signed in to game center.\n\nSign in to Apple Game Center now?"  delegate:self cancelButtonTitle:@"Trophies, please!" otherButtonTitles:@"Not now.", nil];
-        av.tag = 1;
-        [av show];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"gamecenter:"]];
     }
 }
 
@@ -162,22 +157,7 @@
     }
 }
 
-- (void)interstitialDidDismissScreen:(GADInterstitial *)interstitial {
-    _adOverlay = [[GADInterstitial alloc] init];
-    self.adOverlay = [[GADInterstitial alloc] init];
-//    self.adOverlay.adUnitID = @"ca-app-pub-3940256099942544/4411468910"; // test ad id
-    self.adOverlay.adUnitID = @"ca-app-pub-7948552022255043/6854748015";
-
-    _adOverlay.delegate = self;
-    [_adOverlay loadRequest:[GADRequest request]];
-    return;
-}
-
 -(void)viewDidLoad {
-    
-    [self interstitialDidDismissScreen:nil];
-
-    
     if ([Settings settings].ay.z == -0.92f) [_topDownButton setImage:[UIImage imageNamed:@"topDownSelected"] forState:UIControlStateNormal];
     else [_normalButton setImage:[UIImage imageNamed:@"normalSelected"] forState:UIControlStateNormal];
     
@@ -203,8 +183,6 @@
     [Settings FU5];
     [Settings FU6];
     [Settings FU7];
-    
-    _gameCenterTimer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(alertGameCenter:) userInfo:nil repeats:NO]; //5 second timer
 }
 
 -(void)gameCenterViewControllerDidFinish:(GKGameCenterViewController *)gameCenterViewController {
