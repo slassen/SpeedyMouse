@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F22761CC2CFEA02600987C82 /* cheeseDeface.png in Resources */ = {isa = PBXBuildFile; fileRef = F22761CB2CFEA02600987C82 /* cheeseDeface.png */; };
+		F22761D02CFEA3BB00987C82 /* asphalt512.png in Resources */ = {isa = PBXBuildFile; fileRef = F22761CF2CFEA3BB00987C82 /* asphalt512.png */; };
 		F2418F231A7C7C9100F1B9A4 /* normalSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = F2418F211A7C7C9100F1B9A4 /* normalSelected.png */; };
 		F2418F241A7C7C9100F1B9A4 /* topDownSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = F2418F221A7C7C9100F1B9A4 /* topDownSelected.png */; };
 		F24BFC9A1A60C26700AB4A59 /* HelpScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F24BFC991A60C26700AB4A59 /* HelpScene.m */; };
@@ -29,15 +31,11 @@
 		F2CF19B91A63300200AA50B0 /* LoadingScreen2208.png in Resources */ = {isa = PBXBuildFile; fileRef = F2CF19B81A63300200AA50B0 /* LoadingScreen2208.png */; };
 		F2CF19BD1A634EF000AA50B0 /* LoadingScreen2208Loading.png in Resources */ = {isa = PBXBuildFile; fileRef = F2CF19BC1A634EF000AA50B0 /* LoadingScreen2208Loading.png */; };
 		F2D20E2F1A7B3A3B008FCC24 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2D20E2E1A7B3A3B008FCC24 /* CFNetwork.framework */; };
-		F2D20E381A7B415E008FCC24 /* dsym_upload.sh in Resources */ = {isa = PBXBuildFile; fileRef = F2D20E361A7B415E008FCC24 /* dsym_upload.sh */; };
-		F2D20E391A7B415E008FCC24 /* libCrittercism_v5_0_7.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2D20E371A7B415E008FCC24 /* libCrittercism_v5_0_7.a */; };
-		F2D20E3D1A7B4174008FCC24 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = F2D20E3B1A7B4174008FCC24 /* Appirater.m */; };
 		F2D20E491A7B5D07008FCC24 /* normal.png in Resources */ = {isa = PBXBuildFile; fileRef = F2D20E461A7B5D07008FCC24 /* normal.png */; };
 		F2D20E4A1A7B5D07008FCC24 /* topDown.png in Resources */ = {isa = PBXBuildFile; fileRef = F2D20E471A7B5D07008FCC24 /* topDown.png */; };
 		F2FD79B41A5E303A00E9C123 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD79B31A5E303A00E9C123 /* main.m */; };
 		F2FD79B71A5E303A00E9C123 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD79B61A5E303A00E9C123 /* AppDelegate.m */; };
 		F2FD79D31A5E303A00E9C123 /* Speedy_MouseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD79D21A5E303A00E9C123 /* Speedy_MouseTests.m */; };
-		F2FD79DF1A5E308600E9C123 /* libFlurry_5.4.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FD79DE1A5E308600E9C123 /* libFlurry_5.4.0.a */; };
 		F2FD79E81A5E30A600E9C123 /* crash.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F2FD79E61A5E30A600E9C123 /* crash.mp3 */; };
 		F2FD79E91A5E30A600E9C123 /* FU3.wav in Resources */ = {isa = PBXBuildFile; fileRef = F2FD79E71A5E30A600E9C123 /* FU3.wav */; };
 		F2FD79EB1A5E30AD00E9C123 /* burnout.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F2FD79EA1A5E30AD00E9C123 /* burnout.mp3 */; };
@@ -77,6 +75,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F22761CA2CFE9E7500987C82 /* Speedy Mouse.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Speedy Mouse.entitlements"; sourceTree = "<group>"; };
+		F22761CB2CFEA02600987C82 /* cheeseDeface.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cheeseDeface.png; sourceTree = "<group>"; };
+		F22761CF2CFEA3BB00987C82 /* asphalt512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = asphalt512.png; sourceTree = "<group>"; };
 		F2418F211A7C7C9100F1B9A4 /* normalSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = normalSelected.png; sourceTree = "<group>"; };
 		F2418F221A7C7C9100F1B9A4 /* topDownSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topDownSelected.png; sourceTree = "<group>"; };
 		F24BFC981A60C26700AB4A59 /* HelpScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpScene.h; sourceTree = "<group>"; };
@@ -100,14 +101,6 @@
 		F2CF19B81A63300200AA50B0 /* LoadingScreen2208.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LoadingScreen2208.png; path = Images.xcassets/LaunchImage.launchimage/LoadingScreen2208.png; sourceTree = "<group>"; };
 		F2CF19BC1A634EF000AA50B0 /* LoadingScreen2208Loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LoadingScreen2208Loading.png; sourceTree = "<group>"; };
 		F2D20E2E1A7B3A3B008FCC24 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
-		F2D20E331A7B415E008FCC24 /* CRFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRFilter.h; sourceTree = "<group>"; };
-		F2D20E341A7B415E008FCC24 /* Crittercism.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Crittercism.h; sourceTree = "<group>"; };
-		F2D20E351A7B415E008FCC24 /* CrittercismDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrittercismDelegate.h; sourceTree = "<group>"; };
-		F2D20E361A7B415E008FCC24 /* dsym_upload.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = dsym_upload.sh; sourceTree = "<group>"; };
-		F2D20E371A7B415E008FCC24 /* libCrittercism_v5_0_7.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCrittercism_v5_0_7.a; sourceTree = "<group>"; };
-		F2D20E3A1A7B4174008FCC24 /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
-		F2D20E3B1A7B4174008FCC24 /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
-		F2D20E3C1A7B4174008FCC24 /* AppiraterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppiraterDelegate.h; sourceTree = "<group>"; };
 		F2D20E461A7B5D07008FCC24 /* normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = normal.png; sourceTree = "<group>"; };
 		F2D20E471A7B5D07008FCC24 /* topDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topDown.png; sourceTree = "<group>"; };
 		F2FD79AE1A5E303A00E9C123 /* Speedy Mouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Speedy Mouse.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,8 +111,6 @@
 		F2FD79CC1A5E303A00E9C123 /* Speedy MouseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Speedy MouseTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2FD79D11A5E303A00E9C123 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2FD79D21A5E303A00E9C123 /* Speedy_MouseTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Speedy_MouseTests.m; sourceTree = "<group>"; };
-		F2FD79DD1A5E308600E9C123 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
-		F2FD79DE1A5E308600E9C123 /* libFlurry_5.4.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_5.4.0.a; sourceTree = "<group>"; };
 		F2FD79E61A5E30A600E9C123 /* crash.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = crash.mp3; sourceTree = "<group>"; };
 		F2FD79E71A5E30A600E9C123 /* FU3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = FU3.wav; sourceTree = "<group>"; };
 		F2FD79EA1A5E30AD00E9C123 /* burnout.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = burnout.mp3; sourceTree = "<group>"; };
@@ -162,10 +153,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F295B05F1ACCA13D007738B8 /* StoreKit.framework in Frameworks */,
-				F2D20E391A7B415E008FCC24 /* libCrittercism_v5_0_7.a in Frameworks */,
 				F2D20E2F1A7B3A3B008FCC24 /* CFNetwork.framework in Frameworks */,
 				F2FD7A211A5E34AD00E9C123 /* SystemConfiguration.framework in Frameworks */,
-				F2FD79DF1A5E308600E9C123 /* libFlurry_5.4.0.a in Frameworks */,
 				F2FD7A271A5E362C00E9C123 /* libz.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -200,28 +189,6 @@
 			name = "Tutorial Art";
 			sourceTree = "<group>";
 		};
-		F2D20E2D1A7B3A13008FCC24 /* Appirator */ = {
-			isa = PBXGroup;
-			children = (
-				F2D20E3A1A7B4174008FCC24 /* Appirater.h */,
-				F2D20E3B1A7B4174008FCC24 /* Appirater.m */,
-				F2D20E3C1A7B4174008FCC24 /* AppiraterDelegate.h */,
-			);
-			name = Appirator;
-			sourceTree = "<group>";
-		};
-		F2D20E321A7B413D008FCC24 /* Crittercism */ = {
-			isa = PBXGroup;
-			children = (
-				F2D20E331A7B415E008FCC24 /* CRFilter.h */,
-				F2D20E341A7B415E008FCC24 /* Crittercism.h */,
-				F2D20E351A7B415E008FCC24 /* CrittercismDelegate.h */,
-				F2D20E361A7B415E008FCC24 /* dsym_upload.sh */,
-				F2D20E371A7B415E008FCC24 /* libCrittercism_v5_0_7.a */,
-			);
-			name = Crittercism;
-			sourceTree = "<group>";
-		};
 		F2FD79A51A5E303A00E9C123 = {
 			isa = PBXGroup;
 			children = (
@@ -232,9 +199,6 @@
 				F2FD7A201A5E34AD00E9C123 /* SystemConfiguration.framework */,
 				F2FD79F61A5E30C200E9C123 /* Art */,
 				F2FD79E51A5E309F00E9C123 /* Sounds */,
-				F2FD79DC1A5E308600E9C123 /* Flurry */,
-				F2D20E2D1A7B3A13008FCC24 /* Appirator */,
-				F2D20E321A7B413D008FCC24 /* Crittercism */,
 				F2FD79B01A5E303A00E9C123 /* Speedy Mouse */,
 				F2FD79CF1A5E303A00E9C123 /* Speedy MouseTests */,
 				F2FD79AF1A5E303A00E9C123 /* Products */,
@@ -253,6 +217,7 @@
 		F2FD79B01A5E303A00E9C123 /* Speedy Mouse */ = {
 			isa = PBXGroup;
 			children = (
+				F22761CA2CFE9E7500987C82 /* Speedy Mouse.entitlements */,
 				F2FD7A0D1A5E32F800E9C123 /* SELPlayer.h */,
 				F2FD7A0E1A5E32F800E9C123 /* SELPlayer.m */,
 				F2FD7A0F1A5E32F800E9C123 /* SELRandomMaze.h */,
@@ -304,15 +269,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		F2FD79DC1A5E308600E9C123 /* Flurry */ = {
-			isa = PBXGroup;
-			children = (
-				F2FD79DD1A5E308600E9C123 /* Flurry.h */,
-				F2FD79DE1A5E308600E9C123 /* libFlurry_5.4.0.a */,
-			);
-			path = Flurry;
-			sourceTree = "<group>";
-		};
 		F2FD79E51A5E309F00E9C123 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
@@ -335,8 +291,10 @@
 				F2C7AB9A1A81C5710031EDAE /* cheese.png */,
 				F2D20E461A7B5D07008FCC24 /* normal.png */,
 				F2D20E471A7B5D07008FCC24 /* topDown.png */,
+				F22761CB2CFEA02600987C82 /* cheeseDeface.png */,
 				F2418F211A7C7C9100F1B9A4 /* normalSelected.png */,
 				F2418F221A7C7C9100F1B9A4 /* topDownSelected.png */,
+				F22761CF2CFEA3BB00987C82 /* asphalt512.png */,
 				F2CF19B81A63300200AA50B0 /* LoadingScreen2208.png */,
 				F2FD79FC1A5E30EC00E9C123 /* SuperMario256.ttf */,
 				F2CF19BC1A634EF000AA50B0 /* LoadingScreen2208Loading.png */,
@@ -433,7 +391,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2D20E381A7B415E008FCC24 /* dsym_upload.sh in Resources */,
 				F2FD7A0B1A5E326300E9C123 /* MisterVampire.TTF in Resources */,
 				F2FD7A0C1A5E326300E9C123 /* SuperMario256.ttf in Resources */,
 				F271A1FC1AB6BA7400300337 /* tilt6.png in Resources */,
@@ -453,6 +410,7 @@
 				F271A1F61AB6BA7400300337 /* tilt5.png in Resources */,
 				F2CF19BD1A634EF000AA50B0 /* LoadingScreen2208Loading.png in Resources */,
 				F271A1FA1AB6BA7400300337 /* tilt8.png in Resources */,
+				F22761CC2CFEA02600987C82 /* cheeseDeface.png in Resources */,
 				F271A1F41AB6BA7400300337 /* tilt3.png in Resources */,
 				F271A1F31AB6BA7400300337 /* tilt2.png in Resources */,
 				F2D20E4A1A7B5D07008FCC24 /* topDown.png in Resources */,
@@ -471,6 +429,7 @@
 				F271A1F81AB6BA7400300337 /* tilt10.png in Resources */,
 				F271A1F91AB6BA7400300337 /* tilt9.png in Resources */,
 				F2CF19B71A632FB400AA50B0 /* LaunchScreen.xib in Resources */,
+				F22761D02CFEA3BB00987C82 /* asphalt512.png in Resources */,
 				F2FD79F51A5E30BF00E9C123 /* FU7.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -490,7 +449,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2FD79B71A5E303A00E9C123 /* AppDelegate.m in Sources */,
-				F2D20E3D1A7B4174008FCC24 /* Appirater.m in Sources */,
 				F2FD7A041A5E318500E9C123 /* MazeScene.m in Sources */,
 				F2FD7A0A1A5E319300E9C123 /* Settings.m in Sources */,
 				F2FD7A151A5E32F800E9C123 /* SELRootController.m in Sources */,
@@ -605,6 +563,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = "Speedy Mouse/Speedy Mouse.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = SF3DR2DBJQ;
@@ -630,6 +589,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = "Speedy Mouse/Speedy Mouse.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = SF3DR2DBJQ;

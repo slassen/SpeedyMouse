@@ -10,7 +10,6 @@
 #import "MazeScene.h"
 #import "SELPlayer.h"
 #import "GCHelper.h"
-#import "Flurry.h"
 #import "HelpScene.h"
 
 

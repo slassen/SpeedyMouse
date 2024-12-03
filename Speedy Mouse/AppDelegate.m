@@ -11,8 +11,6 @@
 #import "Settings.h"
 #import "MazeScene.h"
 #import "SELRootController.h"
-#import "Flurry.h"
-#import "Appirater.h"
 
 @interface AppDelegate ()
 
@@ -32,25 +30,6 @@
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
     [[GCHelper sharedInstance] authenticateLocalUser];
     
-    // Setup Flurry
-    [Flurry startSession:@"F99SH9ZSFGQQZX3XRWY3"];
-    [Flurry setSessionReportsOnCloseEnabled:YES];
-    [Flurry setSessionReportsOnPauseEnabled:YES];
-
-    // Setup Appirator
-    [Appirater setAppId:@"936513414"];
-    [Appirater setDaysUntilPrompt:5];
-    [Appirater setUsesUntilPrompt:3];
-    [Appirater setTimeBeforeReminding:1];
-    [Appirater  setCustomAlertTitle:@"Enjoying yourself?"];
-    [Appirater  setCustomAlertMessage:@"If you like the game using one minute of your time to rate it would help the developer out a lot!"];
-    [Appirater setCustomAlertCancelButtonTitle:nil];
-//    [Appirater  setCustomAlertCancelButtonTitle:@"I only care about myself."];
-    [Appirater  setCustomAlertRateButtonTitle:@"Um, yeah! 5 stars!"];
-    [Appirater  setCustomAlertRateLaterButtonTitle:@"I'll do it later... I swear!"];
-    [Appirater setDebug:YES];
-    [Appirater appLaunched:YES];
-    
     return YES;
 }
 
@@ -66,7 +45,6 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-    [Appirater appEnteredForeground:YES];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {

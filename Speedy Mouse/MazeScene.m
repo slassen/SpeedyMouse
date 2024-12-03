@@ -13,7 +13,6 @@
 #import "MazeScene.h"
 #import "SELRootController.h"
 #import "HelpScene.h"
-#import "Flurry.h"
 
 #pragma mark Maze Scene
 
@@ -119,7 +118,6 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
         newScene.scaleMode = SKSceneScaleModeAspectFill;
         SKTransition *transition = [SKTransition pushWithDirection:SKTransitionDirectionUp duration:0.5];
         [self.view presentScene:newScene transition:transition];
-        [Flurry logEvent:@"GameStarted" timed:true];
     }
     else if (_canRestart) {
         [startLabel removeAllActions];
@@ -133,7 +131,6 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
         _newGame = NO;
         [self startGame];
         [Settings restartBackgroundMusic];
-        [Flurry logEvent:@"GameStarted" timed:true];
     }
 }
 
@@ -146,8 +143,6 @@ static const float jumpInterval = 0.1f; // minimum interval cones can jump
 }
 
 -(void)gameOver {
-    [Flurry endTimedEvent:@"GameStarted" withParameters:nil];
-
     [[SELPlayer player] resetLives];
 //    _gameOver = YES;
     _crashed = true;

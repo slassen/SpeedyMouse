@@ -34,7 +34,7 @@
 }
 
 -(void) addGateToPosition:(CGPoint)position withRotation:(CGFloat)rotation {
-    SKSpriteNode *gate = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"Roadblock"] size:CGSizeMake(_tileSize / 2, _tileSize / 4)];
+    SKSpriteNode *gate = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"tirePileEast"] size:CGSizeMake(_tileSize / 2, _tileSize / 4)];
     gate.name = @"wallTile";
     gate.position = position;
     gate.zPosition = LayerLevelBackground;

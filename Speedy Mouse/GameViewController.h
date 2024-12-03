@@ -10,12 +10,11 @@
 #import <SpriteKit/SpriteKit.h>
 #import <iAd/iAd.h>
 #import "Settings.h"
-#import "Crittercism.h"
 @import GameKit;
 
 @class MazeScene;
 
-@interface GameViewController : UIViewController <GKGameCenterControllerDelegate, UIAlertViewDelegate, CrittercismDelegate>
+@interface GameViewController : UIViewController <GKGameCenterControllerDelegate, UIAlertViewDelegate>
 
 @property (nonatomic) MazeScene *maze;
 @property (nonatomic) NSTimer *gameCenterTimer;
